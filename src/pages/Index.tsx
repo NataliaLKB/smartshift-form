@@ -29,7 +29,7 @@ const Index = () => {
 
       <AddressFooter
         onBack={() => navigate('/')}
-        onContinue={() => console.log('Continue clicked')}
+        onContinue={() => navigate('/devices')}
       />
     </div>
   );
