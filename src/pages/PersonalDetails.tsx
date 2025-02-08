@@ -28,7 +28,7 @@ const PersonalDetails = () => {
       </main>
 
       <AddressFooter
-        onBack={() => console.log('Back clicked')}
+        hideBack={true}
         onContinue={() => navigate('/address')}
       />
     </div>
