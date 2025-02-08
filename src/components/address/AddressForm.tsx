@@ -7,8 +7,9 @@ import { AddressSelection } from './AddressSelection';
 import { useIsMobile } from "@/hooks/use-mobile";
 
 export const AddressForm = () => {
-  const [postcode, setPostcode] = useState('W11 3SD');
-  const [showAddresses, setShowAddresses] = useState(true);
+  const [postcode, setPostcode] = useState('');
+  const [showAddresses, setShowAddresses] = useState(false);
+  const [showDropdown, setShowDropdown] = useState(false);
   const isMobile = useIsMobile();
 
   const addresses = [
@@ -19,6 +20,11 @@ export const AddressForm = () => {
 
   const handleFindAddress = () => {
     setShowAddresses(true);
+    setShowDropdown(false);
+  };
+
+  const handleSelectAddressClick = () => {
+    setShowDropdown(!showDropdown);
   };
 
   return (
@@ -37,6 +43,7 @@ export const AddressForm = () => {
                 id="postcode"
                 value={postcode}
                 onChange={(e) => setPostcode(e.target.value)}
+                placeholder="Enter your postcode"
                 className="w-full"
               />
             </div>
@@ -48,13 +55,22 @@ export const AddressForm = () => {
 
         {showAddresses && (
           <>
-            <Button variant="outline" className="w-full justify-start">
+            <Button 
+              variant="outline" 
+              className="w-full justify-start"
+              onClick={handleSelectAddressClick}
+            >
               Select an address
             </Button>
-            <AddressSelection
-              addresses={addresses}
-              onSelect={(address) => console.log('Selected address:', address)}
-            />
+            {showDropdown && (
+              <AddressSelection
+                addresses={addresses}
+                onSelect={(address) => {
+                  console.log('Selected address:', address);
+                  setShowDropdown(false);
+                }}
+              />
+            )}
           </>
         )}
       </div>
