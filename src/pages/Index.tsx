@@ -3,6 +3,7 @@ import React from 'react';
 import { AddressHeader } from '@/components/address/AddressHeader';
 import { AddressForm } from '@/components/address/AddressForm';
 import { AddressFooter } from '@/components/address/AddressFooter';
+import { Progress } from '@/components/ui/progress';
 
 const Index = () => {
   return (
@@ -12,11 +13,12 @@ const Index = () => {
       <main className="flex-1">
         <div className="container max-w-4xl mx-auto px-4 py-8">
           <div className="mb-8">
-            <p className="text-sm text-gray-500 mb-1">Step 2 of 5</p>
+            <p className="text-sm text-gray-500 mb-1">Step 2 of 6</p>
             <h1 className="text-2xl font-bold">Address details</h1>
           </div>
 
-          <div className="border-t border-gray-200 pt-6">
+          <div className="space-y-6">
+            <Progress value={33.33} className="h-0.5" />
             <AddressForm />
           </div>
         </div>
