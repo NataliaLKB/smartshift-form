@@ -1,12 +1,15 @@
+
 import React, { useState } from 'react';
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { AddressSelection } from './AddressSelection';
+import { useIsMobile } from "@/hooks/use-mobile";
 
 export const AddressForm = () => {
   const [postcode, setPostcode] = useState('W11 3SD');
   const [showAddresses, setShowAddresses] = useState(true);
+  const isMobile = useIsMobile();
 
   const addresses = [
     { street: '123 Main Street', unit: 'Apartment 4B' },
@@ -28,7 +31,7 @@ export const AddressForm = () => {
       <div className="space-y-4">
         <div className="space-y-2">
           <Label htmlFor="postcode">Postcode</Label>
-          <div className="flex gap-2">
+          <div className={`flex flex-col md:flex-row gap-2 ${isMobile ? 'space-y-2 md:space-y-0' : ''}`}>
             <div className="flex-1">
               <Input
                 id="postcode"
@@ -37,8 +40,8 @@ export const AddressForm = () => {
                 className="w-full"
               />
             </div>
-            <Button onClick={handleFindAddress}>
-              Find Address
+            <Button onClick={handleFindAddress} className={`${isMobile ? 'w-full' : ''}`}>
+              Find address
             </Button>
           </div>
         </div>
