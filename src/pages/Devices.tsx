@@ -28,10 +28,10 @@ const Devices = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-white">
+    <div className="min-h-screen flex flex-col">
       <AddressHeader />
       
-      <main className="flex-1">
+      <main className="flex-1 bg-[#FAF9FA]">
         <div className="container max-w-4xl mx-auto px-4 py-8">
           <div className="mb-8">
             <p className="text-sm text-gray-500 mb-1">Step 3 of 6</p>
@@ -47,7 +47,7 @@ const Devices = () => {
                   key={device.id}
                   variant="outline"
                   className={cn(
-                    "w-full justify-start h-auto py-6 px-4",
+                    "w-full justify-start h-auto py-6 px-4 bg-white",
                     selectedDevices.includes(device.id) && "border-primary bg-primary/5"
                   )}
                   onClick={() => toggleDevice(device.id)}
