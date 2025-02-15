@@ -6,9 +6,10 @@ interface AddressFooterProps {
   onBack?: () => void;
   onContinue: () => void;
   hideBack?: boolean;
+  isEnabled?: boolean;
 }
 
-export const AddressFooter = ({ onBack, onContinue, hideBack }: AddressFooterProps) => {
+export const AddressFooter = ({ onBack, onContinue, hideBack, isEnabled }: AddressFooterProps) => {
   return (
     <footer className="border-t border-gray-200 py-4">
       <div className="container max-w-4xl mx-auto px-4">
@@ -30,7 +31,12 @@ export const AddressFooter = ({ onBack, onContinue, hideBack }: AddressFooterPro
           <div className={hideBack ? 'ml-auto' : ''}>
             <Button
               onClick={onContinue}
-              className="flex items-center gap-2 bg-[#00CED1] hover:bg-[#00CED1]/90 text-black"
+              disabled={!isEnabled}
+              className={`flex items-center gap-2 ${
+                isEnabled 
+                  ? 'bg-[#00CED1] hover:bg-[#00CED1]/90 text-black' 
+                  : 'bg-white border border-gray-300 text-gray-500 hover:bg-gray-50'
+              }`}
             >
               Continue
               <svg 

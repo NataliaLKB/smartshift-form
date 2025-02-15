@@ -8,6 +8,13 @@ import { useNavigate } from 'react-router-dom';
 
 const Index = () => {
   const navigate = useNavigate();
+  const [isFormValid, setIsFormValid] = React.useState(false);
+
+  const handleContinue = () => {
+    if (isFormValid) {
+      navigate('/devices');
+    }
+  };
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -29,7 +36,9 @@ const Index = () => {
 
       <AddressFooter
         onBack={() => navigate('/')}
-        onContinue={() => navigate('/devices')}
+        onContinue={handleContinue}
+        hideBack={false}
+        isEnabled={isFormValid}
       />
     </div>
   );

@@ -10,6 +10,7 @@ export const AddressForm = () => {
   const [postcode, setPostcode] = useState('');
   const [showAddresses, setShowAddresses] = useState(false);
   const [showDropdown, setShowDropdown] = useState(false);
+  const [selectedAddress, setSelectedAddress] = useState<{ street: string; unit: string } | null>(null);
   const isMobile = useIsMobile();
 
   const addresses = [
@@ -26,6 +27,14 @@ export const AddressForm = () => {
   const handleSelectAddressClick = () => {
     setShowDropdown(!showDropdown);
   };
+
+  const handleAddressSelect = (address: { street: string; unit: string }) => {
+    setSelectedAddress(address);
+    setShowDropdown(false);
+  };
+
+  // Export the isFormValid state to be used by the parent component
+  const isFormValid = postcode !== '' && showAddresses && selectedAddress !== null;
 
   return (
     <div className="space-y-6">
@@ -60,15 +69,12 @@ export const AddressForm = () => {
               className="w-full justify-start"
               onClick={handleSelectAddressClick}
             >
-              Select an address
+              {selectedAddress ? `${selectedAddress.street}, ${selectedAddress.unit}` : 'Select an address'}
             </Button>
             {showDropdown && (
               <AddressSelection
                 addresses={addresses}
-                onSelect={(address) => {
-                  console.log('Selected address:', address);
-                  setShowDropdown(false);
-                }}
+                onSelect={handleAddressSelect}
               />
             )}
           </>
