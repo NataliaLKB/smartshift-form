@@ -30,13 +30,13 @@ export const AddressFooter = ({ onBack, onContinue, hideBack }: AddressFooterPro
           <div className={hideBack ? 'ml-auto' : ''}>
             <Button
               onClick={onContinue}
-              className="flex items-center gap-2"
+              className="flex items-center gap-2 bg-[#00CED1] hover:bg-[#00CED1]/90 text-black"
             >
               Continue
               <img
                 src="https://cdn.builder.io/api/v1/image/assets/724db77970f24a8fa58bdac1fccbfc40/0c1f450eff5abd6106ce2a28c87034b80b822a50fbdabd46066c800e6ffd564f"
                 alt="Continue"
-                className="w-4 h-4"
+                className="w-4 h-4 [border:none]"
               />
             </Button>
           </div>
