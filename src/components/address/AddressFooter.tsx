@@ -10,7 +10,7 @@ interface AddressFooterProps {
 
 export const AddressFooter = ({ onBack, onContinue, hideBack }: AddressFooterProps) => {
   return (
-    <footer className="border-t border-gray-200 py-4 mt-8">
+    <footer className="border-t border-gray-200 py-4">
       <div className="container max-w-4xl mx-auto px-4">
         <div className="flex justify-between items-center">
           {!hideBack && (
