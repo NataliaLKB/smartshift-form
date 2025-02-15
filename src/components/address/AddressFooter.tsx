@@ -33,11 +33,20 @@ export const AddressFooter = ({ onBack, onContinue, hideBack }: AddressFooterPro
               className="flex items-center gap-2 bg-[#00CED1] hover:bg-[#00CED1]/90 text-black"
             >
               Continue
-              <img
-                src="https://cdn.builder.io/api/v1/image/assets/724db77970f24a8fa58bdac1fccbfc40/0c1f450eff5abd6106ce2a28c87034b80b822a50fbdabd46066c800e6ffd564f"
-                alt="Continue"
-                className="w-4 h-4 [border:none]"
-              />
+              <svg 
+                xmlns="http://www.w3.org/2000/svg" 
+                viewBox="0 0 24 24"
+                className="w-4 h-4"
+              >
+                <path 
+                  d="M13.5 4.5L21 12L13.5 19.5M3 12H20.5" 
+                  stroke="currentColor" 
+                  stroke-width="2" 
+                  stroke-linecap="round" 
+                  stroke-linejoin="round"
+                  fill="none"
+                />
+              </svg>
             </Button>
           </div>
         </div>
