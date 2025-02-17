@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { AddressHeader } from '@/components/address/AddressHeader';
 import { AddressFooter } from '@/components/address/AddressFooter';
 import { Progress } from '@/components/ui/progress';
@@ -8,6 +8,17 @@ import { useNavigate } from 'react-router-dom';
 
 const PersonalDetails = () => {
   const navigate = useNavigate();
+  const [isFormValid, setIsFormValid] = useState(false);
+
+  const handleFormValidityChange = (isValid: boolean) => {
+    setIsFormValid(isValid);
+  };
+
+  const handleContinue = () => {
+    if (isFormValid) {
+      navigate('/address');
+    }
+  };
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -22,14 +33,15 @@ const PersonalDetails = () => {
 
           <div className="space-y-6">
             <Progress value={16.67} className="h-0.5" />
-            <PersonalDetailsForm />
+            <PersonalDetailsForm onValidityChange={handleFormValidityChange} />
           </div>
         </div>
       </main>
 
       <AddressFooter
         hideBack={true}
-        onContinue={() => navigate('/address')}
+        onContinue={handleContinue}
+        isEnabled={isFormValid}
       />
     </div>
   );
