@@ -13,6 +13,7 @@ const devices = [
   { id: 'laptop', label: 'Laptop' },
   { id: 'desktop', label: 'Desktop' },
   { id: 'smartwatch', label: 'Smartwatch' },
+  { id: 'none', label: 'None of these' },
 ];
 
 const Devices = () => {
@@ -20,11 +21,27 @@ const Devices = () => {
   const [selectedDevices, setSelectedDevices] = useState<string[]>([]);
 
   const toggleDevice = (deviceId: string) => {
-    setSelectedDevices(prev => 
-      prev.includes(deviceId) 
-        ? prev.filter(id => id !== deviceId)
-        : [...prev, deviceId]
-    );
+    if (deviceId === 'none') {
+      // If "None of these" is selected, clear other selections
+      setSelectedDevices(['none']);
+    } else {
+      setSelectedDevices(prev => {
+        // If selecting a device, remove "None of these" if it was selected
+        const newSelection = prev.filter(id => id !== 'none');
+        
+        // Toggle the selected device
+        if (prev.includes(deviceId)) {
+          return newSelection.filter(id => id !== deviceId);
+        } else {
+          return [...newSelection, deviceId];
+        }
+      });
+    }
+  };
+
+  const handleContinue = () => {
+    console.log('Selected devices:', selectedDevices);
+    // TODO: Navigate to next page
   };
 
   return (
@@ -82,7 +99,8 @@ const Devices = () => {
 
       <AddressFooter
         onBack={() => navigate('/address')}
-        onContinue={() => console.log('Selected devices:', selectedDevices)}
+        onContinue={handleContinue}
+        isEnabled={selectedDevices.length > 0}
       />
     </div>
   );
