@@ -8,11 +8,13 @@ import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 
 const devices = [
-  { id: 'smartphone', label: 'Smartphone' },
-  { id: 'tablet', label: 'Tablet' },
-  { id: 'laptop', label: 'Laptop' },
-  { id: 'desktop', label: 'Desktop' },
-  { id: 'smartwatch', label: 'Smartwatch' },
+  { id: 'solar-panels', label: 'Solar panels' },
+  { id: 'battery-storage', label: 'Battery storage' },
+  { id: 'electric-vehicle', label: 'Electric vehicle' },
+  { id: 'ev-charger', label: 'Electric vehicle charger' },
+  { id: 'smart-thermostat', label: 'Smart thermostat' },
+  { id: 'space-heating', label: 'Other electronic space heating (e.g. storage radiators)' },
+  { id: 'water-heating', label: 'Other electronic water heating (e.g. hot water tank)' },
   { id: 'none', label: 'None of these' },
 ];
 
@@ -58,21 +60,21 @@ const Devices = () => {
           <div className="space-y-6">
             <Progress value={50} className="h-0.5" />
             
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 gap-4">
               {devices.map((device) => (
                 <Button
                   key={device.id}
                   variant="outline"
                   className={cn(
-                    "w-full justify-start h-auto py-6 px-4 bg-white",
+                    "w-full justify-start h-auto py-6 px-4 bg-white text-left",
                     selectedDevices.includes(device.id) && "border-primary bg-primary/5"
                   )}
                   onClick={() => toggleDevice(device.id)}
                 >
                   <div className="flex items-center justify-between w-full">
-                    <span>{device.label}</span>
+                    <span className="text-sm">{device.label}</span>
                     {selectedDevices.includes(device.id) && (
-                      <div className="w-6 h-6 rounded-full bg-primary flex items-center justify-center">
+                      <div className="w-6 h-6 rounded-full bg-primary flex items-center justify-center flex-shrink-0 ml-2">
                         <svg
                           width="15"
                           height="15"
