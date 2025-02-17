@@ -1,12 +1,16 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { AddressSelection } from './AddressSelection';
 import { useIsMobile } from "@/hooks/use-mobile";
 
-export const AddressForm = () => {
+interface AddressFormProps {
+  onValidityChange?: (isValid: boolean) => void;
+}
+
+export const AddressForm = ({ onValidityChange }: AddressFormProps) => {
   const [postcode, setPostcode] = useState('');
   const [showAddresses, setShowAddresses] = useState(false);
   const [showDropdown, setShowDropdown] = useState(false);
@@ -33,8 +37,10 @@ export const AddressForm = () => {
     setShowDropdown(false);
   };
 
-  // Export the isFormValid state to be used by the parent component
-  const isFormValid = postcode !== '' && showAddresses && selectedAddress !== null;
+  useEffect(() => {
+    const isValid = postcode !== '' && showAddresses && selectedAddress !== null;
+    onValidityChange?.(isValid);
+  }, [postcode, showAddresses, selectedAddress, onValidityChange]);
 
   return (
     <div className="space-y-6">

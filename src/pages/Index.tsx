@@ -10,6 +10,10 @@ const Index = () => {
   const navigate = useNavigate();
   const [isFormValid, setIsFormValid] = React.useState(false);
 
+  const handleFormValidityChange = (isValid: boolean) => {
+    setIsFormValid(isValid);
+  };
+
   const handleContinue = () => {
     if (isFormValid) {
       navigate('/devices');
@@ -29,7 +33,7 @@ const Index = () => {
 
           <div className="space-y-6">
             <Progress value={33.33} className="h-0.5" />
-            <AddressForm />
+            <AddressForm onValidityChange={handleFormValidityChange} />
           </div>
         </div>
       </main>
