@@ -60,19 +60,19 @@ const Devices = () => {
           <div className="space-y-6">
             <Progress value={50} className="h-0.5" />
             
-            <div className="grid grid-cols-1 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {devices.map((device) => (
                 <Button
                   key={device.id}
                   variant="outline"
                   className={cn(
-                    "w-full justify-start h-auto py-6 px-4 bg-white text-left",
+                    "w-full justify-start h-auto py-6 px-4 bg-white text-center",
                     selectedDevices.includes(device.id) && "border-primary bg-primary/5"
                   )}
                   onClick={() => toggleDevice(device.id)}
                 >
                   <div className="flex items-center justify-between w-full">
-                    <span className="text-sm">{device.label}</span>
+                    <span className="text-sm mx-auto">{device.label}</span>
                     {selectedDevices.includes(device.id) && (
                       <div className="w-6 h-6 rounded-full bg-primary flex items-center justify-center flex-shrink-0 ml-2">
                         <svg
