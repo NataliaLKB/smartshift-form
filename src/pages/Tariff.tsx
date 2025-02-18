@@ -20,10 +20,10 @@ const Tariff = () => {
           <div className="space-y-6">
             <div>
               <div className="flex justify-between items-center mb-1">
-                <p className="text-sm text-gray-500">Step 5 of 6</p>
-                <p className="text-sm text-gray-500">Tariff details</p>
+                <p className="text-sm text-gray-700">Step 5 of 6</p>
+                <p className="text-xs text-gray-500">Tariff details</p>
               </div>
-              <Progress value={83} className="h-0.5 mb-6" />
+              <Progress value={83} className="h-10 mb-6" />
               <h1 className="text-2xl font-bold">Your energy tariff details</h1>
               <p className="text-gray-500 mt-2">Please provide your current tariff name</p>
             </div>

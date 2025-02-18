@@ -29,10 +29,10 @@ const PersonalDetails = () => {
           <div className="space-y-6">
             <div>
               <div className="flex justify-between items-center mb-1">
-                <p className="text-sm text-gray-500">Step 1 of 6</p>
-                <p className="text-sm text-gray-500">Basic information</p>
+                <p className="text-sm text-gray-700">Step 1 of 6</p>
+                <p className="text-xs text-gray-500">Basic information</p>
               </div>
-              <Progress value={16.67} className="h-0.5 mb-6" />
+              <Progress value={16.67} className="h-10 mb-6" />
               <h1 className="text-2xl font-bold">Tell us about yourself</h1>
             </div>
 

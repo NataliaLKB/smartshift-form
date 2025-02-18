@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { AddressHeader } from '@/components/address/AddressHeader';
 import { AddressFooter } from '@/components/address/AddressFooter';
@@ -31,15 +30,17 @@ const Feedback = () => {
       
       <main className="flex-1 bg-[#FAF9FA]">
         <div className="container max-w-4xl mx-auto px-4 py-8">
-          <div className="mb-8">
-            <p className="text-sm text-gray-500 mb-1">Step 6 of 6</p>
-            <h1 className="text-2xl font-bold">Almost there!</h1>
-            <p className="text-gray-500 mt-2">Help us understand how you found us</p>
-          </div>
-
           <div className="space-y-6">
-            <Progress value={100} className="h-0.5" />
-            
+            <div>
+              <div className="flex justify-between items-center mb-1">
+                <p className="text-sm text-gray-700">Step 6 of 6</p>
+                <p className="text-xs text-gray-500">Your feedback</p>
+              </div>
+              <Progress value={100} className="h-10 mb-6" />
+              <h1 className="text-2xl font-bold">Almost there!</h1>
+              <p className="text-gray-500 mt-2">Help us understand how you found us</p>
+            </div>
+
             <div className="space-y-6">
               <div className="space-y-4">
                 <h2 className="text-lg font-semibold text-gray-900">How did you hear about us?</h2>

@@ -47,10 +47,10 @@ const Devices = () => {
           <div className="space-y-6">
             <div>
               <div className="flex justify-between items-center mb-1">
-                <p className="text-sm text-gray-500">Step 3 of 6</p>
-                <p className="text-sm text-gray-500">Your devices</p>
+                <p className="text-sm text-gray-700">Step 3 of 6</p>
+                <p className="text-xs text-gray-500">Your devices</p>
               </div>
-              <Progress value={50} className="h-0.5 mb-6" />
+              <Progress value={50} className="h-10 mb-6" />
               <h1 className="text-2xl font-bold">What devices do you own?</h1>
             </div>
             
