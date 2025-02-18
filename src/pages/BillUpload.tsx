@@ -155,7 +155,7 @@ const BillUpload = () => {
 
       <AddressFooter
         onBack={() => navigate('/devices')}
-        onContinue={() => console.log('Continuing with:', { date, file })}
+        onContinue={() => navigate('/tariff')}
         isEnabled={isValid}
       />
     </div>
