@@ -1,31 +1,26 @@
 
-import { Toaster } from "@/components/ui/toaster";
-import { Toaster as Sonner } from "@/components/ui/sonner";
-import { TooltipProvider } from "@/components/ui/tooltip";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import PersonalDetails from "./pages/PersonalDetails";
-import Index from "./pages/Index";
-import Devices from "./pages/Devices";
-import NotFound from "./pages/NotFound";
+import { Routes, Route } from 'react-router-dom';
+import Index from './pages/Index';
+import Address from './pages/Address';
+import Devices from './pages/Devices';
+import MoveInDate from './pages/MoveInDate';
+import { Toaster } from './components/ui/sonner';
+import NotFound from './pages/NotFound';
+import './App.css';
 
-const queryClient = new QueryClient();
-
-const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
+function App() {
+  return (
+    <>
+      <Routes>
+        <Route path="/" element={<Index />} />
+        <Route path="/address" element={<Address />} />
+        <Route path="/devices" element={<Devices />} />
+        <Route path="/move-in-date" element={<MoveInDate />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
       <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<PersonalDetails />} />
-          <Route path="/address" element={<Index />} />
-          <Route path="/devices" element={<Devices />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
-    </TooltipProvider>
-  </QueryClientProvider>
-);
+    </>
+  );
+}
 
 export default App;
