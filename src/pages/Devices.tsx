@@ -39,7 +39,7 @@ const Devices = () => {
   };
 
   const handleContinue = () => {
-    console.log('Selected devices:', selectedDevices);
+    navigate('/bill-upload');
   };
 
   return (
