@@ -9,6 +9,7 @@ import Index from "./pages/Index";
 import Devices from "./pages/Devices";
 import BillUpload from "./pages/BillUpload";
 import Tariff from "./pages/Tariff";
+import Feedback from "./pages/Feedback";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -25,6 +26,7 @@ const App = () => (
           <Route path="/devices" element={<Devices />} />
           <Route path="/bill-upload" element={<BillUpload />} />
           <Route path="/tariff" element={<Tariff />} />
+          <Route path="/feedback" element={<Feedback />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

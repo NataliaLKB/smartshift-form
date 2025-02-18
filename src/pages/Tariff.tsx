@@ -51,7 +51,7 @@ const Tariff = () => {
 
       <AddressFooter
         onBack={() => navigate('/bill-upload')}
-        onContinue={() => console.log('Continuing with tariff:', tariff)}
+        onContinue={() => navigate('/feedback')}
         isEnabled={tariff.trim().length > 0}
       />
     </div>
