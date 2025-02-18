@@ -6,7 +6,6 @@ import { Progress } from '@/components/ui/progress';
 import { useNavigate } from 'react-router-dom';
 import { format, parse } from "date-fns";
 import { Calendar } from "@/components/ui/calendar";
-import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
@@ -84,39 +83,31 @@ const BillUpload = () => {
             <div className="space-y-4">
               <div className="space-y-2">
                 <Label>Move-in date</Label>
-                <div className="flex space-x-2">
-                  <Input
-                    type="text"
-                    value={inputValue}
-                    onChange={(e) => handleDateInput(e.target.value)}
-                    placeholder="DD/MM/YYYY"
-                    className="flex-1"
-                  />
-                  <Popover>
-                    <PopoverTrigger asChild>
-                      <Button
-                        variant="outline"
-                        className={cn(
-                          "px-3",
-                          !date && "text-muted-foreground"
-                        )}
-                      >
-                        <CalendarIcon className="h-4 w-4" />
-                      </Button>
-                    </PopoverTrigger>
-                    <PopoverContent className="w-auto p-0" align="end">
-                      <Calendar
-                        mode="single"
-                        selected={date}
-                        onSelect={handleCalendarSelect}
-                        initialFocus
-                        captionLayout="dropdown-buttons"
-                        fromYear={1990}
-                        toYear={2024}
+                <Popover>
+                  <PopoverTrigger asChild>
+                    <div className="relative">
+                      <Input
+                        type="text"
+                        value={inputValue}
+                        onChange={(e) => handleDateInput(e.target.value)}
+                        placeholder="DD/MM/YYYY"
+                        className="pr-10"
                       />
-                    </PopoverContent>
-                  </Popover>
-                </div>
+                      <CalendarIcon className="absolute right-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-500" />
+                    </div>
+                  </PopoverTrigger>
+                  <PopoverContent className="w-auto p-0" align="start">
+                    <Calendar
+                      mode="single"
+                      selected={date}
+                      onSelect={handleCalendarSelect}
+                      initialFocus
+                      captionLayout="dropdown-buttons"
+                      fromYear={1990}
+                      toYear={2024}
+                    />
+                  </PopoverContent>
+                </Popover>
               </div>
 
               <div className="space-y-2">
