@@ -10,6 +10,7 @@ import Devices from "./pages/Devices";
 import BillUpload from "./pages/BillUpload";
 import Tariff from "./pages/Tariff";
 import Feedback from "./pages/Feedback";
+import ThankYou from "./pages/ThankYou";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -27,6 +28,7 @@ const App = () => (
           <Route path="/bill-upload" element={<BillUpload />} />
           <Route path="/tariff" element={<Tariff />} />
           <Route path="/feedback" element={<Feedback />} />
+          <Route path="/thank-you" element={<ThankYou />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
