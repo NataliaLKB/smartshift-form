@@ -6,6 +6,7 @@ import { Label } from "@/components/ui/label";
 import { AddressSelection } from './AddressSelection';
 import { useIsMobile } from "@/hooks/use-mobile";
 import { cn } from "@/lib/utils";
+import { useToast } from "@/hooks/use-toast";
 
 interface AddressFormProps {
   onValidityChange?: (isValid: boolean) => void;
@@ -17,6 +18,7 @@ export const AddressForm = ({ onValidityChange }: AddressFormProps) => {
   const [showDropdown, setShowDropdown] = useState(false);
   const [selectedAddress, setSelectedAddress] = useState<{ street: string; unit: string } | null>(null);
   const isMobile = useIsMobile();
+  const { toast } = useToast();
 
   const addresses = [
     { street: '123 Main Street', unit: 'Apartment 4B' },
@@ -24,7 +26,31 @@ export const AddressForm = ({ onValidityChange }: AddressFormProps) => {
     { street: '123 Main Street', unit: 'Apartment 4D' },
   ];
 
+  const isValidPostcode = (postcode: string) => {
+    // Basic UK postcode validation
+    const postcodeRegex = /^[A-Z]{1,2}[0-9][A-Z0-9]? ?[0-9][A-Z]{2}$/i;
+    return postcodeRegex.test(postcode.trim());
+  };
+
   const handleFindAddress = () => {
+    if (!postcode.trim()) {
+      toast({
+        title: "Missing Postcode",
+        description: "Please enter a postcode to continue",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    if (!isValidPostcode(postcode)) {
+      toast({
+        title: "Invalid Postcode",
+        description: "Please enter a valid UK postcode",
+        variant: "destructive",
+      });
+      return;
+    }
+
     setShowAddresses(true);
     setShowDropdown(false);
   };
