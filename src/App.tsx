@@ -1,7 +1,6 @@
 
 import { Routes, Route } from 'react-router-dom';
 import Index from './pages/Index';
-import Address from './pages/Address';
 import Devices from './pages/Devices';
 import MoveInDate from './pages/MoveInDate';
 import { Toaster } from './components/ui/sonner';
@@ -13,7 +12,6 @@ function App() {
     <>
       <Routes>
         <Route path="/" element={<Index />} />
-        <Route path="/address" element={<Address />} />
         <Route path="/devices" element={<Devices />} />
         <Route path="/move-in-date" element={<MoveInDate />} />
         <Route path="*" element={<NotFound />} />
