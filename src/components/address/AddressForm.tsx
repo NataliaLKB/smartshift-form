@@ -62,7 +62,14 @@ export const AddressForm = ({ onValidityChange }: AddressFormProps) => {
                 className="w-full"
               />
             </div>
-            <Button onClick={handleFindAddress} className={`${isMobile ? 'w-full' : ''}`}>
+            <Button 
+              onClick={handleFindAddress}
+              className={cn(
+                isMobile ? 'w-full' : '',
+                showAddresses ? 'bg-white border-gray-200 text-gray-400 hover:bg-white' : 'bg-primary text-primary-foreground hover:bg-primary/90'
+              )}
+              disabled={showAddresses}
+            >
               Find address
             </Button>
           </div>
