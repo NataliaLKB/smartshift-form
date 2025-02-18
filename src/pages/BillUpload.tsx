@@ -96,7 +96,7 @@ const BillUpload = () => {
                       <CalendarIcon className="absolute right-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-500" />
                     </div>
                   </PopoverTrigger>
-                  <PopoverContent className="w-auto md:w-[400px] p-0" align="start">
+                  <PopoverContent className="w-auto p-0" align="start">
                     <Calendar
                       mode="single"
                       selected={date}
@@ -105,7 +105,6 @@ const BillUpload = () => {
                       captionLayout="dropdown-buttons"
                       fromYear={1990}
                       toYear={2024}
-                      className="w-full"
                     />
                   </PopoverContent>
                 </Popover>
