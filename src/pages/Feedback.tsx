@@ -120,17 +120,20 @@ const Feedback = () => {
                 </div>
               </div>
 
-              <div className="bg-white p-6 rounded-lg border border-gray-200">
-                <div className="flex items-start space-x-2">
-                  <Checkbox
-                    id="newsletter"
-                    checked={newsletter}
-                    onCheckedChange={(checked) => setNewsletter(checked as boolean)}
-                  />
-                  <div className="grid gap-1.5 leading-none">
-                    <Label htmlFor="newsletter" className="font-normal">
-                      Subscribe to our Smart Thinking newsletter
-                    </Label>
+              <div className="space-y-4">
+                <h2 className="text-lg font-semibold text-gray-900">Stay connected</h2>
+                <div className="bg-white p-6 rounded-lg border border-gray-200">
+                  <div className="flex items-start space-x-2">
+                    <Checkbox
+                      id="newsletter"
+                      checked={newsletter}
+                      onCheckedChange={(checked) => setNewsletter(checked as boolean)}
+                    />
+                    <div className="grid gap-1.5 leading-none">
+                      <Label htmlFor="newsletter" className="font-normal">
+                        Subscribe to our Smart Thinking newsletter
+                      </Label>
+                    </div>
                   </div>
                 </div>
               </div>
