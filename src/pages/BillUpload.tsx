@@ -75,9 +75,9 @@ const BillUpload = () => {
             <div>
               <div className="flex justify-between items-center mb-1">
                 <p className="text-sm text-gray-700">Step 4 of 6</p>
-                <p className="text-xs text-gray-500">Bill details</p>
+                <p className="text-xs text-gray-500">Bill upload</p>
               </div>
-              <Progress value={66} className="h-10 mb-6" />
+              <Progress value={66} className="h-1 mb-6" />
               <h1 className="text-2xl font-bold">When did you move in?</h1>
               <p className="text-gray-500 mt-2">Please provide your move-in date and recent bill</p>
             </div>
