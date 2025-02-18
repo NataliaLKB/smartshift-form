@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { AddressSelection } from './AddressSelection';
 import { useIsMobile } from "@/hooks/use-mobile";
+import { cn } from "@/lib/utils";
 
 interface AddressFormProps {
   onValidityChange?: (isValid: boolean) => void;
