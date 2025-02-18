@@ -4,10 +4,11 @@ import { AddressHeader } from '@/components/address/AddressHeader';
 import { AddressFooter } from '@/components/address/AddressFooter';
 import { Progress } from '@/components/ui/progress';
 import { useNavigate } from 'react-router-dom';
-import { Label } from "@/components/ui/label";
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { Button } from '@/components/ui/button';
 import { Input } from "@/components/ui/input";
 import { Checkbox } from "@/components/ui/checkbox";
+import { Label } from "@/components/ui/label";
+import { cn } from '@/lib/utils';
 
 const Feedback = () => {
   const navigate = useNavigate();
@@ -39,32 +40,55 @@ const Feedback = () => {
             <Progress value={100} className="h-0.5" />
             
             <div className="space-y-6">
-              <div className="bg-white p-6 rounded-lg border border-gray-200">
-                <div className="space-y-4">
-                  <Label className="text-lg font-semibold text-gray-900">How did you hear about us?</Label>
-                  <RadioGroup value={source} onValueChange={setSource} className="gap-3">
-                    {sources.map((item) => (
-                      <div key={item.value} className="flex items-center space-x-2">
-                        <RadioGroupItem value={item.value} id={item.value} />
-                        <Label htmlFor={item.value} className="font-normal">
-                          {item.label}
-                        </Label>
+              <div className="space-y-4">
+                <h2 className="text-lg font-semibold text-gray-900">How did you hear about us?</h2>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {sources.map((item) => (
+                    <Button
+                      key={item.value}
+                      variant="outline"
+                      className={cn(
+                        "w-full justify-start py-3 px-4 bg-white text-center",
+                        source === item.value && "border-primary bg-primary/5"
+                      )}
+                      onClick={() => setSource(item.value)}
+                    >
+                      <div className="flex items-center justify-between w-full">
+                        <span className="text-sm mx-auto">{item.label}</span>
+                        {source === item.value && (
+                          <div className="w-6 h-6 rounded-full bg-primary flex items-center justify-center flex-shrink-0 ml-2">
+                            <svg
+                              width="15"
+                              height="15"
+                              viewBox="0 0 15 15"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M11.4669 3.72684C11.7558 3.91574 11.8369 4.30308 11.648 4.59198L7.39799 11.092C7.29783 11.2452 7.13556 11.3467 6.95402 11.3699C6.77247 11.3931 6.58989 11.3355 6.45446 11.2124L3.70446 8.71241C3.44905 8.48022 3.43023 8.08494 3.66242 7.82953C3.89461 7.57412 4.28989 7.55529 4.5453 7.78749L6.75292 9.79441L10.6018 3.90792C10.7907 3.61902 11.178 3.53795 11.4669 3.72684Z"
+                                fill="white"
+                                fillRule="evenodd"
+                                clipRule="evenodd"
+                              />
+                            </svg>
+                          </div>
+                        )}
                       </div>
-                    ))}
-                  </RadioGroup>
-                  
-                  {source === "other" && (
-                    <div className="mt-3">
-                      <Input
-                        type="text"
-                        value={otherSource}
-                        onChange={(e) => setOtherSource(e.target.value)}
-                        placeholder="Please specify"
-                        className="max-w-md"
-                      />
-                    </div>
-                  )}
+                    </Button>
+                  ))}
                 </div>
+
+                {source === "other" && (
+                  <div className="mt-3">
+                    <Input
+                      type="text"
+                      value={otherSource}
+                      onChange={(e) => setOtherSource(e.target.value)}
+                      placeholder="Please specify"
+                      className="max-w-md"
+                    />
+                  </div>
+                )}
               </div>
 
               <div className="bg-white p-6 rounded-lg border border-gray-200">
