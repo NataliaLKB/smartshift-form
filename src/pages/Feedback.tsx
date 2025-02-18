@@ -129,11 +129,8 @@ const Feedback = () => {
                   />
                   <div className="grid gap-1.5 leading-none">
                     <Label htmlFor="newsletter" className="font-normal">
-                      Subscribe to our newsletter
+                      Subscribe to our Smart Thinking newsletter
                     </Label>
-                    <p className="text-sm text-muted-foreground">
-                      Stay updated with our latest news, tips and exclusive offers
-                    </p>
                   </div>
                 </div>
               </div>
