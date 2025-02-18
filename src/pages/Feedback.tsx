@@ -17,10 +17,11 @@ const Feedback = () => {
   const [newsletter, setNewsletter] = useState(false);
 
   const sources = [
-    { value: "search", label: "Search Engine (Google, Bing, etc.)" },
-    { value: "social", label: "Social Media" },
-    { value: "friend", label: "Friend or Family" },
-    { value: "advert", label: "Advertisement" },
+    { value: "google", label: "Google search" },
+    { value: "linkedin", label: "LinkedIn" },
+    { value: "facebook", label: "Facebook" },
+    { value: "instagram", label: "Instagram" },
+    { value: "friend", label: "Friends or family" },
     { value: "other", label: "Other" }
   ];
 
