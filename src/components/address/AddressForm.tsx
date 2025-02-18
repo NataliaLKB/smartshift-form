@@ -65,9 +65,9 @@ export const AddressForm = ({ onValidityChange }: AddressFormProps) => {
             </div>
             <Button 
               onClick={handleFindAddress}
+              variant={showAddresses ? "secondary" : "default"}
               className={cn(
-                isMobile ? 'w-full' : '',
-                showAddresses ? 'bg-white border-gray-200 text-gray-400 hover:bg-white' : 'bg-primary text-primary-foreground hover:bg-primary/90'
+                isMobile ? 'w-full' : ''
               )}
               disabled={showAddresses}
             >
