@@ -4,10 +4,11 @@ import { AddressHeader } from '@/components/address/AddressHeader';
 import { AddressFooter } from '@/components/address/AddressFooter';
 import { Progress } from '@/components/ui/progress';
 import { useNavigate } from 'react-router-dom';
-import { format } from "date-fns";
+import { format, parse } from "date-fns";
 import { Calendar } from "@/components/ui/calendar";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
+import { Input } from "@/components/ui/input";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { CalendarIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -15,8 +16,28 @@ import { cn } from "@/lib/utils";
 const BillUpload = () => {
   const navigate = useNavigate();
   const [date, setDate] = useState<Date>();
+  const [inputValue, setInputValue] = useState("");
   const [file, setFile] = useState<File | null>(null);
   const [isDragging, setIsDragging] = useState(false);
+
+  const handleDateInput = (value: string) => {
+    setInputValue(value);
+    try {
+      const parsedDate = parse(value, 'dd/MM/yyyy', new Date());
+      if (!isNaN(parsedDate.getTime())) {
+        setDate(parsedDate);
+      }
+    } catch (error) {
+      // Invalid date format, do nothing
+    }
+  };
+
+  const handleCalendarSelect = (newDate: Date | undefined) => {
+    setDate(newDate);
+    if (newDate) {
+      setInputValue(format(newDate, 'dd/MM/yyyy'));
+    }
+  };
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.files && event.target.files[0]) {
@@ -63,28 +84,39 @@ const BillUpload = () => {
             <div className="space-y-4">
               <div className="space-y-2">
                 <Label>Move-in date</Label>
-                <Popover>
-                  <PopoverTrigger asChild>
-                    <Button
-                      variant="outline"
-                      className={cn(
-                        "w-full justify-between text-left font-normal",
-                        !date && "text-muted-foreground"
-                      )}
-                    >
-                      <span>{date ? format(date, "PPP") : "Pick a date"}</span>
-                      <CalendarIcon className="h-4 w-4" />
-                    </Button>
-                  </PopoverTrigger>
-                  <PopoverContent className="w-auto p-0" align="start">
-                    <Calendar
-                      mode="single"
-                      selected={date}
-                      onSelect={setDate}
-                      initialFocus
-                    />
-                  </PopoverContent>
-                </Popover>
+                <div className="flex space-x-2">
+                  <Input
+                    type="text"
+                    value={inputValue}
+                    onChange={(e) => handleDateInput(e.target.value)}
+                    placeholder="DD/MM/YYYY"
+                    className="flex-1"
+                  />
+                  <Popover>
+                    <PopoverTrigger asChild>
+                      <Button
+                        variant="outline"
+                        className={cn(
+                          "px-3",
+                          !date && "text-muted-foreground"
+                        )}
+                      >
+                        <CalendarIcon className="h-4 w-4" />
+                      </Button>
+                    </PopoverTrigger>
+                    <PopoverContent className="w-auto p-0" align="end">
+                      <Calendar
+                        mode="single"
+                        selected={date}
+                        onSelect={handleCalendarSelect}
+                        initialFocus
+                        captionLayout="dropdown-buttons"
+                        fromYear={1990}
+                        toYear={2024}
+                      />
+                    </PopoverContent>
+                  </Popover>
+                </div>
               </div>
 
               <div className="space-y-2">
