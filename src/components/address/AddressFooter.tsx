@@ -7,9 +7,10 @@ interface AddressFooterProps {
   onContinue: () => void;
   hideBack?: boolean;
   isEnabled?: boolean;
+  buttonText?: string;
 }
 
-export const AddressFooter = ({ onBack, onContinue, hideBack, isEnabled }: AddressFooterProps) => {
+export const AddressFooter = ({ onBack, onContinue, hideBack, isEnabled, buttonText = "Continue" }: AddressFooterProps) => {
   return (
     <footer className="border-t border-gray-200 py-4">
       <div className="container max-w-4xl mx-auto px-4">
@@ -38,7 +39,7 @@ export const AddressFooter = ({ onBack, onContinue, hideBack, isEnabled }: Addre
                   : 'bg-white border border-gray-300 text-gray-500 hover:bg-gray-50'
               }`}
             >
-              Continue
+              {buttonText}
               <svg 
                 xmlns="http://www.w3.org/2000/svg" 
                 viewBox="0 0 24 24"

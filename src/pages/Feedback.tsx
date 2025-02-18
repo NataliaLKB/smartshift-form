@@ -148,6 +148,7 @@ const Feedback = () => {
           });
         }}
         isEnabled={source !== '' && (source !== 'other' || otherSource.trim() !== '')}
+        buttonText="Finish"
       />
     </div>
   );
