@@ -24,14 +24,11 @@ const Devices = () => {
 
   const toggleDevice = (deviceId: string) => {
     if (deviceId === 'none') {
-      // If "None of these" is selected, clear other selections
       setSelectedDevices(['none']);
     } else {
       setSelectedDevices(prev => {
-        // If selecting a device, remove "None of these" if it was selected
         const newSelection = prev.filter(id => id !== 'none');
         
-        // Toggle the selected device
         if (prev.includes(deviceId)) {
           return newSelection.filter(id => id !== deviceId);
         } else {
@@ -43,7 +40,6 @@ const Devices = () => {
 
   const handleContinue = () => {
     console.log('Selected devices:', selectedDevices);
-    // TODO: Navigate to next page
   };
 
   return (
@@ -66,7 +62,7 @@ const Devices = () => {
                   key={device.id}
                   variant="outline"
                   className={cn(
-                    "w-full justify-start h-auto py-6 px-4 bg-white text-center",
+                    "w-full justify-start py-3 px-4 bg-white text-center",
                     selectedDevices.includes(device.id) && "border-primary bg-primary/5"
                   )}
                   onClick={() => toggleDevice(device.id)}
