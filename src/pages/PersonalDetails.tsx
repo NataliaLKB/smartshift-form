@@ -27,7 +27,10 @@ const PersonalDetails = () => {
       <main className="flex-1 bg-[#FAF9FA]">
         <div className="container max-w-4xl mx-auto px-4 py-8">
           <div className="mb-8">
-            <p className="text-sm text-gray-500 mb-1">Step 1 of 6</p>
+            <div className="flex justify-between items-center mb-1">
+              <p className="text-sm text-gray-500">Step 1 of 6</p>
+              <p className="text-sm text-gray-500">Basic information</p>
+            </div>
             <h1 className="text-2xl font-bold">Tell us about yourself</h1>
           </div>
 
