@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { AddressHeader } from '@/components/address/AddressHeader';
 import { AddressFooter } from '@/components/address/AddressFooter';
@@ -34,7 +35,7 @@ const Feedback = () => {
             <div>
               <div className="flex justify-between items-center mb-1">
                 <p className="text-sm text-gray-700">Step 6 of 6</p>
-                <p className="text-xs text-gray-500">Your feedback</p>
+                <p className="text-xs text-gray-500">Additional information</p>
               </div>
               <Progress value={100} className="h-1 mb-6" />
               <h1 className="text-2xl font-bold">Almost there!</h1>
