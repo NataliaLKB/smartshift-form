@@ -17,15 +17,17 @@ const Tariff = () => {
       
       <main className="flex-1 bg-[#FAF9FA]">
         <div className="container max-w-4xl mx-auto px-4 py-8">
-          <div className="mb-8">
-            <p className="text-sm text-gray-500 mb-1">Step 5 of 6</p>
-            <h1 className="text-2xl font-bold">Your energy tariff details</h1>
-            <p className="text-gray-500 mt-2">Please provide your current tariff name</p>
-          </div>
-
           <div className="space-y-6">
-            <Progress value={83} className="h-0.5" />
-            
+            <div>
+              <div className="flex justify-between items-center mb-1">
+                <p className="text-sm text-gray-500">Step 5 of 6</p>
+                <p className="text-sm text-gray-500">Tariff details</p>
+              </div>
+              <Progress value={83} className="h-0.5 mb-6" />
+              <h1 className="text-2xl font-bold">Your energy tariff details</h1>
+              <p className="text-gray-500 mt-2">Please provide your current tariff name</p>
+            </div>
+
             <div className="space-y-6">
               <div className="bg-white p-6 rounded-lg border border-gray-200">
                 <h2 className="text-lg font-semibold text-gray-900">Your current supplier is:</h2>

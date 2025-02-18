@@ -38,23 +38,21 @@ const Devices = () => {
     }
   };
 
-  const handleContinue = () => {
-    navigate('/bill-upload');
-  };
-
   return (
     <div className="min-h-screen flex flex-col">
       <AddressHeader />
       
       <main className="flex-1 bg-[#FAF9FA]">
         <div className="container max-w-4xl mx-auto px-4 py-8">
-          <div className="mb-8">
-            <p className="text-sm text-gray-500 mb-1">Step 3 of 6</p>
-            <h1 className="text-2xl font-bold">What devices do you own?</h1>
-          </div>
-
           <div className="space-y-6">
-            <Progress value={50} className="h-0.5" />
+            <div>
+              <div className="flex justify-between items-center mb-1">
+                <p className="text-sm text-gray-500">Step 3 of 6</p>
+                <p className="text-sm text-gray-500">Your devices</p>
+              </div>
+              <Progress value={50} className="h-0.5 mb-6" />
+              <h1 className="text-2xl font-bold">What devices do you own?</h1>
+            </div>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {devices.map((device) => (
@@ -97,7 +95,7 @@ const Devices = () => {
 
       <AddressFooter
         onBack={() => navigate('/address')}
-        onContinue={handleContinue}
+        onContinue={() => navigate('/bill-upload')}
         isEnabled={selectedDevices.length > 0}
       />
     </div>

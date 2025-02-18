@@ -71,15 +71,17 @@ const BillUpload = () => {
       
       <main className="flex-1 bg-[#FAF9FA]">
         <div className="container max-w-4xl mx-auto px-4 py-8">
-          <div className="mb-8">
-            <p className="text-sm text-gray-500 mb-1">Step 4 of 6</p>
-            <h1 className="text-2xl font-bold">When did you move in?</h1>
-            <p className="text-gray-500 mt-2">Please provide your move-in date and recent bill</p>
-          </div>
-
           <div className="space-y-6">
-            <Progress value={66} className="h-0.5" />
-            
+            <div>
+              <div className="flex justify-between items-center mb-1">
+                <p className="text-sm text-gray-500">Step 4 of 6</p>
+                <p className="text-sm text-gray-500">Bill details</p>
+              </div>
+              <Progress value={66} className="h-0.5 mb-6" />
+              <h1 className="text-2xl font-bold">When did you move in?</h1>
+              <p className="text-gray-500 mt-2">Please provide your move-in date and recent bill</p>
+            </div>
+
             <div className="space-y-4">
               <div className="space-y-2">
                 <Label>Move-in date</Label>

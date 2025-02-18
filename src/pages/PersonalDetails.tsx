@@ -26,16 +26,16 @@ const PersonalDetails = () => {
       
       <main className="flex-1 bg-[#FAF9FA]">
         <div className="container max-w-4xl mx-auto px-4 py-8">
-          <div className="mb-8">
-            <div className="flex justify-between items-center mb-1">
-              <p className="text-sm text-gray-500">Step 1 of 6</p>
-              <p className="text-sm text-gray-500">Basic information</p>
-            </div>
-            <h1 className="text-2xl font-bold">Tell us about yourself</h1>
-          </div>
-
           <div className="space-y-6">
-            <Progress value={16.67} className="h-0.5" />
+            <div>
+              <div className="flex justify-between items-center mb-1">
+                <p className="text-sm text-gray-500">Step 1 of 6</p>
+                <p className="text-sm text-gray-500">Basic information</p>
+              </div>
+              <Progress value={16.67} className="h-0.5 mb-6" />
+              <h1 className="text-2xl font-bold">Tell us about yourself</h1>
+            </div>
+
             <PersonalDetailsForm onValidityChange={handleFormValidityChange} />
           </div>
         </div>
