@@ -40,7 +40,6 @@ const Devices = () => {
 
   const handleContinue = () => {
     console.log('Selected devices:', selectedDevices);
-    navigate('/move-in-date');
   };
 
   return (
