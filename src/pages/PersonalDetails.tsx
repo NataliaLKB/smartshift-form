@@ -32,7 +32,7 @@ const PersonalDetails = () => {
                 <p className="text-sm text-gray-700">Step 1 of 6</p>
                 <p className="text-xs text-gray-500">Basic information</p>
               </div>
-              <Progress value={16.67} className="h-10 mb-6" />
+              <Progress value={16.67} className="h-1 mb-6" />
               <h1 className="text-2xl font-bold">Tell us about yourself</h1>
             </div>
 

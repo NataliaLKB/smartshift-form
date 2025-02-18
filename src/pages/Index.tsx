@@ -32,7 +32,7 @@ const Index = () => {
                 <p className="text-sm text-gray-700">Step 2 of 6</p>
                 <p className="text-xs text-gray-500">Address details</p>
               </div>
-              <Progress value={33.33} className="h-10 mb-6" />
+              <Progress value={33.33} className="h-1 mb-6" />
               <h1 className="text-2xl font-bold">Address details</h1>
             </div>
 

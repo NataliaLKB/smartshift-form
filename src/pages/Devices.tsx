@@ -50,7 +50,7 @@ const Devices = () => {
                 <p className="text-sm text-gray-700">Step 3 of 6</p>
                 <p className="text-xs text-gray-500">Your devices</p>
               </div>
-              <Progress value={50} className="h-10 mb-6" />
+              <Progress value={50} className="h-1 mb-6" />
               <h1 className="text-2xl font-bold">What devices do you own?</h1>
             </div>
             

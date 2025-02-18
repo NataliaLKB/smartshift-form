@@ -36,7 +36,7 @@ const Feedback = () => {
                 <p className="text-sm text-gray-700">Step 6 of 6</p>
                 <p className="text-xs text-gray-500">Your feedback</p>
               </div>
-              <Progress value={100} className="h-10 mb-6" />
+              <Progress value={100} className="h-1 mb-6" />
               <h1 className="text-2xl font-bold">Almost there!</h1>
               <p className="text-gray-500 mt-2">Help us understand how you found us</p>
             </div>
