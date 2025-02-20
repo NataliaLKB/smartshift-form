@@ -8,7 +8,7 @@ export const AddressHeader = () => {
       <div className="container max-w-4xl mx-auto px-4">
         <div className="flex justify-between items-center">
           <img
-            src="/lovable-uploads/df1edba5-54d3-4abe-a3cc-2575ca1a03ec.png"
+            src="/logo.svg"
             alt="SmartShift Logo"
             className="h-8 w-auto"
           />
