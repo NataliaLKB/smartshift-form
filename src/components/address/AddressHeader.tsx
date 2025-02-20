@@ -10,7 +10,7 @@ export const AddressHeader = () => {
           <img
             src="/logo.svg"
             alt="SmartShift Logo"
-            className="h-8 w-auto"
+            className="h-8 w-auto transition-all duration-200"
           />
           <button className="p-2 hover:bg-gray-100 rounded-full transition-colors">
             <X className="h-5 w-5 text-gray-500" />
