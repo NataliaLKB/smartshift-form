@@ -105,4 +105,10 @@
   svg[alt="SmartShift Logo"] path {
     fill: rgb(var(--logo-color) / var(--logo-opacity));
   }
+
+  /* Control logo size */
+  svg {
+    max-height: 1.5rem;
+    width: auto;
+  }
 }
