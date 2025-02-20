@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -6,7 +7,7 @@
   :root {
     --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
-    --logo-color: 33 33 33; /* Default color in RGB */
+    --logo-color: 3 139 141; /* #038B8D in RGB */
     --logo-opacity: 1;
 
     --card: 0 0% 100%;
@@ -49,7 +50,7 @@
   .dark {
     --background: 222.2 84% 4.9%;
     --foreground: 210 40% 98%;
-    --logo-color: 255 255 255; /* White logo for dark mode */
+    --logo-color: 3 139 141; /* Keep same color in dark mode */
     --logo-opacity: 0.9;
 
     --card: 222.2 84% 4.9%;
