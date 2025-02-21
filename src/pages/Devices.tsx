@@ -52,6 +52,7 @@ const Devices = () => {
               </div>
               <Progress value={50} className="h-1 mb-6" />
               <h1 className="text-2xl font-bold">What devices do you own?</h1>
+              <p className="text-gray-500 mt-2">Select all that apply and then press continue</p>
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">

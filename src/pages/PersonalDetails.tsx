@@ -34,6 +34,7 @@ const PersonalDetails = () => {
               </div>
               <Progress value={16.67} className="h-1 mb-6" />
               <h1 className="text-2xl font-bold">Tell us about yourself</h1>
+              <p className="text-gray-500 mt-2">Please fill in your details below to get started</p>
             </div>
 
             <PersonalDetailsForm onValidityChange={handleFormValidityChange} />

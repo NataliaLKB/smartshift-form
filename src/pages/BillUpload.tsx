@@ -79,7 +79,7 @@ const BillUpload = () => {
               </div>
               <Progress value={66} className="h-1 mb-6" />
               <h1 className="text-2xl font-bold">When did you move in?</h1>
-              <p className="text-gray-500 mt-2">Please provide your move-in date and recent bill</p>
+              <p className="text-gray-500 mt-2">Enter your move-in date and upload a recent energy bill for accurate assessment</p>
             </div>
 
             <div className="space-y-4">

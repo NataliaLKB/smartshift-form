@@ -25,7 +25,7 @@ const Tariff = () => {
               </div>
               <Progress value={83} className="h-1 mb-6" />
               <h1 className="text-2xl font-bold">Your energy tariff details</h1>
-              <p className="text-gray-500 mt-2">Please provide your current tariff name</p>
+              <p className="text-gray-500 mt-2">Please enter your current tariff name - you can find this on your energy bill</p>
             </div>
 
             <div className="space-y-6">
