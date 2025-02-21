@@ -19,7 +19,7 @@ export const AddressFooter = ({ onBack, onContinue, hideBack, isEnabled, buttonT
             <Button
               variant="ghost"
               onClick={onBack}
-              className="flex-1 sm:flex-none items-center gap-2 border border-gray-300 sm:border-0"
+              className="w-[50%] sm:w-auto items-center gap-2 border border-gray-300 sm:border-0"
             >
               <img
                 src="https://cdn.builder.io/api/v1/image/assets/724db77970f24a8fa58bdac1fccbfc40/3088113d385bec4808d969710b2d1f13b4a453c31e6e961a026aaecf24f42d05"
@@ -28,11 +28,13 @@ export const AddressFooter = ({ onBack, onContinue, hideBack, isEnabled, buttonT
               />
               Back
             </Button>
-          ) : null}
+          ) : (
+            <div className="w-[50%] sm:hidden" />
+          )}
           <Button
             onClick={onContinue}
             disabled={!isEnabled}
-            className={`${hideBack ? 'w-full' : 'w-[50%] sm:w-auto'} items-center gap-2 ${
+            className={`w-[50%] sm:w-auto items-center gap-2 ${
               isEnabled 
                 ? 'bg-[#00CED1] hover:bg-[#00CED1]/90 text-black' 
                 : 'bg-white border border-gray-300 text-gray-500 hover:bg-gray-50'
