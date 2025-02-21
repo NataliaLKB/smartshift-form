@@ -32,7 +32,7 @@ export const AddressFooter = ({ onBack, onContinue, hideBack, isEnabled, buttonT
           <Button
             onClick={onContinue}
             disabled={!isEnabled}
-            className={`${hideBack ? 'w-full' : 'flex-1'} sm:flex-none items-center gap-2 ${
+            className={`${hideBack ? 'w-full' : 'w-[50%] sm:w-auto'} items-center gap-2 ${
               isEnabled 
                 ? 'bg-[#00CED1] hover:bg-[#00CED1]/90 text-black' 
                 : 'bg-white border border-gray-300 text-gray-500 hover:bg-gray-50'
