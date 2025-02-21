@@ -5,7 +5,7 @@ import { Logo } from '@/components/Logo';
 
 export const AddressHeader = () => {
   return (
-    <header className="w-full py-6 border-b border-gray-200">
+    <header className="w-full py-4 border-b border-gray-200">
       <div className="container max-w-4xl mx-auto px-4">
         <div className="flex justify-between items-center">
           <Logo className="h-4 w-auto transition-all duration-200" />
