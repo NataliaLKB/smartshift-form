@@ -3,7 +3,7 @@ import React from 'react';
 import { AddressHeader } from '@/components/address/AddressHeader';
 import { AddressFooter } from '@/components/address/AddressFooter';
 import { useNavigate } from 'react-router-dom';
-import { Send, Clock, CheckCircle2, BarChart3 } from 'lucide-react';
+import { Send, FileText, Clock, CheckCircle2, BarChart3 } from 'lucide-react';
 
 const ThankYou = () => {
   const navigate = useNavigate();
@@ -23,13 +23,20 @@ const ThankYou = () => {
             {/* Main heading */}
             <div className="space-y-4">
               <h1 className="text-4xl font-bold text-gray-900">Thank You!</h1>
-              <p className="text-xl text-gray-600">We've received your bill submission.</p>
+              <p className="text-xl text-gray-600">We're starting your personalised electricity analysis</p>
             </div>
 
             {/* Process timeline */}
             <div className="bg-white rounded-lg shadow-sm border border-gray-100 p-6 max-w-xl mx-auto">
               <h2 className="text-lg font-semibold mb-6">What happens next?</h2>
               <div className="space-y-6">
+                <div className="flex items-start gap-4">
+                  <FileText className="w-6 h-6 text-primary mt-1 flex-shrink-0" />
+                  <div className="text-left">
+                    <p className="font-medium">Bill Processing</p>
+                    <p className="text-sm text-gray-600">We're processing your uploaded bill and initiating secure access to your smart meter data.</p>
+                  </div>
+                </div>
                 <div className="flex items-start gap-4">
                   <Clock className="w-6 h-6 text-primary mt-1 flex-shrink-0" />
                   <div className="text-left">
