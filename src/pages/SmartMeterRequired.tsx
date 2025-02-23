@@ -1,7 +1,7 @@
 
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
-import { Clock, PiggyBank, BarChart3, Plug } from "lucide-react";
+import { Clock, PiggyBank, BarChart3, Plug, ArrowRight } from "lucide-react";
 import { AddressHeader } from "@/components/address/AddressHeader";
 
 const SmartMeterRequired = () => {
@@ -54,7 +54,7 @@ const SmartMeterRequired = () => {
                     className="w-full md:w-auto"
                     onClick={() => window.open('https://www.smartenergygb.org/smart-meter-installation', '_blank')}
                   >
-                    Learn more about smart meters
+                    Get a smart meter installed <ArrowRight className="w-4 h-4" />
                   </Button>
                 </div>
               </div>
