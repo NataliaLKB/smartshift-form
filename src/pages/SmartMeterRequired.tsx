@@ -1,6 +1,6 @@
 
 import { Button } from "@/components/ui/button";
-import { Clock, BarChart3, Plug, ArrowRight } from "lucide-react";
+import { Clock, BarChart3, Plug, ArrowRight, ExternalLink } from "lucide-react";
 import { AddressHeader } from "@/components/address/AddressHeader";
 
 const SmartMeterRequired = () => {
@@ -51,10 +51,14 @@ const SmartMeterRequired = () => {
 
             <div className="w-full">
               <Button
-                className="w-full"
+                className="w-full h-auto py-3 flex flex-col items-center gap-1"
                 onClick={() => window.open('https://www.smartenergygb.org/', '_blank')}
               >
-                Learn more about installing smart meters <ArrowRight className="w-4 h-4" />
+                <div className="flex items-center gap-2">
+                  <span className="font-semibold">Install your smart meter</span>
+                  <ExternalLink className="w-4 h-4" />
+                </div>
+                <span className="text-xs opacity-90">Visit Smart Energy GB to learn more</span>
               </Button>
             </div>
 
