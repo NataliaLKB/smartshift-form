@@ -3,7 +3,7 @@ import React from 'react';
 import { AddressHeader } from '@/components/address/AddressHeader';
 import { AddressFooter } from '@/components/address/AddressFooter';
 import { useNavigate } from 'react-router-dom';
-import { Send, FileText, Clock, CheckCircle2, BarChart3 } from 'lucide-react';
+import { Send, FileText, Database, CheckCircle2, BarChart3 } from 'lucide-react';
 
 const ThankYou = () => {
   const navigate = useNavigate();
@@ -38,10 +38,10 @@ const ThankYou = () => {
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
-                  <Clock className="w-6 h-6 text-primary mt-1 flex-shrink-0" />
+                  <Database className="w-6 h-6 text-primary mt-1 flex-shrink-0" />
                   <div className="text-left">
-                    <p className="font-medium">Data Access (24-48 hours)</p>
-                    <p className="text-sm text-gray-600">We'll email you once we've received access to your smart meter data.</p>
+                    <p className="font-medium">Data Access</p>
+                    <p className="text-sm text-gray-600">We'll email you once we've received access to your smart meter data. This typically takes between 24-48 hours.</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
