@@ -52,7 +52,7 @@ const SmartMeterRequired = () => {
             <div className="w-full">
               <Button
                 className="w-full"
-                onClick={() => window.open('https://www.smartenergygb.org/smart-meter-installation', '_blank')}
+                onClick={() => window.open('https://www.smartenergygb.org/', '_blank')}
               >
                 Learn more about installing smart meters <ArrowRight className="w-4 h-4" />
               </Button>
