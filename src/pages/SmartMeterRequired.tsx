@@ -13,12 +13,12 @@ const SmartMeterRequired = () => {
             <div className="space-y-6">
               <h1 className="text-2xl font-bold">Smart Meter Required</h1>
               
-              <p className="text-lg text-gray-600">
+              <p className="text-base text-gray-600">
                 To find you the best smart tariff for your home, we need to understand your energy usage patterns throughout the day. This is only possible with a smart meter.
               </p>
 
               <div className="bg-green-50 border border-green-200 rounded-lg p-4">
-                <h2 className="text-lg font-semibold text-green-700">
+                <h2 className="text-base font-semibold text-green-700">
                   Good news! Smart meters are completely free
                 </h2>
               </div>
