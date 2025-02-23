@@ -12,6 +12,7 @@ import Tariff from "./pages/Tariff";
 import Feedback from "./pages/Feedback";
 import ThankYou from "./pages/ThankYou";
 import NotFound from "./pages/NotFound";
+import SmartMeterRequired from "./pages/SmartMeterRequired";
 
 const queryClient = new QueryClient();
 
@@ -29,6 +30,7 @@ const App = () => (
           <Route path="/tariff" element={<Tariff />} />
           <Route path="/feedback" element={<Feedback />} />
           <Route path="/thank-you" element={<ThankYou />} />
+          <Route path="/smart-meter-required" element={<SmartMeterRequired />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
