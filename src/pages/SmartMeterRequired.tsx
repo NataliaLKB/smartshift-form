@@ -1,6 +1,6 @@
 
 import { Button } from "@/components/ui/button";
-import { Clock, PiggyBank, BarChart3, Plug, ArrowRight } from "lucide-react";
+import { Clock, BarChart3, Plug, ArrowRight } from "lucide-react";
 import { AddressHeader } from "@/components/address/AddressHeader";
 
 const SmartMeterRequired = () => {
@@ -19,8 +19,7 @@ const SmartMeterRequired = () => {
                 </p>
 
                 <div className="bg-green-50 border border-green-200 rounded-lg p-4 my-6">
-                  <h2 className="text-lg font-semibold text-green-700 flex items-center gap-2">
-                    <PiggyBank className="h-5 w-5" />
+                  <h2 className="text-lg font-semibold text-green-700">
                     Good news! Smart meters are completely free
                   </h2>
                 </div>
