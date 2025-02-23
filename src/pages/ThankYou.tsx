@@ -1,9 +1,8 @@
-
 import React from 'react';
 import { AddressHeader } from '@/components/address/AddressHeader';
 import { AddressFooter } from '@/components/address/AddressFooter';
 import { useNavigate } from 'react-router-dom';
-import { Send, FileText, Database, CheckCircle2, BarChart3, Mail } from 'lucide-react';
+import { Send, FileText, Database, CheckCircle2, BarChart3 } from 'lucide-react';
 
 const ThankYou = () => {
   const navigate = useNavigate();
@@ -15,18 +14,15 @@ const ThankYou = () => {
       <main className="flex-1 bg-[#FAF9FA]">
         <div className="container max-w-4xl mx-auto px-4 py-12">
           <div className="text-center space-y-8">
-            {/* Paper airplane icon */}
             <div className="w-20 h-20 bg-[#F3F4F6] rounded-full flex items-center justify-center mx-auto">
               <Send className="w-10 h-10 text-primary transform rotate-45" />
             </div>
 
-            {/* Main heading */}
             <div className="space-y-4">
               <h1 className="text-4xl font-bold text-gray-900">Thank You!</h1>
               <p className="text-xl text-gray-600">We're starting your personalised electricity analysis</p>
             </div>
 
-            {/* Process timeline */}
             <div className="bg-white rounded-lg shadow-sm border border-gray-100 p-6 max-w-xl mx-auto">
               <h2 className="text-lg font-semibold mb-6">What happens next?</h2>
               <div className="space-y-6">
@@ -60,14 +56,13 @@ const ThankYou = () => {
                 </div>
               </div>
               <div className="mt-6 pt-6 border-t border-gray-100">
-                <div className="flex items-center justify-center gap-2 text-primary">
-                  <Mail className="w-5 h-5" />
+                <div className="flex items-center justify-center gap-2 text-[#8B5CF6]">
+                  <Send className="w-5 h-5" />
                   <p className="text-sm">We'll keep you updated via email at each step of the process</p>
                 </div>
               </div>
             </div>
 
-            {/* Email section */}
             <div className="space-y-4">
               <p className="text-gray-600">We'll keep you updated via email. If you have any questions, contact us at:</p>
               <div className="bg-white rounded-lg border border-gray-100 p-4 max-w-lg mx-auto">
