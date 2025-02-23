@@ -3,7 +3,7 @@ import React from 'react';
 import { AddressHeader } from '@/components/address/AddressHeader';
 import { AddressFooter } from '@/components/address/AddressFooter';
 import { useNavigate } from 'react-router-dom';
-import { Send } from 'lucide-react';
+import { Send, Clock, CheckCircle2, BarChart3 } from 'lucide-react';
 
 const ThankYou = () => {
   const navigate = useNavigate();
@@ -23,35 +23,45 @@ const ThankYou = () => {
             {/* Main heading */}
             <div className="space-y-4">
               <h1 className="text-4xl font-bold text-gray-900">Thank You!</h1>
-              <p className="text-xl text-gray-600">We've received your submission.</p>
+              <p className="text-xl text-gray-600">We've received your bill submission.</p>
             </div>
 
-            {/* James card */}
-            <div className="bg-white rounded-lg shadow-sm border border-gray-100 p-6 max-w-lg mx-auto">
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-full overflow-hidden flex-shrink-0">
-                  <img
-                    src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23E5E7EB'%3E%3Cpath d='M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z'/%3E%3C/svg%3E"
-                    alt="James avatar"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="flex-1 text-left">
-                  <p className="text-gray-900 font-medium">This is James. He is processing your results</p>
-                  <div className="flex items-center gap-2 mt-2 text-gray-600">
-                    <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M12 8V12L15 15" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-                      <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="2"/>
-                    </svg>
-                    <span>We'll be in touch within a week</span>
+            {/* Process timeline */}
+            <div className="bg-white rounded-lg shadow-sm border border-gray-100 p-6 max-w-xl mx-auto">
+              <h2 className="text-lg font-semibold mb-6">What happens next?</h2>
+              <div className="space-y-6">
+                <div className="flex items-start gap-4">
+                  <Clock className="w-6 h-6 text-primary mt-1 flex-shrink-0" />
+                  <div className="text-left">
+                    <p className="font-medium">Data Access (24-48 hours)</p>
+                    <p className="text-sm text-gray-600">We'll email you once we've received access to your smart meter data.</p>
                   </div>
                 </div>
+                <div className="flex items-start gap-4">
+                  <CheckCircle2 className="w-6 h-6 text-primary mt-1 flex-shrink-0" />
+                  <div className="text-left">
+                    <p className="font-medium">Data Quality Check</p>
+                    <p className="text-sm text-gray-600">We'll verify your data is complete and suitable for analysis. We'll let you know if we need anything else.</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-4">
+                  <BarChart3 className="w-6 h-6 text-primary mt-1 flex-shrink-0" />
+                  <div className="text-left">
+                    <p className="font-medium">Analysis & Results</p>
+                    <p className="text-sm text-gray-600">Once we have quality data, we'll analyze your usage patterns and send you our detailed recommendations.</p>
+                  </div>
+                </div>
+              </div>
+              <div className="mt-6 pt-6 border-t border-gray-100">
+                <p className="text-sm text-gray-600">
+                  <strong>Note:</strong> The analysis process can take up to two weeks as we ensure we have accurate and complete data to give you the best recommendations.
+                </p>
               </div>
             </div>
 
             {/* Email section */}
             <div className="space-y-4">
-              <p className="text-gray-600">Have questions? Email us at:</p>
+              <p className="text-gray-600">We'll keep you updated via email. If you have any questions, contact us at:</p>
               <div className="bg-white rounded-lg border border-gray-100 p-4 max-w-lg mx-auto">
                 <a 
                   href="mailto:hello@smartshift.energy" 
