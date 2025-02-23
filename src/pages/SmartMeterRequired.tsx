@@ -48,6 +48,15 @@ const SmartMeterRequired = () => {
                     </div>
                   </div>
                 </div>
+
+                <div className="mt-8">
+                  <Button
+                    className="w-full md:w-auto"
+                    onClick={() => window.open('https://www.smartenergygb.org/smart-meter-installation', '_blank')}
+                  >
+                    Learn more about smart meters
+                  </Button>
+                </div>
               </div>
             </div>
           </div>
@@ -56,21 +65,13 @@ const SmartMeterRequired = () => {
 
       <footer className="border-t bg-white py-4">
         <div className="container max-w-4xl mx-auto px-4">
-          <div className="flex flex-col md:flex-row md:justify-between gap-4">
-            <Button
-              variant="outline"
-              className="w-full md:w-auto order-2 md:order-1"
-              onClick={() => navigate(-1)}
-            >
-              Back
-            </Button>
-            <Button
-              className="w-full md:w-auto order-1 md:order-2"
-              onClick={() => window.open('https://www.smartenergygb.org/smart-meter-installation', '_blank')}
-            >
-              Learn more about smart meters
-            </Button>
-          </div>
+          <Button
+            variant="outline"
+            className="w-full md:w-auto"
+            onClick={() => navigate(-1)}
+          >
+            Back
+          </Button>
         </div>
       </footer>
     </div>
