@@ -38,8 +38,8 @@ const SmartMeterRequired = () => {
                     </div>
                     <div className="p-4 border rounded-lg">
                       <BarChart3 className="h-6 w-6 text-primary mb-2" />
-                      <h3 className="font-medium mb-2">Track Usage</h3>
-                      <p className="text-sm text-gray-500">Monitor your energy consumption in real-time</p>
+                      <h3 className="font-medium mb-2">No Manual Readings</h3>
+                      <p className="text-sm text-gray-500">Never have to submit a manual meter reading again</p>
                     </div>
                     <div className="p-4 border rounded-lg">
                       <Plug className="h-6 w-6 text-primary mb-2" />
