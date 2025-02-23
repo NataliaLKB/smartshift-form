@@ -2,12 +2,14 @@
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 import { Clock, PiggyBank, BarChart3, Plug } from "lucide-react";
+import { AddressHeader } from "@/components/address/AddressHeader";
 
 const SmartMeterRequired = () => {
   const navigate = useNavigate();
 
   return (
     <div className="min-h-screen flex flex-col">
+      <AddressHeader />
       <main className="flex-1 bg-[#FAF9FA]">
         <div className="container max-w-4xl mx-auto px-4 py-8">
           <div className="space-y-6">
