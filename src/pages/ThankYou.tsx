@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { AddressHeader } from '@/components/address/AddressHeader';
 import { AddressFooter } from '@/components/address/AddressFooter';
@@ -56,9 +57,8 @@ const ThankYou = () => {
                 </div>
               </div>
               <div className="mt-6 pt-6 border-t border-gray-100">
-                <div className="flex items-center justify-center gap-2 text-[#8B5CF6]">
-                  <Send className="w-5 h-5" />
-                  <p className="text-sm">We'll keep you updated via email at each step of the process</p>
+                <div className="text-center">
+                  <p className="text-sm text-[#6E59A5]">We'll keep you updated via email at each step of the process</p>
                 </div>
               </div>
             </div>
