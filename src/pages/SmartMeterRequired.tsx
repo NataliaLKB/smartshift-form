@@ -1,5 +1,4 @@
 
-import { Progress } from "@/components/ui/progress";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 import { Clock, PiggyBank, BarChart3, Plug } from "lucide-react";
@@ -12,14 +11,6 @@ const SmartMeterRequired = () => {
       <main className="flex-1 bg-[#FAF9FA]">
         <div className="container max-w-4xl mx-auto px-4 py-8">
           <div className="space-y-6">
-            <div>
-              <div className="flex justify-between items-center mb-1">
-                <p className="text-sm text-gray-700">Smart meter required</p>
-                <p className="text-xs text-gray-500">Device check</p>
-              </div>
-              <Progress value={16.67} className="h-1 mb-6" />
-            </div>
-
             <div className="bg-white rounded-lg p-6 shadow-sm">
               <h1 className="text-2xl font-bold mb-4">Smart Meter Required</h1>
               
@@ -65,10 +56,9 @@ const SmartMeterRequired = () => {
         <div className="container max-w-4xl mx-auto px-4">
           <div className="flex justify-end gap-4">
             <Button
-              variant="outline"
               onClick={() => navigate(-1)}
             >
-              Go back
+              Back
             </Button>
             <Button
               onClick={() => window.open('https://www.smartenergygb.org/smart-meter-installation', '_blank')}
