@@ -17,10 +17,19 @@ const SmartMeterRequired = () => {
                 To find you the best smart tariff for your home, we need to understand your energy usage patterns throughout the day. This is only possible with a smart meter.
               </p>
 
-              <div className="bg-green-50 border border-green-200 rounded-lg p-4">
+              <div className="bg-green-50 border border-green-200 rounded-lg p-4 space-y-2">
                 <h2 className="text-base font-semibold text-green-700">
                   Good news! Smart meters are completely free
                 </h2>
+                <a 
+                  href="https://www.smartenergygb.org/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 text-sm text-green-700 hover:underline"
+                >
+                  Request a smart meter
+                  <ExternalLink className="w-3 h-3" />
+                </a>
               </div>
             </div>
 
@@ -62,7 +71,6 @@ const SmartMeterRequired = () => {
               </Button>
             </div>
 
-            {/* Email section from ThankYou page */}
             <div className="text-center space-y-4">
               <p className="text-gray-600">Have questions? Email us at:</p>
               <div className="bg-white rounded-lg border border-gray-100 p-4 max-w-lg mx-auto">
