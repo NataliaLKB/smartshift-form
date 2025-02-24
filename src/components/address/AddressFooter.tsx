@@ -14,7 +14,7 @@ export const AddressFooter = ({ onBack, onContinue, hideBack, isEnabled, buttonT
   return (
     <footer className="border-t border-gray-200 py-4">
       <div className="px-4">
-        <div className="flex gap-4 sm:gap-0 sm:justify-between items-center">
+        <div className={`flex gap-4 ${!hideBack ? 'sm:justify-between' : 'sm:justify-end'} items-center`}>
           {!hideBack ? (
             <Button
               variant="ghost"
