@@ -1,6 +1,6 @@
 
 import { Button } from "@/components/ui/button";
-import { Clock, BarChart3, Plug, ArrowRight, ExternalLink } from "lucide-react";
+import { Clock, BarChart3, Plug, ArrowRight, ExternalLink, AlertCircle } from "lucide-react";
 import { AddressHeader } from "@/components/address/AddressHeader";
 
 const SmartMeterRequired = () => {
@@ -11,7 +11,10 @@ const SmartMeterRequired = () => {
         <div className="container max-w-4xl mx-auto px-4 py-8">
           <div className="space-y-6">
             <div className="space-y-6">
-              <h1 className="text-2xl font-bold">Smart Meter Required</h1>
+              <div className="flex items-center gap-2">
+                <AlertCircle className="w-6 h-6 text-red-500" />
+                <h1 className="text-2xl font-bold">Smart Meter Required</h1>
+              </div>
               
               <p className="text-base text-gray-600">
                 To find you the best smart tariff for your home, we need to understand your energy usage patterns throughout the day. This is only possible with a smart meter.
