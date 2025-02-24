@@ -14,27 +14,11 @@ export const AddressFooter = ({ onBack, onContinue, hideBack, isEnabled, buttonT
   return (
     <footer className="border-t border-gray-200 py-4">
       <div className="px-4">
-        <div className="flex gap-4 sm:gap-0 sm:justify-between items-center">
-          {!hideBack ? (
-            <Button
-              variant="ghost"
-              onClick={onBack}
-              className="w-[50%] sm:w-auto items-center gap-2 border border-gray-300 sm:border-0"
-            >
-              <img
-                src="https://cdn.builder.io/api/v1/image/assets/724db77970f24a8fa58bdac1fccbfc40/3088113d385bec4808d969710b2d1f13b4a453c31e6e961a026aaecf24f42d05"
-                alt="Back"
-                className="w-4 h-4"
-              />
-              Back
-            </Button>
-          ) : (
-            <div className="w-[50%] sm:hidden" />
-          )}
+        <div className="flex justify-end items-center">
           <Button
             onClick={onContinue}
             disabled={!isEnabled}
-            className={`w-[50%] sm:w-auto items-center gap-2 ${
+            className={`w-auto items-center gap-2 ${
               isEnabled 
                 ? 'bg-[#00CED1] hover:bg-[#00CED1]/90 text-black' 
                 : 'bg-white border border-gray-300 text-gray-500 hover:bg-gray-50'
