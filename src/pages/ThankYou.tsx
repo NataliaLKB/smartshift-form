@@ -60,7 +60,7 @@ const ThankYou = () => {
             </div>
 
             <div className="space-y-4">
-              <p className="text-gray-600">We'll keep you updated via email. If you have any questions, contact us at:</p>
+              <p className="text-gray-600">Have questions? Email us at:</p>
               <div className="bg-white rounded-lg border border-gray-100 p-4 max-w-lg mx-auto">
                 <a 
                   href="mailto:hello@smartshift.energy" 
