@@ -12,7 +12,7 @@ const SmartMeterRequired = () => {
           <div className="space-y-6">
             <div className="space-y-6">
               <div className="flex items-center gap-2">
-                <AlertCircle className="w-6 h-6 text-red-500" />
+                <AlertCircle className="w-6 h-6 text-gray-500" />
                 <h1 className="text-2xl font-bold">Smart Meter Required</h1>
               </div>
               
