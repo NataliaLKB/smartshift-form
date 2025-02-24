@@ -3,7 +3,7 @@ import React from 'react';
 import { AddressHeader } from '@/components/address/AddressHeader';
 import { AddressFooter } from '@/components/address/AddressFooter';
 import { useNavigate } from 'react-router-dom';
-import { FileText, Database, CheckCircle2, BarChart3 } from 'lucide-react';
+import { FileText, Database, CheckCircle2, BarChart3, Mail } from 'lucide-react';
 
 const ThankYou = () => {
   const navigate = useNavigate();
@@ -53,8 +53,11 @@ const ThankYou = () => {
                 </div>
               </div>
               <div className="mt-6 pt-6 border-t border-gray-100">
-                <div className="text-center">
-                  <p className="text-sm text-[#1E40AF]">We'll keep you updated via email at each step of the process</p>
+                <div className="flex items-center justify-center gap-2 bg-primary/5 rounded-lg p-4">
+                  <Mail className="w-5 h-5 text-primary" />
+                  <p className="text-sm font-medium text-primary">
+                    We'll keep you updated via email at each step of the process
+                  </p>
                 </div>
               </div>
             </div>
