@@ -82,7 +82,7 @@ const ThankYou = () => {
         onContinue={() => navigate('/')}
         buttonText="Return to homepage"
         isEnabled={true}
-        className="[&>div]:px-0 sm:[&>div]:px-4 [&>div]:w-full [&>div>div]:w-full [&>div>div]:justify-center"
+        className="[&>div]:px-0 sm:[&>div]:px-4 [&>div]:w-full [&>div>div]:w-full [&>div>div]:justify-center [&>div>div>*]:flex-1"
       />
     </div>
   );
