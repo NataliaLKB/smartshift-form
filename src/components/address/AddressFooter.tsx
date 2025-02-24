@@ -8,11 +8,19 @@ interface AddressFooterProps {
   hideBack?: boolean;
   isEnabled?: boolean;
   buttonText?: string;
+  className?: string;
 }
 
-export const AddressFooter = ({ onBack, onContinue, hideBack, isEnabled, buttonText = "Continue" }: AddressFooterProps) => {
+export const AddressFooter = ({ 
+  onBack, 
+  onContinue, 
+  hideBack, 
+  isEnabled, 
+  buttonText = "Continue",
+  className = "" 
+}: AddressFooterProps) => {
   return (
-    <footer className="border-t border-gray-200 py-4">
+    <footer className={`border-t border-gray-200 py-4 ${className}`}>
       <div className="px-4">
         <div className={`flex gap-4 ${!hideBack ? 'sm:justify-between' : 'sm:justify-end'} items-center`}>
           {!hideBack ? (

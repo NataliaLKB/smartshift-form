@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { AddressHeader } from '@/components/address/AddressHeader';
 import { AddressFooter } from '@/components/address/AddressFooter';
@@ -81,6 +82,7 @@ const ThankYou = () => {
         onContinue={() => navigate('/')}
         buttonText="Return to homepage"
         isEnabled={true}
+        className="[&_button]:w-full sm:[&_button]:w-auto"
       />
     </div>
   );
