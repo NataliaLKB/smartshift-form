@@ -14,6 +14,7 @@ import ThankYou from "./pages/ThankYou";
 import NotFound from "./pages/NotFound";
 import SmartMeterRequired from "./pages/SmartMeterRequired";
 import ImportExport from "./pages/ImportExport";
+import Landing from "./pages/Landing";
 
 const queryClient = new QueryClient();
 
@@ -24,7 +25,8 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<PersonalDetails />} />
+          <Route path="/" element={<Landing />} />
+          <Route path="/personal-details" element={<PersonalDetails />} />
           <Route path="/address" element={<Index />} />
           <Route path="/import-export" element={<ImportExport />} />
           <Route path="/devices" element={<Devices />} />
