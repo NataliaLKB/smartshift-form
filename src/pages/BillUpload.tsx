@@ -232,7 +232,7 @@ const BillUpload = () => {
 
       <AddressFooter
         onBack={() => navigate('/import-export')}
-        onContinue={() => navigate('/tariff')}
+        onContinue={() => navigate('/tariff', { state: { assessmentType }})}
         isEnabled={isValid}
       />
     </div>
