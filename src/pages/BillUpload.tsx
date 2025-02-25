@@ -142,7 +142,7 @@ const BillUpload = () => {
               </div>
 
               <div className="space-y-2">
-                <Label>Upload your import bill</Label>
+                <Label>Upload your {assessmentType === 'import-export' ? 'import' : 'electricity'} bill</Label>
                 <div
                   className={cn(
                     "border-2 border-dashed rounded-lg p-8 text-center cursor-pointer transition-colors",
@@ -172,7 +172,7 @@ const BillUpload = () => {
                         <CalendarIcon className="h-8 w-8 text-gray-400" />
                       </div>
                       <div>
-                        <p>Drop your import bill here, or <span className="text-primary">browse</span></p>
+                        <p>Drop your {assessmentType === 'import-export' ? 'import' : 'electricity'} bill here, or <span className="text-primary">browse</span></p>
                         <p className="text-sm text-gray-500 mt-1">Supports PDF, JPG, PNG</p>
                       </div>
                     </div>
