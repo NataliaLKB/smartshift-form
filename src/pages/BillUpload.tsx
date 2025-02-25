@@ -110,7 +110,7 @@ const BillUpload = () => {
               <h1 className="text-2xl font-bold">When did you move in?</h1>
               <p className="text-gray-500 mt-2">Enter your move-in date and upload a recent energy bill for accurate assessment</p>
               {assessmentType === 'import-export' && (
-                <p className="text-sm text-gray-500 mt-2 p-4 bg-gray-50 rounded-lg">
+                <p className="text-sm text-gray-500 mt-2 p-4 bg-blue-50 border border-blue-100 rounded-lg">
                   Note: Sometimes import and export information appears on the same bill, and sometimes they're separate bills. That's why we've made the export bill upload optional - just upload what you have!
                 </p>
               )}
