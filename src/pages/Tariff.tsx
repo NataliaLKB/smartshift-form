@@ -48,12 +48,20 @@ const Tariff = () => {
 
               <div className="space-y-4">
                 <div className="space-y-2">
-                  <Label>What is your import tariff?</Label>
+                  <Label>
+                    {assessmentType === 'import-export' 
+                      ? "What is your import tariff?"
+                      : "What is your tariff?"
+                    }
+                  </Label>
                   <Input
                     type="text"
                     value={importTariff}
                     onChange={(e) => setImportTariff(e.target.value)}
-                    placeholder="Enter your electricity import tariff name"
+                    placeholder={assessmentType === 'import-export' 
+                      ? "Enter your electricity import tariff name"
+                      : "Enter your electricity tariff name"
+                    }
                   />
                   <p className="text-sm text-gray-500">You can find this information on your bill</p>
                 </div>
