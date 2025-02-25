@@ -23,7 +23,7 @@ const ImportExport = () => {
                 <p className="text-xs text-gray-500">Type of assessment</p>
               </div>
               <Progress value={50} className="h-1 mb-6" />
-              <h1 className="text-2xl font-bold">Do you generate electricity?</h1>
+              <h1 className="text-2xl font-bold">What type of assessment would you like?</h1>
               <p className="text-gray-500 mt-2">Choose whether you want recommendations for importing electricity only, or for both importing and exporting</p>
             </div>
 
