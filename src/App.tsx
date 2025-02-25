@@ -13,6 +13,7 @@ import Feedback from "./pages/Feedback";
 import ThankYou from "./pages/ThankYou";
 import NotFound from "./pages/NotFound";
 import SmartMeterRequired from "./pages/SmartMeterRequired";
+import ImportExport from "./pages/ImportExport";
 
 const queryClient = new QueryClient();
 
@@ -25,6 +26,7 @@ const App = () => (
         <Routes>
           <Route path="/" element={<PersonalDetails />} />
           <Route path="/address" element={<Index />} />
+          <Route path="/import-export" element={<ImportExport />} />
           <Route path="/devices" element={<Devices />} />
           <Route path="/bill-upload" element={<BillUpload />} />
           <Route path="/tariff" element={<Tariff />} />
