@@ -6,6 +6,7 @@ interface AddressFooterProps {
   onBack?: () => void;
   onContinue: () => void;
   hideBack?: boolean;
+  hideContinue?: boolean;
   isEnabled?: boolean;
   buttonText?: string;
   className?: string;
@@ -15,6 +16,7 @@ export const AddressFooter = ({
   onBack, 
   onContinue, 
   hideBack, 
+  hideContinue,
   isEnabled, 
   buttonText = "Continue",
   className = "" 
@@ -39,31 +41,33 @@ export const AddressFooter = ({
           ) : (
             <div className="w-[50%] sm:hidden" />
           )}
-          <Button
-            onClick={onContinue}
-            disabled={!isEnabled}
-            className={`w-[50%] sm:w-auto items-center gap-2 ${
-              isEnabled 
-                ? 'bg-[#00CED1] hover:bg-[#00CED1]/90 text-black' 
-                : 'bg-white border border-gray-300 text-gray-500 hover:bg-gray-50'
-            }`}
-          >
-            {buttonText}
-            <svg 
-              xmlns="http://www.w3.org/2000/svg" 
-              viewBox="0 0 24 24"
-              className="w-4 h-4"
+          {!hideContinue && (
+            <Button
+              onClick={onContinue}
+              disabled={!isEnabled}
+              className={`w-[50%] sm:w-auto items-center gap-2 ${
+                isEnabled 
+                  ? 'bg-[#00CED1] hover:bg-[#00CED1]/90 text-black' 
+                  : 'bg-white border border-gray-300 text-gray-500 hover:bg-gray-50'
+              }`}
             >
-              <path 
-                d="M13.5 4.5L21 12L13.5 19.5M3 12H20.5" 
-                stroke="currentColor" 
-                stroke-width="2" 
-                stroke-linecap="round" 
-                stroke-linejoin="round"
-                fill="none"
-              />
-            </svg>
-          </Button>
+              {buttonText}
+              <svg 
+                xmlns="http://www.w3.org/2000/svg" 
+                viewBox="0 0 24 24"
+                className="w-4 h-4"
+              >
+                <path 
+                  d="M13.5 4.5L21 12L13.5 19.5M3 12H20.5" 
+                  stroke="currentColor" 
+                  stroke-width="2" 
+                  stroke-linecap="round" 
+                  stroke-linejoin="round"
+                  fill="none"
+                />
+              </svg>
+            </Button>
+          )}
         </div>
       </div>
     </footer>
