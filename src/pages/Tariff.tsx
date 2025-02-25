@@ -3,13 +3,25 @@ import React, { useState } from 'react';
 import { AddressHeader } from '@/components/address/AddressHeader';
 import { AddressFooter } from '@/components/address/AddressFooter';
 import { Progress } from '@/components/ui/progress';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 
+interface LocationState {
+  assessmentType: 'import-only' | 'import-export';
+}
+
 const Tariff = () => {
   const navigate = useNavigate();
-  const [tariff, setTariff] = useState("");
+  const location = useLocation();
+  const { assessmentType } = (location.state as LocationState) || { assessmentType: 'import-only' };
+  
+  const [importTariff, setImportTariff] = useState("");
+  const [exportTariff, setExportTariff] = useState("");
+
+  const isValid = assessmentType === 'import-only' 
+    ? importTariff.trim().length > 0
+    : importTariff.trim().length > 0;  // For import-export, we only require import tariff as export might be optional
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -36,15 +48,28 @@ const Tariff = () => {
 
               <div className="space-y-4">
                 <div className="space-y-2">
-                  <Label>What is your tariff?</Label>
+                  <Label>What is your import tariff?</Label>
                   <Input
                     type="text"
-                    value={tariff}
-                    onChange={(e) => setTariff(e.target.value)}
-                    placeholder="Enter your electricity tariff name"
+                    value={importTariff}
+                    onChange={(e) => setImportTariff(e.target.value)}
+                    placeholder="Enter your electricity import tariff name"
                   />
                   <p className="text-sm text-gray-500">You can find this information on your bill</p>
                 </div>
+
+                {assessmentType === 'import-export' && (
+                  <div className="space-y-2">
+                    <Label>What is your export tariff? (optional)</Label>
+                    <Input
+                      type="text"
+                      value={exportTariff}
+                      onChange={(e) => setExportTariff(e.target.value)}
+                      placeholder="Enter your electricity export tariff name"
+                    />
+                    <p className="text-sm text-gray-500">This might be on a separate export bill if you have one</p>
+                  </div>
+                )}
               </div>
             </div>
           </div>
@@ -52,9 +77,9 @@ const Tariff = () => {
       </main>
 
       <AddressFooter
-        onBack={() => navigate('/bill-upload')}
+        onBack={() => navigate('/bill-upload', { state: { assessmentType }})}
         onContinue={() => navigate('/feedback')}
-        isEnabled={tariff.trim().length > 0}
+        isEnabled={isValid}
       />
     </div>
   );
