@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { AddressHeader } from '@/components/address/AddressHeader';
 import { AddressFooter } from '@/components/address/AddressFooter';
 import { Progress } from '@/components/ui/progress';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { format, parse } from "date-fns";
 import { Calendar } from "@/components/ui/calendar";
 import { Label } from "@/components/ui/label";
@@ -12,12 +12,21 @@ import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover
 import { CalendarIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
 
+interface LocationState {
+  assessmentType: 'import-only' | 'import-export';
+}
+
 const BillUpload = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+  const { assessmentType } = (location.state as LocationState) || { assessmentType: 'import-only' };
+  
   const [date, setDate] = useState<Date>();
   const [inputValue, setInputValue] = useState("");
-  const [file, setFile] = useState<File | null>(null);
-  const [isDragging, setIsDragging] = useState(false);
+  const [importFile, setImportFile] = useState<File | null>(null);
+  const [exportFile, setExportFile] = useState<File | null>(null);
+  const [isDraggingImport, setIsDraggingImport] = useState(false);
+  const [isDraggingExport, setIsDraggingExport] = useState(false);
 
   const handleDateInput = (value: string) => {
     setInputValue(value);
@@ -38,32 +47,52 @@ const BillUpload = () => {
     }
   };
 
-  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>, type: 'import' | 'export') => {
     if (event.target.files && event.target.files[0]) {
-      setFile(event.target.files[0]);
+      if (type === 'import') {
+        setImportFile(event.target.files[0]);
+      } else {
+        setExportFile(event.target.files[0]);
+      }
     }
   };
 
-  const handleDragOver = (e: React.DragEvent) => {
+  const handleDragOver = (e: React.DragEvent, type: 'import' | 'export') => {
     e.preventDefault();
-    setIsDragging(true);
+    if (type === 'import') {
+      setIsDraggingImport(true);
+    } else {
+      setIsDraggingExport(true);
+    }
   };
 
-  const handleDragLeave = (e: React.DragEvent) => {
+  const handleDragLeave = (e: React.DragEvent, type: 'import' | 'export') => {
     e.preventDefault();
-    setIsDragging(false);
+    if (type === 'import') {
+      setIsDraggingImport(false);
+    } else {
+      setIsDraggingExport(false);
+    }
   };
 
-  const handleDrop = (e: React.DragEvent) => {
+  const handleDrop = (e: React.DragEvent, type: 'import' | 'export') => {
     e.preventDefault();
-    setIsDragging(false);
+    if (type === 'import') {
+      setIsDraggingImport(false);
+    } else {
+      setIsDraggingExport(false);
+    }
     
     if (e.dataTransfer.files && e.dataTransfer.files[0]) {
-      setFile(e.dataTransfer.files[0]);
+      if (type === 'import') {
+        setImportFile(e.dataTransfer.files[0]);
+      } else {
+        setExportFile(e.dataTransfer.files[0]);
+      }
     }
   };
 
-  const isValid = date !== undefined && file !== null;
+  const isValid = date !== undefined && importFile !== null && (assessmentType === 'import-only' || assessmentType === 'import-export');
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -113,29 +142,29 @@ const BillUpload = () => {
               </div>
 
               <div className="space-y-2">
-                <Label>Upload your recent bill</Label>
+                <Label>Upload your import bill</Label>
                 <div
                   className={cn(
                     "border-2 border-dashed rounded-lg p-8 text-center cursor-pointer transition-colors",
-                    isDragging ? "border-primary bg-primary/5" : "border-gray-200",
-                    file && "border-primary bg-primary/5"
+                    isDraggingImport ? "border-primary bg-primary/5" : "border-gray-200",
+                    importFile && "border-primary bg-primary/5"
                   )}
-                  onDragOver={handleDragOver}
-                  onDragLeave={handleDragLeave}
-                  onDrop={handleDrop}
-                  onClick={() => document.getElementById('file-upload')?.click()}
+                  onDragOver={(e) => handleDragOver(e, 'import')}
+                  onDragLeave={(e) => handleDragLeave(e, 'import')}
+                  onDrop={(e) => handleDrop(e, 'import')}
+                  onClick={() => document.getElementById('import-file-upload')?.click()}
                 >
                   <input
                     type="file"
-                    id="file-upload"
+                    id="import-file-upload"
                     className="hidden"
                     accept=".pdf,.jpg,.jpeg,.png"
-                    onChange={handleFileChange}
+                    onChange={(e) => handleFileChange(e, 'import')}
                   />
-                  {file ? (
+                  {importFile ? (
                     <div className="flex items-center justify-center gap-2">
                       <CalendarIcon className="h-6 w-6 text-gray-400" />
-                      <span className="text-sm">{file.name}</span>
+                      <span className="text-sm">{importFile.name}</span>
                     </div>
                   ) : (
                     <div className="space-y-2">
@@ -143,20 +172,61 @@ const BillUpload = () => {
                         <CalendarIcon className="h-8 w-8 text-gray-400" />
                       </div>
                       <div>
-                        <p>Drop your file here, or <span className="text-primary">browse</span></p>
+                        <p>Drop your import bill here, or <span className="text-primary">browse</span></p>
                         <p className="text-sm text-gray-500 mt-1">Supports PDF, JPG, PNG</p>
                       </div>
                     </div>
                   )}
                 </div>
               </div>
+
+              {assessmentType === 'import-export' && (
+                <div className="space-y-2">
+                  <Label>Upload your export bill (optional)</Label>
+                  <div
+                    className={cn(
+                      "border-2 border-dashed rounded-lg p-8 text-center cursor-pointer transition-colors",
+                      isDraggingExport ? "border-primary bg-primary/5" : "border-gray-200",
+                      exportFile && "border-primary bg-primary/5"
+                    )}
+                    onDragOver={(e) => handleDragOver(e, 'export')}
+                    onDragLeave={(e) => handleDragLeave(e, 'export')}
+                    onDrop={(e) => handleDrop(e, 'export')}
+                    onClick={() => document.getElementById('export-file-upload')?.click()}
+                  >
+                    <input
+                      type="file"
+                      id="export-file-upload"
+                      className="hidden"
+                      accept=".pdf,.jpg,.jpeg,.png"
+                      onChange={(e) => handleFileChange(e, 'export')}
+                    />
+                    {exportFile ? (
+                      <div className="flex items-center justify-center gap-2">
+                        <CalendarIcon className="h-6 w-6 text-gray-400" />
+                        <span className="text-sm">{exportFile.name}</span>
+                      </div>
+                    ) : (
+                      <div className="space-y-2">
+                        <div className="flex justify-center">
+                          <CalendarIcon className="h-8 w-8 text-gray-400" />
+                        </div>
+                        <div>
+                          <p>Drop your export bill here, or <span className="text-primary">browse</span></p>
+                          <p className="text-sm text-gray-500 mt-1">Supports PDF, JPG, PNG</p>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              )}
             </div>
           </div>
         </div>
       </main>
 
       <AddressFooter
-        onBack={() => navigate('/devices')}
+        onBack={() => navigate('/import-export')}
         onContinue={() => navigate('/tariff')}
         isEnabled={isValid}
       />
