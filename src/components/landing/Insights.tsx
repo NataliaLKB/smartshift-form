@@ -9,19 +9,22 @@ const articles = [
     icon: <Lightbulb className="w-8 h-8 text-[#038B8D]" />,
     title: "Understanding Smart Meter Benefits",
     description: "Discover how smart meters can help you track and reduce your energy consumption in real-time.",
-    link: "/insights/smart-meters"
+    link: "/insights/smart-meters",
+    image: "/placeholder.svg"
   },
   {
     icon: <LineChart className="w-8 h-8 text-[#038B8D]" />,
     title: "Peak vs Off-Peak Usage",
     description: "Learn how to save money by shifting your energy usage to off-peak hours with smart tariffs.",
-    link: "/insights/peak-hours"
+    link: "/insights/peak-hours",
+    image: "/placeholder.svg"
   },
   {
     icon: <Zap className="w-8 h-8 text-[#038B8D]" />,
     title: "Maximizing Energy Efficiency",
     description: "Tips and tricks to reduce your energy consumption and lower your monthly bills.",
-    link: "/insights/energy-efficiency"
+    link: "/insights/energy-efficiency",
+    image: "/placeholder.svg"
   }
 ];
 
@@ -39,6 +42,13 @@ export const Insights = () => {
         <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {articles.map((article, index) => (
             <Card key={index} className="transition-transform hover:-translate-y-1">
+              <div className="aspect-video relative overflow-hidden">
+                <img 
+                  src={article.image} 
+                  alt={article.title}
+                  className="object-cover w-full h-full"
+                />
+              </div>
               <CardHeader>
                 <div className="mb-4">{article.icon}</div>
                 <CardTitle className="text-xl">{article.title}</CardTitle>
