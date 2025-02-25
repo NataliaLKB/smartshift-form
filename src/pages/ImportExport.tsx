@@ -34,25 +34,25 @@ const ImportExport = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <Button
                 variant="outline"
-                className="w-full p-6 h-auto flex flex-col items-center gap-4 hover:border-primary hover:bg-primary/5"
+                className="w-full p-8 min-h-[200px] h-auto flex flex-col items-center gap-4 hover:border-primary hover:bg-primary/5"
                 onClick={() => handleAssessmentChoice('import-only')}
               >
                 <ArrowDownToLine className="h-8 w-8" />
                 <div className="text-center">
                   <p className="font-semibold mb-2">Import Only</p>
-                  <p className="text-sm text-gray-500">I only want recommendations for buying electricity at the best rates</p>
+                  <p className="text-sm text-gray-500 whitespace-normal">I only want recommendations for buying electricity at the best rates</p>
                 </div>
               </Button>
 
               <Button
                 variant="outline"
-                className="w-full p-6 h-auto flex flex-col items-center gap-4 hover:border-primary hover:bg-primary/5"
+                className="w-full p-8 min-h-[200px] h-auto flex flex-col items-center gap-4 hover:border-primary hover:bg-primary/5"
                 onClick={() => handleAssessmentChoice('import-export')}
               >
                 <ArrowUpFromLine className="h-8 w-8" />
                 <div className="text-center">
                   <p className="font-semibold mb-2">Import & Export</p>
-                  <p className="text-sm text-gray-500">I generate electricity (e.g. solar panels) and want recommendations for both buying and selling</p>
+                  <p className="text-sm text-gray-500 whitespace-normal">I generate electricity (e.g. solar panels) and want recommendations for both buying and selling</p>
                 </div>
               </Button>
             </div>
