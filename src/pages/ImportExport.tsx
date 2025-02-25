@@ -20,7 +20,7 @@ const ImportExport = () => {
             <div>
               <div className="flex justify-between items-center mb-1">
                 <p className="text-sm text-gray-700">Step 3 of 6</p>
-                <p className="text-xs text-gray-500">Import/Export preferences</p>
+                <p className="text-xs text-gray-500">Type of assessment</p>
               </div>
               <Progress value={50} className="h-1 mb-6" />
               <h1 className="text-2xl font-bold">Do you generate electricity?</h1>
