@@ -61,7 +61,7 @@ const ImportExport = () => {
       </main>
 
       <AddressFooter
-        onBack={() => navigate('/address')}
+        onBack={() => navigate('/devices')}
         onContinue={() => navigate('/devices')}
         isEnabled={false}
         hideBack={false}
