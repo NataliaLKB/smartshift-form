@@ -28,7 +28,7 @@ const ImportExport = () => {
               </div>
               <Progress value={50} className="h-1 mb-6" />
               <h1 className="text-2xl font-bold">What type of assessment would you like?</h1>
-              <p className="text-gray-500 mt-2">Choose whether you want recommendations for importing electricity only, or for both importing and exporting</p>
+              <p className="text-gray-500 mt-2">We've detected you have an export meter. Choose whether you want recommendations for importing electricity only, or for both importing and exporting electricity.</p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
