@@ -62,8 +62,8 @@ const ImportExport = () => {
 
       <AddressFooter
         onBack={() => navigate('/devices')}
-        isEnabled={false}
         hideBack={false}
+        hideContinue={true}
         onContinue={() => {}}
       />
     </div>
