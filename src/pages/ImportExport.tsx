@@ -10,6 +10,10 @@ import { Progress } from '@/components/ui/progress';
 const ImportExport = () => {
   const navigate = useNavigate();
 
+  const handleAssessmentChoice = (type: 'import-only' | 'import-export') => {
+    navigate('/bill-upload', { state: { assessmentType: type } });
+  };
+
   return (
     <div className="min-h-screen flex flex-col">
       <AddressHeader />
@@ -31,7 +35,7 @@ const ImportExport = () => {
               <Button
                 variant="outline"
                 className="w-full p-6 h-auto flex flex-col items-center gap-4 hover:border-primary hover:bg-primary/5"
-                onClick={() => navigate('/devices')}
+                onClick={() => handleAssessmentChoice('import-only')}
               >
                 <ArrowDownToLine className="h-8 w-8" />
                 <div className="text-center">
@@ -43,7 +47,7 @@ const ImportExport = () => {
               <Button
                 variant="outline"
                 className="w-full p-6 h-auto flex flex-col items-center gap-4 hover:border-primary hover:bg-primary/5"
-                onClick={() => navigate('/devices')}
+                onClick={() => handleAssessmentChoice('import-export')}
               >
                 <ArrowUpFromLine className="h-8 w-8" />
                 <div className="text-center">
