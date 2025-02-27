@@ -11,6 +11,7 @@ import { Input } from "@/components/ui/input";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { CalendarIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { Checkbox } from "@/components/ui/checkbox";
 
 interface LocationState {
   assessmentType: 'import-only' | 'import-export';
@@ -27,6 +28,7 @@ const BillUpload = () => {
   const [exportFile, setExportFile] = useState<File | null>(null);
   const [isDraggingImport, setIsDraggingImport] = useState(false);
   const [isDraggingExport, setIsDraggingExport] = useState(false);
+  const [hasCombinedBill, setHasCombinedBill] = useState(false);
 
   const handleDateInput = (value: string) => {
     setInputValue(value);
@@ -89,6 +91,15 @@ const BillUpload = () => {
       } else {
         setExportFile(e.dataTransfer.files[0]);
       }
+    }
+  };
+
+  const handleCombinedBillChange = (checked: boolean | "indeterminate") => {
+    const isChecked = checked === true;
+    setHasCombinedBill(isChecked);
+    // If user indicates they have a combined bill, clear any export file they might have uploaded
+    if (isChecked) {
+      setExportFile(null);
     }
   };
 
@@ -186,44 +197,62 @@ const BillUpload = () => {
               </div>
 
               {assessmentType === 'import-export' && (
-                <div className="space-y-2">
-                  <Label>Upload your export bill (optional)</Label>
-                  <div
-                    className={cn(
-                      "border-2 border-dashed rounded-lg p-8 text-center cursor-pointer transition-colors",
-                      isDraggingExport ? "border-primary bg-primary/5" : "border-gray-200",
-                      exportFile && "border-primary bg-primary/5"
-                    )}
-                    onDragOver={(e) => handleDragOver(e, 'export')}
-                    onDragLeave={(e) => handleDragLeave(e, 'export')}
-                    onDrop={(e) => handleDrop(e, 'export')}
-                    onClick={() => document.getElementById('export-file-upload')?.click()}
-                  >
-                    <input
-                      type="file"
-                      id="export-file-upload"
-                      className="hidden"
-                      accept=".pdf,.jpg,.jpeg,.png"
-                      onChange={(e) => handleFileChange(e, 'export')}
+                <>
+                  <div className="flex items-center space-x-2 mt-4">
+                    <Checkbox 
+                      id="combined-bill" 
+                      checked={hasCombinedBill}
+                      onCheckedChange={handleCombinedBillChange}
                     />
-                    {exportFile ? (
-                      <div className="flex items-center justify-center gap-2">
-                        <CalendarIcon className="h-6 w-6 text-gray-400" />
-                        <span className="text-sm">{exportFile.name}</span>
-                      </div>
-                    ) : (
-                      <div className="space-y-2">
-                        <div className="flex justify-center">
-                          <CalendarIcon className="h-8 w-8 text-gray-400" />
-                        </div>
-                        <div>
-                          <p>Drop your export bill here, or <span className="text-primary">browse</span></p>
-                          <p className="text-sm text-gray-500 mt-1">Supports PDF, JPG, PNG</p>
-                        </div>
-                      </div>
-                    )}
+                    <Label 
+                      htmlFor="combined-bill" 
+                      className="text-sm font-medium cursor-pointer leading-tight"
+                    >
+                      My import and export information is on the same bill (I don't have a separate export bill)
+                    </Label>
                   </div>
-                </div>
+
+                  {!hasCombinedBill && (
+                    <div className="space-y-2 mt-4">
+                      <Label>Upload your export bill (optional)</Label>
+                      <div
+                        className={cn(
+                          "border-2 border-dashed rounded-lg p-8 text-center cursor-pointer transition-colors",
+                          isDraggingExport ? "border-primary bg-primary/5" : "border-gray-200",
+                          exportFile && "border-primary bg-primary/5"
+                        )}
+                        onDragOver={(e) => handleDragOver(e, 'export')}
+                        onDragLeave={(e) => handleDragLeave(e, 'export')}
+                        onDrop={(e) => handleDrop(e, 'export')}
+                        onClick={() => document.getElementById('export-file-upload')?.click()}
+                      >
+                        <input
+                          type="file"
+                          id="export-file-upload"
+                          className="hidden"
+                          accept=".pdf,.jpg,.jpeg,.png"
+                          onChange={(e) => handleFileChange(e, 'export')}
+                        />
+                        {exportFile ? (
+                          <div className="flex items-center justify-center gap-2">
+                            <CalendarIcon className="h-6 w-6 text-gray-400" />
+                            <span className="text-sm">{exportFile.name}</span>
+                          </div>
+                        ) : (
+                          <div className="space-y-2">
+                            <div className="flex justify-center">
+                              <CalendarIcon className="h-8 w-8 text-gray-400" />
+                            </div>
+                            <div>
+                              <p>Drop your export bill here, or <span className="text-primary">browse</span></p>
+                              <p className="text-sm text-gray-500 mt-1">Supports PDF, JPG, PNG</p>
+                            </div>
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  )}
+                </>
               )}
             </div>
           </div>
