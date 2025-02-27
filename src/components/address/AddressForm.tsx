@@ -7,6 +7,8 @@ import { AddressSelection } from './AddressSelection';
 import { useIsMobile } from "@/hooks/use-mobile";
 import { cn } from "@/lib/utils";
 import { useToast } from "@/hooks/use-toast";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import { ChevronDown } from "lucide-react";
 
 interface AddressFormProps {
   onValidityChange?: (isValid: boolean) => void;
@@ -15,15 +17,20 @@ interface AddressFormProps {
 export const AddressForm = ({ onValidityChange }: AddressFormProps) => {
   const [postcode, setPostcode] = useState('');
   const [showAddresses, setShowAddresses] = useState(false);
-  const [showDropdown, setShowDropdown] = useState(false);
+  const [popoverOpen, setPopoverOpen] = useState(false);
   const [selectedAddress, setSelectedAddress] = useState<{ street: string; unit: string } | null>(null);
   const isMobile = useIsMobile();
   const { toast } = useToast();
 
+  // For demo purposes, we have a few sample addresses
   const addresses = [
     { street: '123 Main Street', unit: 'Apartment 4B' },
     { street: '123 Main Street', unit: 'Apartment 4C' },
     { street: '123 Main Street', unit: 'Apartment 4D' },
+    { street: '123 Main Street', unit: 'Apartment 5A' },
+    { street: '123 Main Street', unit: 'Apartment 5B' },
+    { street: '123 Main Street', unit: 'Apartment 5C' },
+    { street: '123 Main Street', unit: 'Apartment 6A' },
   ];
 
   const isValidPostcode = (postcode: string) => {
@@ -52,16 +59,11 @@ export const AddressForm = ({ onValidityChange }: AddressFormProps) => {
     }
 
     setShowAddresses(true);
-    setShowDropdown(false);
-  };
-
-  const handleSelectAddressClick = () => {
-    setShowDropdown(!showDropdown);
   };
 
   const handleAddressSelect = (address: { street: string; unit: string }) => {
     setSelectedAddress(address);
-    setShowDropdown(false);
+    setPopoverOpen(false);
   };
 
   useEffect(() => {
@@ -106,21 +108,34 @@ export const AddressForm = ({ onValidityChange }: AddressFormProps) => {
         </div>
 
         {showAddresses && (
-          <>
-            <Button 
-              variant="outline" 
-              className="w-full justify-start"
-              onClick={handleSelectAddressClick}
-            >
-              {selectedAddress ? `${selectedAddress.street}, ${selectedAddress.unit}` : 'Select an address'}
-            </Button>
-            {showDropdown && (
-              <AddressSelection
-                addresses={addresses}
-                onSelect={handleAddressSelect}
-              />
-            )}
-          </>
+          <div className="space-y-2">
+            <Label htmlFor="address">Select your address</Label>
+            <Popover open={popoverOpen} onOpenChange={setPopoverOpen}>
+              <PopoverTrigger asChild>
+                <Button
+                  id="address"
+                  variant="outline"
+                  role="combobox"
+                  aria-expanded={popoverOpen}
+                  className="w-full justify-between"
+                >
+                  <span className="truncate">
+                    {selectedAddress 
+                      ? `${selectedAddress.street}, ${selectedAddress.unit}`
+                      : "Select an address"}
+                  </span>
+                  <ChevronDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+                </Button>
+              </PopoverTrigger>
+              <PopoverContent className="w-full p-0" align="start">
+                <AddressSelection
+                  addresses={addresses}
+                  onSelect={handleAddressSelect}
+                  maxHeight="250px"
+                />
+              </PopoverContent>
+            </Popover>
+          </div>
         )}
       </div>
     </div>
