@@ -131,6 +131,7 @@ export const AddressForm = ({ onValidityChange }: AddressFormProps) => {
                 <AddressSelection
                   addresses={addresses}
                   onSelect={handleAddressSelect}
+                  selectedAddress={selectedAddress}
                   maxHeight="250px"
                 />
               </PopoverContent>
