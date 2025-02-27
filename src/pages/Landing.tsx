@@ -5,6 +5,7 @@ import { Steps } from "@/components/landing/Steps";
 import { Insights } from "@/components/landing/Insights";
 import { Testimonials } from "@/components/landing/Testimonials";
 import { CallToAction } from "@/components/landing/CallToAction";
+import { FinalCallToAction } from "@/components/landing/FinalCallToAction";
 
 const Landing = () => {
   return (
@@ -15,6 +16,7 @@ const Landing = () => {
       <Testimonials />
       <CallToAction />
       <Insights />
+      <FinalCallToAction />
     </div>
   );
 };
