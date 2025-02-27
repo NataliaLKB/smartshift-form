@@ -6,6 +6,7 @@ import { Progress } from '@/components/ui/progress';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
+import { Checkbox } from "@/components/ui/checkbox";
 
 interface LocationState {
   assessmentType: 'import-only' | 'import-export';
@@ -18,6 +19,7 @@ const Tariff = () => {
   
   const [importTariff, setImportTariff] = useState("");
   const [exportTariff, setExportTariff] = useState("");
+  const [singleBill, setSingleBill] = useState(false);
 
   const isValid = assessmentType === 'import-only' 
     ? importTariff.trim().length > 0
@@ -67,16 +69,40 @@ const Tariff = () => {
                 </div>
 
                 {assessmentType === 'import-export' && (
-                  <div className="space-y-2">
-                    <Label>What is your export tariff? (optional)</Label>
-                    <Input
-                      type="text"
-                      value={exportTariff}
-                      onChange={(e) => setExportTariff(e.target.value)}
-                      placeholder="Enter your electricity export tariff name"
-                    />
-                    <p className="text-sm text-gray-500">This might be on a separate export bill if you have one</p>
-                  </div>
+                  <>
+                    <div className="flex items-center space-x-2">
+                      <Checkbox 
+                        id="singleBill" 
+                        checked={singleBill} 
+                        onCheckedChange={(checked) => {
+                          const isChecked = checked === true;
+                          setSingleBill(isChecked);
+                          if (isChecked) {
+                            setExportTariff(""); // Clear export tariff if using single bill
+                          }
+                        }}
+                      />
+                      <Label 
+                        htmlFor="singleBill" 
+                        className="text-sm font-medium cursor-pointer"
+                      >
+                        I have a combined bill for both import and export tariffs
+                      </Label>
+                    </div>
+
+                    {!singleBill && (
+                      <div className="space-y-2">
+                        <Label>What is your export tariff?</Label>
+                        <Input
+                          type="text"
+                          value={exportTariff}
+                          onChange={(e) => setExportTariff(e.target.value)}
+                          placeholder="Enter your electricity export tariff name"
+                        />
+                        <p className="text-sm text-gray-500">This might be on a separate export bill if you have one</p>
+                      </div>
+                    )}
+                  </>
                 )}
               </div>
             </div>
