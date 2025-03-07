@@ -52,8 +52,8 @@ function Calendar({
         day_hidden: "invisible",
         // Enhance the dropdown buttons to look more clickable
         dropdown: "bg-secondary rounded-md p-1 hover:bg-secondary/80 cursor-pointer transition-colors",
-        dropdown_month: "font-medium text-sm",
-        dropdown_year: "font-medium text-sm",
+        dropdown_month: "font-medium text-sm underline underline-offset-2",
+        dropdown_year: "font-medium text-sm underline underline-offset-2",
         dropdown_icon: "opacity-80",
         ...classNames,
       }}
