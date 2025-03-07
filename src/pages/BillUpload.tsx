@@ -9,9 +9,9 @@ import { Calendar } from "@/components/ui/calendar";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
-import { CalendarIcon } from "lucide-react";
+import { CalendarIcon, FileIcon, Files } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { Checkbox } from "@/components/ui/checkbox";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 
 interface LocationState {
   assessmentType: 'import-only' | 'import-export';
@@ -28,7 +28,7 @@ const BillUpload = () => {
   const [exportFile, setExportFile] = useState<File | null>(null);
   const [isDraggingImport, setIsDraggingImport] = useState(false);
   const [isDraggingExport, setIsDraggingExport] = useState(false);
-  const [hasCombinedBill, setHasCombinedBill] = useState(false);
+  const [billType, setBillType] = useState<'combined' | 'separate'>('combined');
 
   const handleDateInput = (value: string) => {
     setInputValue(value);
@@ -94,16 +94,17 @@ const BillUpload = () => {
     }
   };
 
-  const handleCombinedBillChange = (checked: boolean | "indeterminate") => {
-    const isChecked = checked === true;
-    setHasCombinedBill(isChecked);
-    // If user indicates they have a combined bill, clear any export file they might have uploaded
-    if (isChecked) {
+  const handleBillTypeChange = (value: 'combined' | 'separate') => {
+    setBillType(value);
+    if (value === 'combined') {
       setExportFile(null);
     }
   };
 
-  const isValid = date !== undefined && importFile !== null && (assessmentType === 'import-only' || assessmentType === 'import-export');
+  const isValid = date !== undefined && importFile !== null && 
+                (assessmentType === 'import-only' || 
+                (assessmentType === 'import-export' && 
+                    (billType === 'combined' || (billType === 'separate' && exportFile !== null))));
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -120,11 +121,6 @@ const BillUpload = () => {
               <Progress value={66} className="h-1 mb-6" />
               <h1 className="text-2xl font-bold">When did you move in?</h1>
               <p className="text-gray-500 mt-2">Enter your move-in date and upload a recent energy bill for accurate assessment</p>
-              {assessmentType === 'import-export' && (
-                <p className="text-sm text-gray-500 mt-2 p-4 bg-blue-50 border border-blue-100 rounded-lg">
-                  Note: Sometimes import and export information appears on the same bill, and sometimes they're separate bills. That's why we've made the export bill upload optional - just upload what you have!
-                </p>
-              )}
             </div>
 
             <div className="space-y-4">
@@ -158,18 +154,46 @@ const BillUpload = () => {
               </div>
 
               {assessmentType === 'import-export' && (
-                <div className="flex items-center space-x-2">
-                  <Checkbox 
-                    id="combined-bill" 
-                    checked={hasCombinedBill}
-                    onCheckedChange={handleCombinedBillChange}
-                  />
-                  <Label 
-                    htmlFor="combined-bill" 
-                    className="text-sm font-medium cursor-pointer leading-tight"
+                <div className="p-4 bg-blue-50 border border-blue-100 rounded-lg space-y-4">
+                  <p className="text-sm text-blue-700 font-medium">How are your import and export details billed?</p>
+                  
+                  <RadioGroup 
+                    value={billType} 
+                    onValueChange={(value) => handleBillTypeChange(value as 'combined' | 'separate')}
+                    className="grid grid-cols-1 md:grid-cols-2 gap-4"
                   >
-                    My import and export information is on the same bill (I don't have a separate export bill)
-                  </Label>
+                    <div className={cn(
+                      "relative flex items-center space-x-2 rounded-md border p-4 cursor-pointer transition-colors",
+                      billType === 'combined' ? "border-primary bg-primary/5" : "border-gray-200"
+                    )}>
+                      <RadioGroupItem value="combined" id="combined" />
+                      <div className="flex flex-1 items-center justify-between">
+                        <div className="flex items-center space-x-2">
+                          <FileIcon className="h-5 w-5 text-blue-600" />
+                          <Label htmlFor="combined" className="cursor-pointer">
+                            <span className="font-medium">Single Bill</span>
+                            <p className="text-sm text-gray-500">My import and export details are on the same bill</p>
+                          </Label>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div className={cn(
+                      "relative flex items-center space-x-2 rounded-md border p-4 cursor-pointer transition-colors",
+                      billType === 'separate' ? "border-primary bg-primary/5" : "border-gray-200"
+                    )}>
+                      <RadioGroupItem value="separate" id="separate" />
+                      <div className="flex flex-1 items-center justify-between">
+                        <div className="flex items-center space-x-2">
+                          <Files className="h-5 w-5 text-blue-600" />
+                          <Label htmlFor="separate" className="cursor-pointer">
+                            <span className="font-medium">Separate Bills</span>
+                            <p className="text-sm text-gray-500">I have separate bills for import and export</p>
+                          </Label>
+                        </div>
+                      </div>
+                    </div>
+                  </RadioGroup>
                 </div>
               )}
 
@@ -195,13 +219,13 @@ const BillUpload = () => {
                   />
                   {importFile ? (
                     <div className="flex items-center justify-center gap-2">
-                      <CalendarIcon className="h-6 w-6 text-gray-400" />
+                      <FileIcon className="h-6 w-6 text-gray-400" />
                       <span className="text-sm">{importFile.name}</span>
                     </div>
                   ) : (
                     <div className="space-y-2">
                       <div className="flex justify-center">
-                        <CalendarIcon className="h-8 w-8 text-gray-400" />
+                        <FileIcon className="h-8 w-8 text-gray-400" />
                       </div>
                       <div>
                         <p>Drop your {assessmentType === 'import-export' ? 'import' : 'electricity'} bill here, or <span className="text-primary">browse</span></p>
@@ -212,9 +236,9 @@ const BillUpload = () => {
                 </div>
               </div>
 
-              {assessmentType === 'import-export' && !hasCombinedBill && (
+              {assessmentType === 'import-export' && billType === 'separate' && (
                 <div className="space-y-2">
-                  <Label>Upload your export bill (optional)</Label>
+                  <Label>Upload your export bill <span className="font-normal">(required)</span></Label>
                   <div
                     className={cn(
                       "border-2 border-dashed rounded-lg p-8 text-center cursor-pointer transition-colors",
@@ -235,13 +259,13 @@ const BillUpload = () => {
                     />
                     {exportFile ? (
                       <div className="flex items-center justify-center gap-2">
-                        <CalendarIcon className="h-6 w-6 text-gray-400" />
+                        <FileIcon className="h-6 w-6 text-gray-400" />
                         <span className="text-sm">{exportFile.name}</span>
                       </div>
                     ) : (
                       <div className="space-y-2">
                         <div className="flex justify-center">
-                          <CalendarIcon className="h-8 w-8 text-gray-400" />
+                          <FileIcon className="h-8 w-8 text-gray-400" />
                         </div>
                         <div>
                           <p>Drop your export bill here, or <span className="text-primary">browse</span></p>
