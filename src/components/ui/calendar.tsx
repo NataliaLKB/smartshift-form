@@ -55,9 +55,6 @@ function Calendar({
         dropdown_month: "font-medium text-sm",
         dropdown_year: "font-medium text-sm",
         dropdown_icon: "opacity-80",
-        // Add these new classes to style the actual month and year values
-        dropdown_month_value: "underline underline-offset-2",
-        dropdown_year_value: "underline underline-offset-2",
         ...classNames,
       }}
       components={{
