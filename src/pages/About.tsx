@@ -125,7 +125,7 @@ const About = () => {
           </div>
         </section>
         
-        {/* Team Section - Enhanced with better spacing and animations */}
+        {/* Team Section - Updated to show 6 team members with simplified information */}
         <section className="py-20 bg-white">
           <div className="container mx-auto px-4">
             <h2 className="text-3xl font-bold mb-14 text-center relative">
@@ -134,82 +134,85 @@ const About = () => {
                 <span className="absolute -bottom-2 left-0 w-full h-1 bg-[#038B8D]/30 rounded-full"></span>
               </span>
             </h2>
-            <div className="max-w-5xl mx-auto">
-              <div className="grid md:grid-cols-3 gap-8">
+            <div className="max-w-6xl mx-auto">
+              <div className="grid md:grid-cols-3 gap-6">
                 {/* Team Member 1 */}
                 <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 hover:translate-y-[-5px]">
-                  <div className="p-8 text-center">
-                    <Avatar className="h-28 w-28 mx-auto mb-6 border-4 border-[#038B8D]/20">
+                  <div className="p-6 text-center">
+                    <Avatar className="h-24 w-24 mx-auto mb-4 border-4 border-[#038B8D]/20">
                       <AvatarFallback className="bg-[#038B8D]/10 text-[#038B8D] text-xl font-bold">
                         SJ
                       </AvatarFallback>
                     </Avatar>
                     <h3 className="text-xl font-bold">Sarah Johnson</h3>
-                    <p className="text-[#038B8D] mb-3">CEO & Founder</p>
-                    <Separator className="my-4" />
-                    <p className="text-gray-600 text-sm mb-5">
-                      Energy industry veteran with 15+ years of experience in renewable energy and market analysis.
-                    </p>
-                    <div className="flex items-center justify-center space-x-3 text-gray-500">
-                      <div className="flex items-center bg-gray-50 px-3 py-1 rounded-full">
-                        <GraduationCap className="w-4 h-4 mr-1" />
-                        <span className="text-xs">MSc Energy Economics</span>
-                      </div>
-                    </div>
+                    <p className="text-[#038B8D] mb-2">CEO & Founder</p>
                   </div>
                 </div>
 
                 {/* Team Member 2 */}
                 <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 hover:translate-y-[-5px]">
-                  <div className="p-8 text-center">
-                    <Avatar className="h-28 w-28 mx-auto mb-6 border-4 border-[#038B8D]/20">
+                  <div className="p-6 text-center">
+                    <Avatar className="h-24 w-24 mx-auto mb-4 border-4 border-[#038B8D]/20">
                       <AvatarFallback className="bg-[#038B8D]/10 text-[#038B8D] text-xl font-bold">
                         DR
                       </AvatarFallback>
                     </Avatar>
                     <h3 className="text-xl font-bold">David Roberts</h3>
-                    <p className="text-[#038B8D] mb-3">CTO</p>
-                    <Separator className="my-4" />
-                    <p className="text-gray-600 text-sm mb-5">
-                      Tech innovator specializing in data analytics and smart energy systems architecture.
-                    </p>
-                    <div className="flex items-center justify-center space-x-3 text-gray-500">
-                      <div className="flex items-center bg-gray-50 px-3 py-1 rounded-full">
-                        <Briefcase className="w-4 h-4 mr-1" />
-                        <span className="text-xs">Ex-Google, Tesla</span>
-                      </div>
-                    </div>
+                    <p className="text-[#038B8D] mb-2">CTO</p>
                   </div>
                 </div>
 
                 {/* Team Member 3 */}
                 <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 hover:translate-y-[-5px]">
-                  <div className="p-8 text-center">
-                    <Avatar className="h-28 w-28 mx-auto mb-6 border-4 border-[#038B8D]/20">
+                  <div className="p-6 text-center">
+                    <Avatar className="h-24 w-24 mx-auto mb-4 border-4 border-[#038B8D]/20">
                       <AvatarFallback className="bg-[#038B8D]/10 text-[#038B8D] text-xl font-bold">
                         MP
                       </AvatarFallback>
                     </Avatar>
                     <h3 className="text-xl font-bold">Maya Patel</h3>
-                    <p className="text-[#038B8D] mb-3">Head of Customer Success</p>
-                    <Separator className="my-4" />
-                    <p className="text-gray-600 text-sm mb-5">
-                      Passionate about helping homeowners navigate complex energy decisions with confidence.
-                    </p>
-                    <div className="flex items-center justify-center space-x-3 text-gray-500">
-                      <div className="flex items-center bg-gray-50 px-3 py-1 rounded-full">
-                        <Users className="w-4 h-4 mr-1" />
-                        <span className="text-xs">10k+ Customers Helped</span>
-                      </div>
-                    </div>
+                    <p className="text-[#038B8D] mb-2">Head of Customer Success</p>
                   </div>
                 </div>
-              </div>
-              
-              <div className="text-center mt-14">
-                <p className="text-gray-600 max-w-2xl mx-auto leading-relaxed">
-                  Our team combines expertise in energy markets, technology, and customer service to provide you with the best possible experience on your journey to smarter energy consumption.
-                </p>
+                
+                {/* Team Member 4 */}
+                <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 hover:translate-y-[-5px]">
+                  <div className="p-6 text-center">
+                    <Avatar className="h-24 w-24 mx-auto mb-4 border-4 border-[#038B8D]/20">
+                      <AvatarFallback className="bg-[#038B8D]/10 text-[#038B8D] text-xl font-bold">
+                        JL
+                      </AvatarFallback>
+                    </Avatar>
+                    <h3 className="text-xl font-bold">James Lee</h3>
+                    <p className="text-[#038B8D] mb-2">Lead Developer</p>
+                  </div>
+                </div>
+                
+                {/* Team Member 5 */}
+                <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 hover:translate-y-[-5px]">
+                  <div className="p-6 text-center">
+                    <Avatar className="h-24 w-24 mx-auto mb-4 border-4 border-[#038B8D]/20">
+                      <AvatarFallback className="bg-[#038B8D]/10 text-[#038B8D] text-xl font-bold">
+                        EC
+                      </AvatarFallback>
+                    </Avatar>
+                    <h3 className="text-xl font-bold">Emma Chen</h3>
+                    <p className="text-[#038B8D] mb-2">Data Scientist</p>
+                  </div>
+                </div>
+                
+                {/* Team Member 6 */}
+                <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 hover:translate-y-[-5px]">
+                  <div className="p-6 text-center">
+                    <Avatar className="h-24 w-24 mx-auto mb-4 border-4 border-[#038B8D]/20">
+                      <AvatarFallback className="bg-[#038B8D]/10 text-[#038B8D] text-xl font-bold">
+                        RH
+                      </AvatarFallback>
+                    </Avatar>
+                    <h3 className="text-xl font-bold">Robert Harris</h3>
+                    <p className="text-[#038B8D] mb-2">Energy Specialist</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
