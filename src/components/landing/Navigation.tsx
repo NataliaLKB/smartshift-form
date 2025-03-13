@@ -11,10 +11,10 @@ export const Navigation = () => {
           <Logo />
           
           <div className="hidden md:flex items-center space-x-8">
-            <Link to="/about" className="text-gray-600 hover:text-gray-900">About</Link>
-            <Link to="#insights" className="text-gray-600 hover:text-gray-900">Insights</Link>
-            <Link to="#faq" className="text-gray-600 hover:text-gray-900">FAQ</Link>
-            <Link to="#contact" className="text-gray-600 hover:text-gray-900">Contact</Link>
+            <Link to="/about" className="text-gray-600 hover:text-[#038B8D] transition-colors duration-200">About</Link>
+            <Link to="#insights" className="text-gray-600 hover:text-[#038B8D] transition-colors duration-200">Insights</Link>
+            <Link to="#faq" className="text-gray-600 hover:text-[#038B8D] transition-colors duration-200">FAQ</Link>
+            <Link to="#contact" className="text-gray-600 hover:text-[#038B8D] transition-colors duration-200">Contact</Link>
           </div>
 
           <Button asChild>
