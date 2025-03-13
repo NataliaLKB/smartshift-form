@@ -1,7 +1,8 @@
 
 import { Navigation } from "@/components/landing/Navigation";
 import { FinalCallToAction } from "@/components/landing/FinalCallToAction";
-import { Info, Users, Zap, Globe } from "lucide-react";
+import { Info, Users, Zap, Globe, BarChart, ArrowRight } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
 
 const About = () => {
   return (
@@ -35,6 +36,70 @@ const About = () => {
               <p className="text-lg text-gray-600">
                 Our goal is to empower you to make informed decisions that benefit both your wallet and the planet.
               </p>
+            </div>
+          </div>
+        </section>
+        
+        {/* Services Section */}
+        <section className="py-16 bg-white">
+          <div className="container mx-auto px-4">
+            <h2 className="text-3xl font-bold mb-12 text-center">Our Services</h2>
+            <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+              <Card className="overflow-hidden border-2 border-[#038B8D]/20 hover:shadow-lg transition-shadow duration-300">
+                <div className="bg-[#038B8D]/10 p-6">
+                  <div className="inline-flex p-3 bg-white rounded-full mb-4">
+                    <BarChart className="w-8 h-8 text-[#038B8D]" />
+                  </div>
+                  <h3 className="text-2xl font-bold mb-2">Smart Tariff Matching</h3>
+                </div>
+                <CardContent className="pt-6">
+                  <p className="text-gray-600 mb-4">
+                    We analyze your energy usage patterns and match you with the most suitable smart tariff options from trusted providers.
+                  </p>
+                  <ul className="space-y-2 text-gray-600 mb-6">
+                    <li className="flex items-start">
+                      <ArrowRight className="w-5 h-5 text-[#038B8D] mr-2 mt-0.5 flex-shrink-0" />
+                      <span>Personalized recommendations based on your consumption</span>
+                    </li>
+                    <li className="flex items-start">
+                      <ArrowRight className="w-5 h-5 text-[#038B8D] mr-2 mt-0.5 flex-shrink-0" />
+                      <span>Comparison of potential savings across different tariffs</span>
+                    </li>
+                    <li className="flex items-start">
+                      <ArrowRight className="w-5 h-5 text-[#038B8D] mr-2 mt-0.5 flex-shrink-0" />
+                      <span>Clear breakdown of terms and conditions</span>
+                    </li>
+                  </ul>
+                </CardContent>
+              </Card>
+              
+              <Card className="overflow-hidden border-2 border-[#038B8D]/20 hover:shadow-lg transition-shadow duration-300">
+                <div className="bg-[#038B8D]/10 p-6">
+                  <div className="inline-flex p-3 bg-white rounded-full mb-4">
+                    <Zap className="w-8 h-8 text-[#038B8D]" />
+                  </div>
+                  <h3 className="text-2xl font-bold mb-2">Energy Optimization</h3>
+                </div>
+                <CardContent className="pt-6">
+                  <p className="text-gray-600 mb-4">
+                    We help you make the most of your smart tariff by identifying opportunities to optimize your energy consumption.
+                  </p>
+                  <ul className="space-y-2 text-gray-600 mb-6">
+                    <li className="flex items-start">
+                      <ArrowRight className="w-5 h-5 text-[#038B8D] mr-2 mt-0.5 flex-shrink-0" />
+                      <span>Smart device usage recommendations</span>
+                    </li>
+                    <li className="flex items-start">
+                      <ArrowRight className="w-5 h-5 text-[#038B8D] mr-2 mt-0.5 flex-shrink-0" />
+                      <span>Peak and off-peak consumption guidance</span>
+                    </li>
+                    <li className="flex items-start">
+                      <ArrowRight className="w-5 h-5 text-[#038B8D] mr-2 mt-0.5 flex-shrink-0" />
+                      <span>Renewable energy integration advice</span>
+                    </li>
+                  </ul>
+                </CardContent>
+              </Card>
             </div>
           </div>
         </section>
