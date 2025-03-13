@@ -1,8 +1,10 @@
 
 import { Navigation } from "@/components/landing/Navigation";
 import { FinalCallToAction } from "@/components/landing/FinalCallToAction";
-import { Info, Users, Zap, Globe, BarChart, ArrowRight } from "lucide-react";
+import { Info, Users, Zap, Globe, BarChart, ArrowRight, Briefcase, GraduationCap, Mail, Linkedin } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
+import { Separator } from "@/components/ui/separator";
 
 const About = () => {
   return (
@@ -100,6 +102,91 @@ const About = () => {
                   </ul>
                 </CardContent>
               </Card>
+            </div>
+          </div>
+        </section>
+        
+        {/* Team Section */}
+        <section className="py-16 bg-gray-50">
+          <div className="container mx-auto px-4">
+            <h2 className="text-3xl font-bold mb-12 text-center">Meet Our Team</h2>
+            <div className="max-w-5xl mx-auto">
+              <div className="grid md:grid-cols-3 gap-8">
+                {/* Team Member 1 */}
+                <div className="bg-white rounded-lg shadow-sm overflow-hidden">
+                  <div className="p-6 text-center">
+                    <Avatar className="h-24 w-24 mx-auto mb-4 border-4 border-[#038B8D]/20">
+                      <AvatarFallback className="bg-[#038B8D]/10 text-[#038B8D] text-xl font-bold">
+                        SJ
+                      </AvatarFallback>
+                    </Avatar>
+                    <h3 className="text-xl font-bold">Sarah Johnson</h3>
+                    <p className="text-[#038B8D] mb-2">CEO & Founder</p>
+                    <Separator className="my-3" />
+                    <p className="text-gray-600 text-sm mb-4">
+                      Energy industry veteran with 15+ years of experience in renewable energy and market analysis.
+                    </p>
+                    <div className="flex items-center justify-center space-x-2 text-gray-500">
+                      <div className="flex items-center">
+                        <GraduationCap className="w-4 h-4 mr-1" />
+                        <span className="text-xs">MSc Energy Economics</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Team Member 2 */}
+                <div className="bg-white rounded-lg shadow-sm overflow-hidden">
+                  <div className="p-6 text-center">
+                    <Avatar className="h-24 w-24 mx-auto mb-4 border-4 border-[#038B8D]/20">
+                      <AvatarFallback className="bg-[#038B8D]/10 text-[#038B8D] text-xl font-bold">
+                        DR
+                      </AvatarFallback>
+                    </Avatar>
+                    <h3 className="text-xl font-bold">David Roberts</h3>
+                    <p className="text-[#038B8D] mb-2">CTO</p>
+                    <Separator className="my-3" />
+                    <p className="text-gray-600 text-sm mb-4">
+                      Tech innovator specializing in data analytics and smart energy systems architecture.
+                    </p>
+                    <div className="flex items-center justify-center space-x-2 text-gray-500">
+                      <div className="flex items-center">
+                        <Briefcase className="w-4 h-4 mr-1" />
+                        <span className="text-xs">Ex-Google, Tesla</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Team Member 3 */}
+                <div className="bg-white rounded-lg shadow-sm overflow-hidden">
+                  <div className="p-6 text-center">
+                    <Avatar className="h-24 w-24 mx-auto mb-4 border-4 border-[#038B8D]/20">
+                      <AvatarFallback className="bg-[#038B8D]/10 text-[#038B8D] text-xl font-bold">
+                        MP
+                      </AvatarFallback>
+                    </Avatar>
+                    <h3 className="text-xl font-bold">Maya Patel</h3>
+                    <p className="text-[#038B8D] mb-2">Head of Customer Success</p>
+                    <Separator className="my-3" />
+                    <p className="text-gray-600 text-sm mb-4">
+                      Passionate about helping homeowners navigate complex energy decisions with confidence.
+                    </p>
+                    <div className="flex items-center justify-center space-x-2 text-gray-500">
+                      <div className="flex items-center">
+                        <Users className="w-4 h-4 mr-1" />
+                        <span className="text-xs">10k+ Customers Helped</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="text-center mt-12">
+                <p className="text-gray-600 max-w-2xl mx-auto">
+                  Our team combines expertise in energy markets, technology, and customer service to provide you with the best possible experience on your journey to smarter energy consumption.
+                </p>
+              </div>
             </div>
           </div>
         </section>
