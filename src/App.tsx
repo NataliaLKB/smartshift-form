@@ -15,6 +15,7 @@ import NotFound from "./pages/NotFound";
 import SmartMeterRequired from "./pages/SmartMeterRequired";
 import ImportExport from "./pages/ImportExport";
 import Landing from "./pages/Landing";
+import About from "./pages/About";
 
 const queryClient = new QueryClient();
 
@@ -26,6 +27,7 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Landing />} />
+          <Route path="/about" element={<About />} />
           <Route path="/personal-details" element={<PersonalDetails />} />
           <Route path="/address" element={<Index />} />
           <Route path="/import-export" element={<ImportExport />} />
