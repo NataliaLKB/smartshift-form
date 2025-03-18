@@ -5,6 +5,8 @@ import { AddressFooter } from '@/components/address/AddressFooter';
 import { Progress } from '@/components/ui/progress';
 import { PersonalDetailsForm } from '@/components/personal/PersonalDetailsForm';
 import { useNavigate } from 'react-router-dom';
+import { Alert, AlertTitle, AlertDescription } from '@/components/ui/alert';
+import { Info } from 'lucide-react';
 
 const PersonalDetails = () => {
   const navigate = useNavigate();
@@ -36,6 +38,14 @@ const PersonalDetails = () => {
               <h1 className="text-2xl font-bold">Tell us about yourself</h1>
               <p className="text-gray-500 mt-2">Please fill in your details below to get started</p>
             </div>
+
+            <Alert className="bg-[#F0F9F9] border-[#00CED1]/30">
+              <Info className="h-5 w-5 text-[#00CED1]" />
+              <AlertTitle className="text-[#038B8D] font-medium">Important Information</AlertTitle>
+              <AlertDescription className="text-gray-700">
+                You need to be the bill holder (the person who pays for the electricity) to proceed with this assessment. We'll ask you to upload a copy of your bill later in the process.
+              </AlertDescription>
+            </Alert>
 
             <PersonalDetailsForm onValidityChange={handleFormValidityChange} />
           </div>

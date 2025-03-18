@@ -34,9 +34,9 @@ const ImportExport = () => {
 
             <Alert className="bg-[#F0F9F9] border-[#00CED1]/30">
               <Info className="h-5 w-5 text-[#00CED1]" />
-              <AlertTitle className="text-[#038B8D] font-medium">Important Information</AlertTitle>
+              <AlertTitle className="text-[#038B8D] font-medium">Reminder</AlertTitle>
               <AlertDescription className="text-gray-700">
-                You need to be the bill holder (the person who pays for the electricity) to proceed with this assessment. We'll ask you to upload a copy of your bill in the next step.
+                Remember, you'll need to upload a copy of your electricity bill in the next step.
               </AlertDescription>
             </Alert>
 
