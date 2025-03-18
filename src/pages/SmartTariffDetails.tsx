@@ -34,41 +34,6 @@ const SmartTariffDetails = () => {
           </div>
         </section>
         
-        {/* How it works card with numbered steps - Moved outside hero section */}
-        <section className="py-12">
-          <div className="container mx-auto px-4">
-            <div className="max-w-3xl mx-auto">
-              <Card className="bg-white/80 backdrop-blur-sm border-[#038B8D]/20">
-                <CardContent className="p-6">
-                  <h2 className="text-2xl font-semibold mb-4 text-center">How it works</h2>
-                  <div className="grid gap-4 md:grid-cols-3">
-                    <div className="flex flex-col items-center p-3">
-                      <div className="bg-[#038B8D] text-white rounded-full w-12 h-12 flex items-center justify-center mb-3 font-bold text-xl">
-                        1
-                      </div>
-                      <p className="text-gray-700"><span className="font-medium">Enter your details</span> to access your smart meter data</p>
-                    </div>
-                    
-                    <div className="flex flex-col items-center p-3">
-                      <div className="bg-[#038B8D] text-white rounded-full w-12 h-12 flex items-center justify-center mb-3 font-bold text-xl">
-                        2
-                      </div>
-                      <p className="text-gray-700"><span className="font-medium">Sit back</span> as we analyze your usage patterns</p>
-                    </div>
-                    
-                    <div className="flex flex-col items-center p-3">
-                      <div className="bg-[#038B8D] text-white rounded-full w-12 h-12 flex items-center justify-center mb-3 font-bold text-xl">
-                        3
-                      </div>
-                      <p className="text-gray-700"><span className="font-medium">Save money</span> with your perfect tariff match</p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-        </section>
-        
         {/* 3 Steps Process */}
         <Steps />
         
