@@ -3,7 +3,7 @@ import { Navigation } from "@/components/landing/Navigation";
 import { FinalCallToAction } from "@/components/landing/FinalCallToAction";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { ArrowRight, FileText, Lock, BarChart, CheckCircle, BarChart3, CheckCircle2, Database, Mail, HelpCircle, Plus, Minus } from "lucide-react";
+import { ArrowRight, FileText, Lock, BarChart, CheckCircle, BarChart3, CheckCircle2, Database, HelpCircle, Plus, Minus } from "lucide-react";
 import { Steps } from "@/components/landing/Steps";
 import { Testimonials } from "@/components/landing/Testimonials";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
@@ -146,45 +146,6 @@ const SmartTariffDetails = () => {
                   </AccordionContent>
                 </AccordionItem>
               </Accordion>
-            </div>
-          </div>
-        </section>
-        
-        {/* Smart Tariff Information */}
-        <section className="py-16">
-          <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto">
-              <h2 className="text-3xl font-bold mb-8 text-center">Our Smart Tariff Comparison Tool</h2>
-              
-              <div className="bg-white p-8 rounded-lg shadow-md mb-8">
-                <p className="text-gray-700 leading-relaxed mb-6">
-                  Discover tariffs that reward off-peak electric vehicle charging and help you maximise heat pump efficiency by shifting to cheaper time periods. Let us do the hard work for you, and find you the best compatible import and export tariffs for your home.
-                </p>
-                <Separator className="my-6" />
-                <p className="text-lg font-semibold text-center">
-                  The average smart home saves 20-60% on their electricity bills by switching to the right smart tariff.
-                </p>
-                <p className="text-gray-700 leading-relaxed mt-6">
-                  Switch to a tariff that rewards you for using energy smarter. We help households with smart devices find the perfect electricity tariffs to maximise savings and support the green energy transition.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-        
-        {/* Email Updates Section */}
-        <section className="py-16 bg-[#038B8D]/5">
-          <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto">
-              <div className="p-8 rounded-lg">
-                <div className="flex items-center justify-center gap-3 mb-6">
-                  <Mail className="w-6 h-6 text-[#038B8D]" />
-                  <h3 className="text-xl font-semibold">We Keep You Updated</h3>
-                </div>
-                <p className="text-center text-gray-600 leading-relaxed">
-                  Throughout the entire process, we'll keep you updated via email at each step. If we need any additional information or once your recommendations are ready, you'll be the first to know.
-                </p>
-              </div>
             </div>
           </div>
         </section>
