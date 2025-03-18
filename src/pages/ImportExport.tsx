@@ -6,6 +6,8 @@ import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { ArrowDownToLine, ArrowUpFromLine } from 'lucide-react';
 import { Progress } from '@/components/ui/progress';
+import { Alert, AlertTitle, AlertDescription } from '@/components/ui/alert';
+import { InfoCircle } from 'lucide-react';
 
 const ImportExport = () => {
   const navigate = useNavigate();
@@ -30,6 +32,14 @@ const ImportExport = () => {
               <h1 className="text-2xl font-bold">What type of assessment would you like?</h1>
               <p className="text-gray-500 mt-2">We've detected you have an export meter. Choose whether you want recommendations for importing electricity only, or for both importing and exporting electricity.</p>
             </div>
+
+            <Alert className="bg-[#F0F9F9] border-[#00CED1]/30">
+              <InfoCircle className="h-5 w-5 text-[#00CED1]" />
+              <AlertTitle className="text-[#038B8D] font-medium">Important Information</AlertTitle>
+              <AlertDescription className="text-gray-700">
+                You need to be the bill holder (the person who pays for the electricity) to proceed with this assessment. We'll ask you to upload a copy of your bill in the next step.
+              </AlertDescription>
+            </Alert>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <Button
