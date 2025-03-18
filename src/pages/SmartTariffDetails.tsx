@@ -3,7 +3,11 @@ import { Navigation } from "@/components/landing/Navigation";
 import { FinalCallToAction } from "@/components/landing/FinalCallToAction";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { ArrowRight, FileText, Lock, BarChart, CheckCircle, BarChart3, CheckCircle2, Database, Mail } from "lucide-react";
+import { ArrowRight, FileText, Lock, BarChart, CheckCircle, BarChart3, CheckCircle2, Database, Mail, HelpCircle, Plus, Minus } from "lucide-react";
+import { Steps } from "@/components/landing/Steps";
+import { Testimonials } from "@/components/landing/Testimonials";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { Separator } from "@/components/ui/separator";
 
 const SmartTariffDetails = () => {
   return (
@@ -19,9 +23,18 @@ const SmartTariffDetails = () => {
               <p className="text-xl text-gray-600 leading-relaxed">
                 Our detailed process to help you save up to 50% on your electricity bills
               </p>
+              <div className="mt-8">
+                <h2 className="text-2xl font-semibold mb-4">Is your Smart Home on a Dumb Tariff?</h2>
+                <p className="text-lg text-gray-600 mb-6">
+                  Smart homes deserve smart tariffs. If you've invested in an electric vehicle, heat pump, solar panels, battery storage or other types of electric space and water heating, you could save significantly by switching to an electricity tariff that rewards flexible energy use.
+                </p>
+              </div>
             </div>
           </div>
         </section>
+        
+        {/* 3 Steps Process */}
+        <Steps />
         
         {/* Process Section */}
         <section className="py-16">
@@ -94,37 +107,76 @@ const SmartTariffDetails = () => {
           </div>
         </section>
         
-        {/* Bill Information */}
+        {/* FAQ Section */}
         <section className="py-16 bg-gray-50">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto">
-              <div className="bg-white p-8 rounded-lg shadow-md">
-                <div className="flex items-start gap-5">
-                  <div className="flex-shrink-0">
-                    <div className="bg-[#038B8D]/10 p-3 rounded-full">
-                      <FileText className="w-8 h-8 text-[#038B8D]" />
-                    </div>
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-semibold mb-3">Why do I need to give you a copy of my bill?</h3>
-                    <p className="text-gray-600 leading-relaxed mb-4">
+              <h2 className="text-3xl font-bold mb-8 text-center">Frequently Asked Questions</h2>
+              
+              <Accordion type="single" collapsible className="bg-white p-6 rounded-lg shadow-sm">
+                <AccordionItem value="item-1">
+                  <AccordionTrigger className="text-lg font-medium">
+                    Why do I need to give you a copy of my bill?
+                  </AccordionTrigger>
+                  <AccordionContent className="text-gray-600 leading-relaxed">
+                    <p className="mb-4">
                       Smart meter data is considered personal data and is only stored on your meter - that's why we need to prove you consent to us accessing your data by verifying your identity. This is required by our data provider, who has an obligation to protect smart meter data and make sure it doesn't end up with the wrong people.
                     </p>
-                    <p className="text-gray-600 leading-relaxed">
+                    <p>
                       We use a copy of your electricity bill to do this because it contains important information, including proof of address and proof that you are paying the bill.
                     </p>
-                  </div>
-                </div>
+                  </AccordionContent>
+                </AccordionItem>
+                
+                <AccordionItem value="item-2">
+                  <AccordionTrigger className="text-lg font-medium">
+                    How much could I save by switching?
+                  </AccordionTrigger>
+                  <AccordionContent className="text-gray-600 leading-relaxed">
+                    The average smart home saves 20-60% on their electricity bills by switching to the right smart tariff. Your actual savings will depend on your current tariff, usage patterns, and the smart devices you have. Our analysis will give you a personalized savings estimate.
+                  </AccordionContent>
+                </AccordionItem>
+                
+                <AccordionItem value="item-3">
+                  <AccordionTrigger className="text-lg font-medium">
+                    How long does the analysis take?
+                  </AccordionTrigger>
+                  <AccordionContent className="text-gray-600 leading-relaxed">
+                    Once we have access to your smart meter data, we can typically complete our analysis within 24-48 hours. We'll email you as soon as your personalized recommendations are ready.
+                  </AccordionContent>
+                </AccordionItem>
+              </Accordion>
+            </div>
+          </div>
+        </section>
+        
+        {/* Smart Tariff Information */}
+        <section className="py-16">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-3xl font-bold mb-8 text-center">Our Smart Tariff Comparison Tool</h2>
+              
+              <div className="bg-white p-8 rounded-lg shadow-md mb-8">
+                <p className="text-gray-700 leading-relaxed mb-6">
+                  Discover tariffs that reward off-peak electric vehicle charging and help you maximise heat pump efficiency by shifting to cheaper time periods. Let us do the hard work for you, and find you the best compatible import and export tariffs for your home.
+                </p>
+                <Separator className="my-6" />
+                <p className="text-lg font-semibold text-center">
+                  The average smart home saves 20-60% on their electricity bills by switching to the right smart tariff.
+                </p>
+                <p className="text-gray-700 leading-relaxed mt-6">
+                  Switch to a tariff that rewards you for using energy smarter. We help households with smart devices find the perfect electricity tariffs to maximise savings and support the green energy transition.
+                </p>
               </div>
             </div>
           </div>
         </section>
         
         {/* Email Updates Section */}
-        <section className="py-16 bg-white">
+        <section className="py-16 bg-[#038B8D]/5">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto">
-              <div className="bg-[#038B8D]/5 p-8 rounded-lg">
+              <div className="p-8 rounded-lg">
                 <div className="flex items-center justify-center gap-3 mb-6">
                   <Mail className="w-6 h-6 text-[#038B8D]" />
                   <h3 className="text-xl font-semibold">We Keep You Updated</h3>
@@ -136,6 +188,9 @@ const SmartTariffDetails = () => {
             </div>
           </div>
         </section>
+        
+        {/* Testimonials */}
+        <Testimonials />
         
         {/* Benefits Section */}
         <section className="py-16">
