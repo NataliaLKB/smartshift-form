@@ -3,7 +3,7 @@ import { Navigation } from "@/components/landing/Navigation";
 import { FinalCallToAction } from "@/components/landing/FinalCallToAction";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { ArrowRight, FileText, Lock, BarChart, CheckCircle } from "lucide-react";
+import { ArrowRight, FileText, Lock, BarChart, CheckCircle, BarChart3, CheckCircle2, Database, Mail } from "lucide-react";
 
 const SmartTariffDetails = () => {
   return (
@@ -33,8 +33,8 @@ const SmartTariffDetails = () => {
                 {/* Step 1 */}
                 <div className="flex flex-col md:flex-row gap-6">
                   <div className="md:w-16 flex items-start justify-center">
-                    <div className="bg-[#038B8D]/10 rounded-full w-12 h-12 flex items-center justify-center text-[#038B8D] font-bold text-xl">
-                      1
+                    <div className="bg-[#038B8D]/10 rounded-full w-12 h-12 flex items-center justify-center">
+                      <FileText className="w-6 h-6 text-[#038B8D]" />
                     </div>
                   </div>
                   <div className="flex-1">
@@ -48,8 +48,8 @@ const SmartTariffDetails = () => {
                 {/* Step 2 */}
                 <div className="flex flex-col md:flex-row gap-6">
                   <div className="md:w-16 flex items-start justify-center">
-                    <div className="bg-[#038B8D]/10 rounded-full w-12 h-12 flex items-center justify-center text-[#038B8D] font-bold text-xl">
-                      2
+                    <div className="bg-[#038B8D]/10 rounded-full w-12 h-12 flex items-center justify-center">
+                      <Database className="w-6 h-6 text-[#038B8D]" />
                     </div>
                   </div>
                   <div className="flex-1">
@@ -63,8 +63,8 @@ const SmartTariffDetails = () => {
                 {/* Step 3 */}
                 <div className="flex flex-col md:flex-row gap-6">
                   <div className="md:w-16 flex items-start justify-center">
-                    <div className="bg-[#038B8D]/10 rounded-full w-12 h-12 flex items-center justify-center text-[#038B8D] font-bold text-xl">
-                      3
+                    <div className="bg-[#038B8D]/10 rounded-full w-12 h-12 flex items-center justify-center">
+                      <CheckCircle2 className="w-6 h-6 text-[#038B8D]" />
                     </div>
                   </div>
                   <div className="flex-1">
@@ -78,8 +78,8 @@ const SmartTariffDetails = () => {
                 {/* Step 4 */}
                 <div className="flex flex-col md:flex-row gap-6">
                   <div className="md:w-16 flex items-start justify-center">
-                    <div className="bg-[#038B8D]/10 rounded-full w-12 h-12 flex items-center justify-center text-[#038B8D] font-bold text-xl">
-                      4
+                    <div className="bg-[#038B8D]/10 rounded-full w-12 h-12 flex items-center justify-center">
+                      <BarChart3 className="w-6 h-6 text-[#038B8D]" />
                     </div>
                   </div>
                   <div className="flex-1">
@@ -120,6 +120,23 @@ const SmartTariffDetails = () => {
           </div>
         </section>
         
+        {/* Email Updates Section */}
+        <section className="py-16 bg-white">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto">
+              <div className="bg-[#038B8D]/5 p-8 rounded-lg">
+                <div className="flex items-center justify-center gap-3 mb-6">
+                  <Mail className="w-6 h-6 text-[#038B8D]" />
+                  <h3 className="text-xl font-semibold">We Keep You Updated</h3>
+                </div>
+                <p className="text-center text-gray-600 leading-relaxed">
+                  Throughout the entire process, we'll keep you updated via email at each step. If we need any additional information or once your recommendations are ready, you'll be the first to know.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+        
         {/* Benefits Section */}
         <section className="py-16">
           <div className="container mx-auto px-4">
@@ -129,7 +146,7 @@ const SmartTariffDetails = () => {
               <div className="grid md:grid-cols-3 gap-8 mt-8">
                 <div className="bg-white p-6 rounded-lg shadow-md text-center hover:shadow-lg transition-all duration-300 hover:translate-y-[-5px]">
                   <div className="inline-flex p-3 bg-[#038B8D]/10 rounded-full mb-4">
-                    <BarChart className="w-6 h-6 text-[#038B8D]" />
+                    <BarChart3 className="w-6 h-6 text-[#038B8D]" />
                   </div>
                   <h3 className="font-bold text-lg mb-2">Data-Driven</h3>
                   <p className="text-gray-600">Recommendations based on your actual energy usage patterns</p>
@@ -145,7 +162,7 @@ const SmartTariffDetails = () => {
                 
                 <div className="bg-white p-6 rounded-lg shadow-md text-center hover:shadow-lg transition-all duration-300 hover:translate-y-[-5px]">
                   <div className="inline-flex p-3 bg-[#038B8D]/10 rounded-full mb-4">
-                    <CheckCircle className="w-6 h-6 text-[#038B8D]" />
+                    <CheckCircle2 className="w-6 h-6 text-[#038B8D]" />
                   </div>
                   <h3 className="font-bold text-lg mb-2">50% Savings</h3>
                   <p className="text-gray-600">Our customers save up to 50% on their electricity bills</p>
