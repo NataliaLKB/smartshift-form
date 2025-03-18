@@ -65,24 +65,24 @@ const About = () => {
                   <div className="inline-flex p-3 bg-white rounded-full mb-4 shadow-md">
                     <BarChart className="w-8 h-8 text-[#038B8D]" />
                   </div>
-                  <h3 className="text-2xl font-bold mb-2">Smart Tariff Matching</h3>
+                  <h3 className="text-2xl font-bold mb-2">Smart Tariff Analysis</h3>
                 </div>
                 <CardContent className="pt-6">
                   <p className="text-gray-600 mb-4 leading-relaxed">
-                    We analyze your energy usage patterns and match you with the most suitable smart tariff options from trusted providers.
+                    We analyse your electricity usage patterns and match you with the most suitable smart tariff options available to you.
                   </p>
                   <ul className="space-y-3 text-gray-600 mb-6">
                     <li className="flex items-start">
                       <ArrowRight className="w-5 h-5 text-[#038B8D] mr-2 mt-0.5 flex-shrink-0" />
-                      <span>Personalized recommendations based on your consumption</span>
+                      <span>We save people up to 50% off their electricity bill</span>
                     </li>
                     <li className="flex items-start">
                       <ArrowRight className="w-5 h-5 text-[#038B8D] mr-2 mt-0.5 flex-shrink-0" />
-                      <span>Comparison of potential savings across different tariffs</span>
+                      <span>Data driven recommendation based your electricity consumption patterns</span>
                     </li>
                     <li className="flex items-start">
                       <ArrowRight className="w-5 h-5 text-[#038B8D] mr-2 mt-0.5 flex-shrink-0" />
-                      <span>Clear breakdown of terms and conditions</span>
+                      <span>Full coverage of all smart import and export tariffs</span>
                     </li>
                   </ul>
                   <Button variant="outline" size="sm" className="text-[#038B8D] border-[#038B8D]/30 hover:bg-[#038B8D]/10" asChild>
