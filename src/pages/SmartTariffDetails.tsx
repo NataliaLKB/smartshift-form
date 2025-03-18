@@ -25,10 +25,22 @@ const SmartTariffDetails = () => {
                 Is your Smart Home on a Dumb Tariff? Save up to 50% on your electricity bills.
               </p>
               
-              {/* 3 Simple Steps Card */}
-              <Card className="mb-8 bg-white/80 backdrop-blur-sm border-[#038B8D]/20">
+              <Button size="lg" className="px-8" asChild>
+                <Link to="/personal-details">
+                  Get Started <ArrowRight className="ml-2" />
+                </Link>
+              </Button>
+            </div>
+          </div>
+        </section>
+        
+        {/* 3 Simple Steps Card - Moved outside hero section */}
+        <section className="py-12">
+          <div className="container mx-auto px-4">
+            <div className="max-w-3xl mx-auto">
+              <Card className="bg-white/80 backdrop-blur-sm border-[#038B8D]/20">
                 <CardContent className="p-6">
-                  <h2 className="text-2xl font-semibold mb-4">Get your perfect tariff in 3 simple steps:</h2>
+                  <h2 className="text-2xl font-semibold mb-4 text-center">Get your perfect tariff in 3 simple steps:</h2>
                   <div className="grid gap-4 md:grid-cols-3">
                     <div className="flex flex-col items-center p-3">
                       <div className="bg-[#038B8D]/10 rounded-full w-12 h-12 flex items-center justify-center mb-3">
@@ -53,12 +65,6 @@ const SmartTariffDetails = () => {
                   </div>
                 </CardContent>
               </Card>
-              
-              <Button size="lg" className="px-8" asChild>
-                <Link to="/personal-details">
-                  Get Started <ArrowRight className="ml-2" />
-                </Link>
-              </Button>
             </div>
           </div>
         </section>
