@@ -42,32 +42,23 @@ const SmartTariffDetails = () => {
                 <CardContent className="p-6">
                   <h2 className="text-2xl font-semibold mb-4 text-center">How it works</h2>
                   <div className="grid gap-4 md:grid-cols-3">
-                    <div className="flex flex-col items-center p-3 relative">
-                      <div className="absolute -left-2 -top-2 bg-[#038B8D] text-white rounded-full w-6 h-6 flex items-center justify-center font-bold text-sm">
+                    <div className="flex flex-col items-center p-3">
+                      <div className="bg-[#038B8D] text-white rounded-full w-12 h-12 flex items-center justify-center mb-3 font-bold text-xl">
                         1
-                      </div>
-                      <div className="bg-[#038B8D]/10 rounded-full w-12 h-12 flex items-center justify-center mb-3">
-                        <FileText className="w-6 h-6 text-[#038B8D]" />
                       </div>
                       <p className="text-gray-700"><span className="font-medium">Enter your details</span> to access your smart meter data</p>
                     </div>
                     
-                    <div className="flex flex-col items-center p-3 relative">
-                      <div className="absolute -left-2 -top-2 bg-[#038B8D] text-white rounded-full w-6 h-6 flex items-center justify-center font-bold text-sm">
+                    <div className="flex flex-col items-center p-3">
+                      <div className="bg-[#038B8D] text-white rounded-full w-12 h-12 flex items-center justify-center mb-3 font-bold text-xl">
                         2
-                      </div>
-                      <div className="bg-[#038B8D]/10 rounded-full w-12 h-12 flex items-center justify-center mb-3">
-                        <BarChart3 className="w-6 h-6 text-[#038B8D]" />
                       </div>
                       <p className="text-gray-700"><span className="font-medium">Sit back</span> as we analyze your usage patterns</p>
                     </div>
                     
-                    <div className="flex flex-col items-center p-3 relative">
-                      <div className="absolute -left-2 -top-2 bg-[#038B8D] text-white rounded-full w-6 h-6 flex items-center justify-center font-bold text-sm">
+                    <div className="flex flex-col items-center p-3">
+                      <div className="bg-[#038B8D] text-white rounded-full w-12 h-12 flex items-center justify-center mb-3 font-bold text-xl">
                         3
-                      </div>
-                      <div className="bg-[#038B8D]/10 rounded-full w-12 h-12 flex items-center justify-center mb-3">
-                        <CheckCircle2 className="w-6 h-6 text-[#038B8D]" />
                       </div>
                       <p className="text-gray-700"><span className="font-medium">Save money</span> with your perfect tariff match</p>
                     </div>
