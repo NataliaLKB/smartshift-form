@@ -3,11 +3,12 @@ import { Navigation } from "@/components/landing/Navigation";
 import { FinalCallToAction } from "@/components/landing/FinalCallToAction";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { ArrowRight, FileText, Lock, BarChart, CheckCircle, BarChart3, CheckCircle2, Database, HelpCircle, Plus, Minus } from "lucide-react";
+import { ArrowRight, FileText, Lock, BarChart, BarChart3, CheckCircle2, Database, HelpCircle } from "lucide-react";
 import { Steps } from "@/components/landing/Steps";
 import { Testimonials } from "@/components/landing/Testimonials";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Separator } from "@/components/ui/separator";
+import { Card, CardContent } from "@/components/ui/card";
 
 const SmartTariffDetails = () => {
   return (
@@ -15,20 +16,49 @@ const SmartTariffDetails = () => {
       <Navigation />
       
       <main>
-        {/* Hero Section */}
+        {/* Hero Section - Simplified */}
         <section className="py-16 bg-gradient-to-r from-[#038B8D]/20 to-[#038B8D]/5">
           <div className="container mx-auto px-4">
             <div className="max-w-3xl mx-auto text-center">
               <h1 className="text-4xl font-bold mb-6 text-gray-800">Smart Tariff Analysis</h1>
-              <p className="text-xl text-gray-600 leading-relaxed">
-                Our detailed process to help you save up to 50% on your electricity bills
+              <p className="text-xl text-gray-600 mb-8">
+                Is your Smart Home on a Dumb Tariff? Save up to 50% on your electricity bills.
               </p>
-              <div className="mt-8">
-                <h2 className="text-2xl font-semibold mb-4">Is your Smart Home on a Dumb Tariff?</h2>
-                <p className="text-lg text-gray-600 mb-6">
-                  Smart homes deserve smart tariffs. If you've invested in an electric vehicle, heat pump, solar panels, battery storage or other types of electric space and water heating, you could save significantly by switching to an electricity tariff that rewards flexible energy use.
-                </p>
-              </div>
+              
+              {/* 3 Simple Steps Card */}
+              <Card className="mb-8 bg-white/80 backdrop-blur-sm border-[#038B8D]/20">
+                <CardContent className="p-6">
+                  <h2 className="text-2xl font-semibold mb-4">Get your perfect tariff in 3 simple steps:</h2>
+                  <div className="grid gap-4 md:grid-cols-3">
+                    <div className="flex flex-col items-center p-3">
+                      <div className="bg-[#038B8D]/10 rounded-full w-12 h-12 flex items-center justify-center mb-3">
+                        <FileText className="w-6 h-6 text-[#038B8D]" />
+                      </div>
+                      <p className="text-gray-700"><span className="font-medium">Enter your details</span> to access your smart meter data</p>
+                    </div>
+                    
+                    <div className="flex flex-col items-center p-3">
+                      <div className="bg-[#038B8D]/10 rounded-full w-12 h-12 flex items-center justify-center mb-3">
+                        <BarChart3 className="w-6 h-6 text-[#038B8D]" />
+                      </div>
+                      <p className="text-gray-700"><span className="font-medium">Sit back</span> as we analyze your usage patterns</p>
+                    </div>
+                    
+                    <div className="flex flex-col items-center p-3">
+                      <div className="bg-[#038B8D]/10 rounded-full w-12 h-12 flex items-center justify-center mb-3">
+                        <CheckCircle2 className="w-6 h-6 text-[#038B8D]" />
+                      </div>
+                      <p className="text-gray-700"><span className="font-medium">Save money</span> with your perfect tariff match</p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+              
+              <Button size="lg" className="px-8" asChild>
+                <Link to="/personal-details">
+                  Get Started <ArrowRight className="ml-2" />
+                </Link>
+              </Button>
             </div>
           </div>
         </section>
