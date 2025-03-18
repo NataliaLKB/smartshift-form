@@ -3,7 +3,7 @@ import { Navigation } from "@/components/landing/Navigation";
 import { FinalCallToAction } from "@/components/landing/FinalCallToAction";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { ArrowRight, FileText, Lock, BarChart, BarChart3, CheckCircle2, Database, HelpCircle } from "lucide-react";
+import { ArrowRight, FileText, Lock, BarChart3, CheckCircle2, Database, HelpCircle } from "lucide-react";
 import { Steps } from "@/components/landing/Steps";
 import { Testimonials } from "@/components/landing/Testimonials";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
@@ -182,41 +182,6 @@ const SmartTariffDetails = () => {
         
         {/* Testimonials */}
         <Testimonials />
-        
-        {/* Benefits Section */}
-        <section className="py-16">
-          <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto">
-              <h2 className="text-3xl font-bold mb-8 text-center">Benefits of Our Smart Tariff Analysis</h2>
-              
-              <div className="grid md:grid-cols-3 gap-8 mt-8">
-                <div className="bg-white p-6 rounded-lg shadow-md text-center hover:shadow-lg transition-all duration-300 hover:translate-y-[-5px]">
-                  <div className="inline-flex p-3 bg-[#038B8D]/10 rounded-full mb-4">
-                    <BarChart3 className="w-6 h-6 text-[#038B8D]" />
-                  </div>
-                  <h3 className="font-bold text-lg mb-2">Data-Driven</h3>
-                  <p className="text-gray-600">Recommendations based on your actual energy usage patterns</p>
-                </div>
-                
-                <div className="bg-white p-6 rounded-lg shadow-md text-center hover:shadow-lg transition-all duration-300 hover:translate-y-[-5px]">
-                  <div className="inline-flex p-3 bg-[#038B8D]/10 rounded-full mb-4">
-                    <Lock className="w-6 h-6 text-[#038B8D]" />
-                  </div>
-                  <h3 className="font-bold text-lg mb-2">Secure Process</h3>
-                  <p className="text-gray-600">Your data is handled securely and with your explicit consent</p>
-                </div>
-                
-                <div className="bg-white p-6 rounded-lg shadow-md text-center hover:shadow-lg transition-all duration-300 hover:translate-y-[-5px]">
-                  <div className="inline-flex p-3 bg-[#038B8D]/10 rounded-full mb-4">
-                    <CheckCircle2 className="w-6 h-6 text-[#038B8D]" />
-                  </div>
-                  <h3 className="font-bold text-lg mb-2">50% Savings</h3>
-                  <p className="text-gray-600">Our customers save up to 50% on their electricity bills</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
         
         {/* Call to Action */}
         <section className="py-16 bg-[#038B8D]/10">
