@@ -32,13 +32,13 @@ const SmartTariffDetails = () => {
         {/* 3 Steps Process */}
         <Steps />
         
-        {/* Process Section */}
+        {/* Process Section - Simplified */}
         <section className="py-16">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto">
               <h2 className="text-3xl font-bold mb-8 text-center">What happens when I ask for a tariff recommendation?</h2>
               
-              <div className="space-y-12 mt-10">
+              <div className="space-y-8 mt-10">
                 {/* Step 1 */}
                 <div className="flex flex-col md:flex-row gap-6">
                   <div className="md:w-16 flex items-start justify-center">
@@ -47,9 +47,9 @@ const SmartTariffDetails = () => {
                     </div>
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-xl font-semibold mb-3">Information Collection</h3>
-                    <p className="text-gray-600 leading-relaxed">
-                      You tell us your address, your current electricity supplier, what tariff you're on. You'll also tell us what smart devices you own. We'll also need a copy of your latest bill to verify your identity, so you'll upload that too.
+                    <h3 className="text-xl font-semibold mb-2">Basic Information</h3>
+                    <p className="text-gray-600">
+                      We collect your address, current supplier details, and smart home device information. You'll upload a recent bill to verify your identity.
                     </p>
                   </div>
                 </div>
@@ -62,9 +62,9 @@ const SmartTariffDetails = () => {
                     </div>
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-xl font-semibold mb-3">Secure Data Access</h3>
-                    <p className="text-gray-600 leading-relaxed">
-                      Once your identity is verified, we securely access your smart meter data through a trusted data provider. They contact the DCC, the organisation responsible for the smart meter program and prove you consent for you data to be accessed. They then download your smart meter data before returning it to us.
+                    <h3 className="text-xl font-semibold mb-2">Smart Meter Data Access</h3>
+                    <p className="text-gray-600">
+                      After verification, we securely access your smart meter data through authorized channels with your consent.
                     </p>
                   </div>
                 </div>
@@ -73,13 +73,13 @@ const SmartTariffDetails = () => {
                 <div className="flex flex-col md:flex-row gap-6">
                   <div className="md:w-16 flex items-start justify-center">
                     <div className="bg-[#038B8D]/10 rounded-full w-12 h-12 flex items-center justify-center">
-                      <CheckCircle2 className="w-6 h-6 text-[#038B8D]" />
+                      <BarChart3 className="w-6 h-6 text-[#038B8D]" />
                     </div>
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-xl font-semibold mb-3">Analysis & Recommendations</h3>
-                    <p className="text-gray-600 leading-relaxed">
-                      Next, we verify your data is complete and suitable for analysis. Once we have quality data, we'll analyse up to a years worth of your half-hourly electricity consumption data. We use our comprehensive tariff database to find the top three tariffs which can save you money, along with an analysis of how your household uses electricity and any interesting observations.
+                    <h3 className="text-xl font-semibold mb-2">Personalized Analysis</h3>
+                    <p className="text-gray-600">
+                      We analyze your usage patterns and recommend the best tariffs that could save you money based on how and when you use electricity.
                     </p>
                   </div>
                 </div>
@@ -88,13 +88,13 @@ const SmartTariffDetails = () => {
                 <div className="flex flex-col md:flex-row gap-6">
                   <div className="md:w-16 flex items-start justify-center">
                     <div className="bg-[#038B8D]/10 rounded-full w-12 h-12 flex items-center justify-center">
-                      <BarChart3 className="w-6 h-6 text-[#038B8D]" />
+                      <CheckCircle2 className="w-6 h-6 text-[#038B8D]" />
                     </div>
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-xl font-semibold mb-3">Switch & Save</h3>
-                    <p className="text-gray-600 leading-relaxed">
-                      You choose the right tariff for you and start your switch. You'll soon be with your new supplier and saving on your electricity bills! We'll also provide you with any advice you need to make the most out of your new tariff and maximise your savings.
+                    <h3 className="text-xl font-semibold mb-2">Switch & Save</h3>
+                    <p className="text-gray-600">
+                      Choose your preferred tariff and we'll guide you through the switching process, helping you start saving right away.
                     </p>
                   </div>
                 </div>
