@@ -24,12 +24,7 @@ const SmartTariffDetails = () => {
               <p className="text-xl text-gray-600 mb-8">
                 Is your Smart Home on a Dumb Tariff? Save up to 50% on your electricity bills.
               </p>
-              
-              <Button size="lg" className="px-8" asChild>
-                <Link to="/personal-details">
-                  Get Started <ArrowRight className="ml-2" />
-                </Link>
-              </Button>
+              {/* "Get Started" button removed from here */}
             </div>
           </div>
         </section>

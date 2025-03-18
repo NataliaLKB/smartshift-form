@@ -1,5 +1,8 @@
 
 import { ListOrdered, LineChart, Banknote } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const steps = [
   {
@@ -37,6 +40,15 @@ export const Steps = () => {
               <p className="text-gray-600">{step.description}</p>
             </div>
           ))}
+        </div>
+        
+        {/* Added Get Started Button Here */}
+        <div className="mt-12 text-center">
+          <Button size="lg" className="px-8" asChild>
+            <Link to="/personal-details">
+              Get Started <ArrowRight className="ml-2" />
+            </Link>
+          </Button>
         </div>
       </div>
     </section>
