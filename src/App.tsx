@@ -16,6 +16,7 @@ import SmartMeterRequired from "./pages/SmartMeterRequired";
 import ImportExport from "./pages/ImportExport";
 import Landing from "./pages/Landing";
 import About from "./pages/About";
+import SmartTariffDetails from "./pages/SmartTariffDetails";
 
 const queryClient = new QueryClient();
 
@@ -37,6 +38,7 @@ const App = () => (
           <Route path="/feedback" element={<Feedback />} />
           <Route path="/thank-you" element={<ThankYou />} />
           <Route path="/smart-meter-required" element={<SmartMeterRequired />} />
+          <Route path="/smart-tariff-details" element={<SmartTariffDetails />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

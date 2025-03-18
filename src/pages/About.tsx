@@ -1,4 +1,3 @@
-
 import { Navigation } from "@/components/landing/Navigation";
 import { FinalCallToAction } from "@/components/landing/FinalCallToAction";
 import { Info, Users, Zap, Globe, BarChart, ArrowRight, Briefcase, GraduationCap, Mail, Linkedin } from "lucide-react";
@@ -86,7 +85,7 @@ const About = () => {
                     </li>
                   </ul>
                   <Button variant="outline" size="sm" className="text-[#038B8D] border-[#038B8D]/30 hover:bg-[#038B8D]/10" asChild>
-                    <Link to="/import-export">Learn more</Link>
+                    <Link to="/smart-tariff-details">Learn more</Link>
                   </Button>
                 </CardContent>
               </Card>
@@ -117,7 +116,7 @@ const About = () => {
                     </li>
                   </ul>
                   <Button variant="outline" size="sm" className="text-[#038B8D] border-[#038B8D]/30 hover:bg-[#038B8D]/10" asChild>
-                    <Link to="/import-export">Learn more</Link>
+                    <Link to="/smart-tariff-details">Learn more</Link>
                   </Button>
                 </CardContent>
               </Card>
