@@ -16,7 +16,6 @@ const AccountProfile = () => {
   const [isAddressValid, setIsAddressValid] = useState(true);
   const [isEditingAddress, setIsEditingAddress] = useState(false);
   
-  // Mock profile data
   const [profileData, setProfileData] = useState({
     firstName: "John",
     lastName: "Smith",
@@ -34,7 +33,6 @@ const AccountProfile = () => {
     marketingCommunication: false,
   });
   
-  // Form state for password change
   const [passwordData, setPasswordData] = useState({
     currentPassword: "",
     newPassword: "",
@@ -49,11 +47,9 @@ const AccountProfile = () => {
     e.preventDefault();
     setIsLoading(true);
     
-    // Mock API call
     try {
       await new Promise(resolve => setTimeout(resolve, 1000));
       
-      // If we were editing the address, turn off edit mode after successful save
       if (isEditingAddress) {
         setIsEditingAddress(false);
       }
@@ -85,6 +81,44 @@ const AccountProfile = () => {
   const handlePasswordInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setPasswordData(prev => ({ ...prev, [name]: value }));
+  };
+  
+  const handlePasswordChange = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsLoading(true);
+    
+    if (passwordData.newPassword !== passwordData.confirmPassword) {
+      toast({
+        title: "Passwords don't match",
+        description: "Please ensure your new password and confirmation match.",
+        variant: "destructive",
+      });
+      setIsLoading(false);
+      return;
+    }
+    
+    try {
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      
+      setPasswordData({
+        currentPassword: "",
+        newPassword: "",
+        confirmPassword: "",
+      });
+      
+      toast({
+        title: "Password updated",
+        description: "Your password has been changed successfully.",
+      });
+    } catch (error) {
+      toast({
+        title: "Password update failed",
+        description: "There was an error updating your password. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsLoading(false);
+    }
   };
   
   return (
