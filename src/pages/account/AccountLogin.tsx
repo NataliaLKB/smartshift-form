@@ -79,7 +79,7 @@ const AccountLogin = () => {
                     <Label htmlFor="password">Password</Label>
                     <Link
                       to="/forgot-password"
-                      className="text-sm font-medium text-primary hover:underline"
+                      className="text-sm font-medium text-[#1A1F2C] hover:underline"
                     >
                       Forgot password?
                     </Link>
@@ -107,7 +107,7 @@ const AccountLogin = () => {
                   Don't have an account?{" "}
                   <Link
                     to="/register"
-                    className="font-medium text-primary hover:underline"
+                    className="font-medium text-[#1A1F2C] hover:underline"
                   >
                     Sign up
                   </Link>
