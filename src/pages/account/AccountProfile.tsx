@@ -7,13 +7,14 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/components/ui/use-toast';
-import { CheckIcon, Loader2 } from 'lucide-react';
+import { CheckIcon, Loader2, PencilIcon } from 'lucide-react';
 import { AddressForm } from '@/components/address/AddressForm';
 
 const AccountProfile = () => {
   const { toast } = useToast();
   const [isLoading, setIsLoading] = useState(false);
   const [isAddressValid, setIsAddressValid] = useState(true);
+  const [isEditingAddress, setIsEditingAddress] = useState(false);
   
   // Mock profile data
   const [profileData, setProfileData] = useState({
@@ -52,6 +53,11 @@ const AccountProfile = () => {
     try {
       await new Promise(resolve => setTimeout(resolve, 1000));
       
+      // If we were editing the address, turn off edit mode after successful save
+      if (isEditingAddress) {
+        setIsEditingAddress(false);
+      }
+      
       toast({
         title: "Profile updated",
         description: "Your profile information has been updated successfully.",
@@ -60,45 +66,6 @@ const AccountProfile = () => {
       toast({
         title: "Update failed",
         description: "There was an error updating your profile. Please try again.",
-        variant: "destructive",
-      });
-    } finally {
-      setIsLoading(false);
-    }
-  };
-  
-  const handlePasswordChange = async (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    if (passwordData.newPassword !== passwordData.confirmPassword) {
-      toast({
-        title: "Passwords don't match",
-        description: "New password and confirm password must match.",
-        variant: "destructive",
-      });
-      return;
-    }
-    
-    setIsLoading(true);
-    
-    // Mock API call
-    try {
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      
-      setPasswordData({
-        currentPassword: "",
-        newPassword: "",
-        confirmPassword: "",
-      });
-      
-      toast({
-        title: "Password updated",
-        description: "Your password has been updated successfully.",
-      });
-    } catch (error) {
-      toast({
-        title: "Update failed",
-        description: "There was an error updating your password. Please try again.",
         variant: "destructive",
       });
     } finally {
@@ -272,10 +239,31 @@ const AccountProfile = () => {
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="space-y-2">
-                  <Label className="text-lg font-medium">Address</Label>
-                  <div className="rounded-md border border-input bg-background p-4">
-                    <AddressForm onValidityChange={handleAddressValidityChange} />
+                  <div className="flex items-center justify-between">
+                    <Label className="text-lg font-medium">Address</Label>
+                    {!isEditingAddress && (
+                      <Button 
+                        type="button" 
+                        variant="ghost" 
+                        size="sm" 
+                        className="flex items-center gap-1"
+                        onClick={() => setIsEditingAddress(true)}
+                      >
+                        <PencilIcon className="h-4 w-4" />
+                        Edit
+                      </Button>
+                    )}
                   </div>
+                  
+                  {isEditingAddress ? (
+                    <div className="rounded-md border border-input bg-background p-4">
+                      <AddressForm onValidityChange={handleAddressValidityChange} />
+                    </div>
+                  ) : (
+                    <div className="rounded-md border border-input bg-background p-4">
+                      <p className="text-sm">{profileData.address}</p>
+                    </div>
+                  )}
                 </div>
                 
                 <div className="pt-4 border-t">
@@ -349,7 +337,10 @@ const AccountProfile = () => {
                 </div>
               </CardContent>
               <CardFooter>
-                <Button type="submit" disabled={isLoading || !isAddressValid}>
+                <Button 
+                  type="submit" 
+                  disabled={isLoading || (isEditingAddress && !isAddressValid)}
+                >
                   {isLoading ? (
                     <>
                       <Loader2 className="mr-2 h-4 w-4 animate-spin" />
@@ -359,6 +350,17 @@ const AccountProfile = () => {
                     "Save changes"
                   )}
                 </Button>
+                {isEditingAddress && (
+                  <Button 
+                    type="button" 
+                    variant="outline" 
+                    className="ml-2"
+                    onClick={() => setIsEditingAddress(false)}
+                    disabled={isLoading}
+                  >
+                    Cancel
+                  </Button>
+                )}
               </CardFooter>
             </form>
           </Card>
