@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Outlet, Link, useLocation } from 'react-router-dom';
 import { 
@@ -8,7 +7,8 @@ import {
   Settings, 
   LogOut,
   Menu,
-  X
+  X,
+  FileText
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
@@ -23,6 +23,7 @@ const AccountLayout = () => {
   
   const navigation = [
     { name: 'Dashboard', href: '/account', icon: Home },
+    { name: 'Smart Tariff Analysis', href: '/account/analysis', icon: FileText },
     { name: 'Profile', href: '/account/profile', icon: User },
   ];
 

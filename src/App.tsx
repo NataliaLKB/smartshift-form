@@ -23,6 +23,7 @@ import AccountForgotPassword from "./pages/account/AccountForgotPassword";
 import AccountDashboard from "./pages/account/AccountDashboard";
 import AccountProfile from "./pages/account/AccountProfile";
 import AccountLayout from "./pages/account/AccountLayout";
+import SmartTariffAnalysis from "./pages/account/SmartTariffAnalysis";
 
 const queryClient = new QueryClient();
 
@@ -49,6 +50,7 @@ const App = () => (
           {/* Account Management Routes */}
           <Route path="/account" element={<AccountLayout />}>
             <Route index element={<AccountDashboard />} />
+            <Route path="analysis" element={<SmartTariffAnalysis />} />
             <Route path="profile" element={<AccountProfile />} />
           </Route>
           <Route path="/login" element={<AccountLogin />} />
