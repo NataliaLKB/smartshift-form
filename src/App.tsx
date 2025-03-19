@@ -17,6 +17,12 @@ import ImportExport from "./pages/ImportExport";
 import Landing from "./pages/Landing";
 import About from "./pages/About";
 import SmartTariffDetails from "./pages/SmartTariffDetails";
+import AccountLogin from "./pages/account/AccountLogin";
+import AccountRegister from "./pages/account/AccountRegister";
+import AccountForgotPassword from "./pages/account/AccountForgotPassword";
+import AccountDashboard from "./pages/account/AccountDashboard";
+import AccountProfile from "./pages/account/AccountProfile";
+import AccountLayout from "./pages/account/AccountLayout";
 
 const queryClient = new QueryClient();
 
@@ -39,6 +45,16 @@ const App = () => (
           <Route path="/thank-you" element={<ThankYou />} />
           <Route path="/smart-meter-required" element={<SmartMeterRequired />} />
           <Route path="/smart-tariff-details" element={<SmartTariffDetails />} />
+          
+          {/* Account Management Routes */}
+          <Route path="/account" element={<AccountLayout />}>
+            <Route index element={<AccountDashboard />} />
+            <Route path="profile" element={<AccountProfile />} />
+          </Route>
+          <Route path="/login" element={<AccountLogin />} />
+          <Route path="/register" element={<AccountRegister />} />
+          <Route path="/forgot-password" element={<AccountForgotPassword />} />
+          
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

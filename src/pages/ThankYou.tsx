@@ -4,6 +4,8 @@ import { AddressHeader } from '@/components/address/AddressHeader';
 import { AddressFooter } from '@/components/address/AddressFooter';
 import { useNavigate } from 'react-router-dom';
 import { FileText, Database, CheckCircle2, BarChart3, Mail } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { Link } from 'react-router-dom';
 
 const ThankYou = () => {
   const navigate = useNavigate();
@@ -59,6 +61,17 @@ const ThankYou = () => {
                     We'll keep you updated via email at each step of the process
                   </p>
                 </div>
+              </div>
+              
+              <div className="mt-6 pt-6 border-t border-gray-100">
+                <Button asChild className="w-full">
+                  <Link to="/account">
+                    Track your application status
+                  </Link>
+                </Button>
+                <p className="text-xs text-center mt-2 text-muted-foreground">
+                  Create or log in to your account to track your application status and view your data.
+                </p>
               </div>
             </div>
 
