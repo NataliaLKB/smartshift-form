@@ -21,9 +21,12 @@ const AccountProfile = () => {
     email: "john.smith@example.com",
     phone: "07700 900123",
     address: "123 Main Street, London, SW1A 1AA",
-    meterNumber: "12345678",
-    tariff: "Standard Variable",
-    supplier: "EDF Energy",
+    importMpan: "1200012345678",
+    importSupplier: "EDF Energy",
+    importTariff: "Standard Variable",
+    exportMpan: "1200098765432",
+    exportSupplier: "Octopus Energy",
+    exportTariff: "Smart Export Guarantee",
     newsletter: "weekly",
     productUpdates: true,
     marketingCommunication: false,
@@ -274,34 +277,74 @@ const AccountProfile = () => {
                   />
                 </div>
                 
-                <div className="space-y-2">
-                  <Label htmlFor="meterNumber">Smart meter number</Label>
-                  <Input
-                    id="meterNumber"
-                    name="meterNumber"
-                    value={profileData.meterNumber}
-                    onChange={handleInputChange}
-                  />
+                <div className="pt-4 border-t">
+                  <h3 className="text-lg font-medium mb-4">Import Details</h3>
+                  <div className="space-y-4">
+                    <div className="space-y-2">
+                      <Label htmlFor="importMpan">MPAN number (Import)</Label>
+                      <Input
+                        id="importMpan"
+                        name="importMpan"
+                        value={profileData.importMpan}
+                        onChange={handleInputChange}
+                      />
+                    </div>
+                    
+                    <div className="space-y-2">
+                      <Label htmlFor="importSupplier">Import supplier</Label>
+                      <Input
+                        id="importSupplier"
+                        name="importSupplier"
+                        value={profileData.importSupplier}
+                        onChange={handleInputChange}
+                      />
+                    </div>
+                    
+                    <div className="space-y-2">
+                      <Label htmlFor="importTariff">Import tariff</Label>
+                      <Input
+                        id="importTariff"
+                        name="importTariff"
+                        value={profileData.importTariff}
+                        onChange={handleInputChange}
+                      />
+                    </div>
+                  </div>
                 </div>
                 
-                <div className="space-y-2">
-                  <Label htmlFor="supplier">Current supplier</Label>
-                  <Input
-                    id="supplier"
-                    name="supplier"
-                    value={profileData.supplier}
-                    onChange={handleInputChange}
-                  />
-                </div>
-                
-                <div className="space-y-2">
-                  <Label htmlFor="tariff">Current tariff</Label>
-                  <Input
-                    id="tariff"
-                    name="tariff"
-                    value={profileData.tariff}
-                    onChange={handleInputChange}
-                  />
+                <div className="pt-4 border-t">
+                  <h3 className="text-lg font-medium mb-4">Export Details</h3>
+                  <div className="space-y-4">
+                    <div className="space-y-2">
+                      <Label htmlFor="exportMpan">MPAN number (Export)</Label>
+                      <Input
+                        id="exportMpan"
+                        name="exportMpan"
+                        value={profileData.exportMpan}
+                        onChange={handleInputChange}
+                      />
+                    </div>
+                    
+                    <div className="space-y-2">
+                      <Label htmlFor="exportSupplier">Export supplier</Label>
+                      <Input
+                        id="exportSupplier"
+                        name="exportSupplier"
+                        value={profileData.exportSupplier}
+                        onChange={handleInputChange}
+                      />
+                    </div>
+                    
+                    <div className="space-y-2">
+                      <Label htmlFor="exportTariff">Export tariff</Label>
+                      <Input
+                        id="exportTariff"
+                        name="exportTariff"
+                        value={profileData.exportTariff}
+                        onChange={handleInputChange}
+                      />
+                    </div>
+                  </div>
                 </div>
               </CardContent>
               <CardFooter>
