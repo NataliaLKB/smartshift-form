@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -9,10 +8,12 @@ import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/components/ui/use-toast';
 import { CheckIcon, Loader2 } from 'lucide-react';
+import { AddressForm } from '@/components/address/AddressForm';
 
 const AccountProfile = () => {
   const { toast } = useToast();
   const [isLoading, setIsLoading] = useState(false);
+  const [isAddressValid, setIsAddressValid] = useState(true);
   
   // Mock profile data
   const [profileData, setProfileData] = useState({
@@ -38,6 +39,10 @@ const AccountProfile = () => {
     newPassword: "",
     confirmPassword: "",
   });
+  
+  const handleAddressValidityChange = (isValid: boolean) => {
+    setIsAddressValid(isValid);
+  };
   
   const handleProfileUpdate = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -267,14 +272,10 @@ const AccountProfile = () => {
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="space-y-2">
-                  <Label htmlFor="address">Address</Label>
-                  <Textarea
-                    id="address"
-                    name="address"
-                    value={profileData.address}
-                    onChange={handleInputChange}
-                    rows={3}
-                  />
+                  <Label className="text-lg font-medium">Address</Label>
+                  <div className="rounded-md border border-input bg-background p-4">
+                    <AddressForm onValidityChange={handleAddressValidityChange} />
+                  </div>
                 </div>
                 
                 <div className="pt-4 border-t">
@@ -348,7 +349,7 @@ const AccountProfile = () => {
                 </div>
               </CardContent>
               <CardFooter>
-                <Button type="submit" disabled={isLoading}>
+                <Button type="submit" disabled={isLoading || !isAddressValid}>
                   {isLoading ? (
                     <>
                       <Loader2 className="mr-2 h-4 w-4 animate-spin" />
