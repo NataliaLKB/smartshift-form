@@ -9,6 +9,7 @@ import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/components/ui/use-toast';
 import { CheckIcon, Loader2 } from 'lucide-react';
+import { Logo } from '@/components/Logo';
 
 const AccountProfile = () => {
   const { toast } = useToast();
@@ -114,11 +115,14 @@ const AccountProfile = () => {
   
   return (
     <div className="space-y-6">
-      <div>
-        <h1 className="text-2xl font-bold tracking-tight">Profile</h1>
-        <p className="text-muted-foreground">
-          Manage your account settings and preferences
-        </p>
+      <div className="flex items-center justify-between">
+        <div>
+          <h1 className="text-2xl font-bold tracking-tight">Profile</h1>
+          <p className="text-muted-foreground">
+            Manage your account settings and preferences
+          </p>
+        </div>
+        <Logo className="w-32 h-8" />
       </div>
       
       <Tabs defaultValue="personal">
