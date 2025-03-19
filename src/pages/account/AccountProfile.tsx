@@ -9,6 +9,8 @@ import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/components/ui/use-toast';
 import { CheckIcon, Loader2, PencilIcon } from 'lucide-react';
 import { AddressForm } from '@/components/address/AddressForm';
+import { Switch } from '@/components/ui/switch';
+import { Checkbox } from '@/components/ui/checkbox';
 
 const AccountProfile = () => {
   const { toast } = useToast();
@@ -29,6 +31,7 @@ const AccountProfile = () => {
     exportSupplier: "Octopus Energy",
     exportTariff: "Smart Export Guarantee",
     newsletter: "weekly",
+    whatsappAlerts: true,
     productUpdates: true,
     marketingCommunication: false,
   });
@@ -411,7 +414,7 @@ const AccountProfile = () => {
               </CardHeader>
               <CardContent className="space-y-6">
                 <div className="space-y-3">
-                  <Label>Newsletter frequency</Label>
+                  <Label className="text-base">SmartThinking Newsletter</Label>
                   <RadioGroup 
                     defaultValue={profileData.newsletter}
                     onValueChange={(value) => handleRadioChange(value, 'newsletter')}
@@ -431,19 +434,39 @@ const AccountProfile = () => {
                   </RadioGroup>
                 </div>
                 
-                <div className="space-y-3">
-                  <Label className="text-base">Email notifications</Label>
+                <div className="space-y-3 border-t pt-3">
+                  <Label className="text-base">Agile Price Alerts (WhatsApp)</Label>
+                  <div className="flex items-center space-x-2">
+                    <Switch
+                      id="whatsapp-alerts"
+                      checked={profileData.whatsappAlerts}
+                      onCheckedChange={(checked) => 
+                        setProfileData(prev => ({
+                          ...prev,
+                          whatsappAlerts: checked
+                        }))
+                      }
+                    />
+                    <Label htmlFor="whatsapp-alerts">
+                      Receive price alerts via WhatsApp
+                    </Label>
+                  </div>
+                  <p className="text-sm text-muted-foreground pl-10">
+                    Get notified about significant changes in energy prices to optimize your usage.
+                  </p>
+                </div>
+                
+                <div className="space-y-3 border-t pt-3">
+                  <Label className="text-base">Other notifications</Label>
                   <div className="space-y-2">
                     <div className="flex items-center space-x-2">
-                      <input
-                        type="checkbox"
+                      <Checkbox
                         id="productUpdates"
-                        className="rounded border-gray-300 text-primary focus:ring-primary"
                         checked={profileData.productUpdates}
-                        onChange={() => 
+                        onCheckedChange={(checked) => 
                           setProfileData(prev => ({
                             ...prev,
-                            productUpdates: !prev.productUpdates
+                            productUpdates: checked as boolean
                           }))
                         }
                       />
@@ -456,15 +479,13 @@ const AccountProfile = () => {
                     </div>
                     
                     <div className="flex items-center space-x-2">
-                      <input
-                        type="checkbox"
+                      <Checkbox
                         id="marketingCommunication"
-                        className="rounded border-gray-300 text-primary focus:ring-primary"
                         checked={profileData.marketingCommunication}
-                        onChange={() => 
+                        onCheckedChange={(checked) => 
                           setProfileData(prev => ({
                             ...prev,
-                            marketingCommunication: !prev.marketingCommunication
+                            marketingCommunication: checked as boolean
                           }))
                         }
                       />
