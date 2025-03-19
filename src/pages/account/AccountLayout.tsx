@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Outlet, Link, useLocation } from 'react-router-dom';
 import { 
@@ -13,6 +14,7 @@ import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { cn } from '@/lib/utils';
 import { useIsMobile } from '@/hooks/use-mobile';
+import { Logo } from '@/components/Logo';
 
 const AccountLayout = () => {
   const location = useLocation();
@@ -76,8 +78,8 @@ const AccountLayout = () => {
       {/* Header */}
       <header className="bg-white border-b border-gray-200">
         <div className="container mx-auto px-4 py-3 flex items-center justify-between">
-          <Link to="/" className="text-xl font-bold text-primary">
-            SmartShift
+          <Link to="/" className="flex items-center">
+            <Logo className="h-5 w-auto" />
           </Link>
           
           {isMobile ? (
