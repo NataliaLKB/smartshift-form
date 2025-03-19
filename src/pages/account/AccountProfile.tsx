@@ -30,10 +30,8 @@ const AccountProfile = () => {
     exportMpan: "1200098765432",
     exportSupplier: "Octopus Energy",
     exportTariff: "Smart Export Guarantee",
-    newsletter: "weekly",
+    newsletter: "monthly",
     whatsappAlerts: true,
-    productUpdates: true,
-    marketingCommunication: false,
   });
   
   const [passwordData, setPasswordData] = useState({
@@ -420,10 +418,6 @@ const AccountProfile = () => {
                     onValueChange={(value) => handleRadioChange(value, 'newsletter')}
                   >
                     <div className="flex items-center space-x-2">
-                      <RadioGroupItem value="weekly" id="weekly" />
-                      <Label htmlFor="weekly">Weekly</Label>
-                    </div>
-                    <div className="flex items-center space-x-2">
                       <RadioGroupItem value="monthly" id="monthly" />
                       <Label htmlFor="monthly">Monthly</Label>
                     </div>
@@ -454,49 +448,6 @@ const AccountProfile = () => {
                   <p className="text-sm text-muted-foreground pl-10">
                     Get notified about significant changes in energy prices to optimize your usage.
                   </p>
-                </div>
-                
-                <div className="space-y-3 border-t pt-3">
-                  <Label className="text-base">Other notifications</Label>
-                  <div className="space-y-2">
-                    <div className="flex items-center space-x-2">
-                      <Checkbox
-                        id="productUpdates"
-                        checked={profileData.productUpdates}
-                        onCheckedChange={(checked) => 
-                          setProfileData(prev => ({
-                            ...prev,
-                            productUpdates: checked as boolean
-                          }))
-                        }
-                      />
-                      <label 
-                        htmlFor="productUpdates"
-                        className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                      >
-                        Product updates and announcements
-                      </label>
-                    </div>
-                    
-                    <div className="flex items-center space-x-2">
-                      <Checkbox
-                        id="marketingCommunication"
-                        checked={profileData.marketingCommunication}
-                        onCheckedChange={(checked) => 
-                          setProfileData(prev => ({
-                            ...prev,
-                            marketingCommunication: checked as boolean
-                          }))
-                        }
-                      />
-                      <label 
-                        htmlFor="marketingCommunication"
-                        className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                      >
-                        Marketing communications
-                      </label>
-                    </div>
-                  </div>
                 </div>
               </CardContent>
               <CardFooter>
