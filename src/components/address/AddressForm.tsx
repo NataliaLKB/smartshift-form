@@ -135,7 +135,7 @@ export const AddressForm = ({
           <DialogHeader>
             <DialogTitle className="flex items-center gap-2 text-destructive">
               <AlertTriangle className="h-5 w-5" />
-              Uh oh! Address Lookup Service Unavailable
+              Uh oh! Address lookup service unavailable
             </DialogTitle>
             <DialogDescription>We're currently experiencing issues with our address lookup service. This could be due to temporary technical difficulties or system maintenance.</DialogDescription>
           </DialogHeader>
