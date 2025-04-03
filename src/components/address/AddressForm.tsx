@@ -10,11 +10,9 @@ import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover
 import { ChevronDown } from "lucide-react";
 import { AlertTriangle } from "lucide-react";
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
-
 interface AddressFormProps {
   onValidityChange?: (isValid: boolean) => void;
 }
-
 export const AddressForm = ({
   onValidityChange
 }: AddressFormProps) => {
@@ -30,7 +28,6 @@ export const AddressForm = ({
   const {
     toast
   } = useToast();
-
   const addresses = [{
     street: '123 Main Street',
     unit: 'Apartment 4B'
@@ -66,7 +63,6 @@ export const AddressForm = ({
       });
       return;
     }
-
     if (postcode.trim().toUpperCase() === "ERROR") {
       setShowErrorModal(true);
       return;
@@ -134,7 +130,7 @@ export const AddressForm = ({
         <DialogContent className="sm:max-w-md">
           <DialogHeader>
             <DialogTitle className="flex items-center gap-2 text-destructive">
-              <AlertTriangle className="h-5 w-5" />
+              
               Uh-oh! Our address finder isn't working right now
             </DialogTitle>
             <DialogDescription>
@@ -146,9 +142,9 @@ export const AddressForm = ({
           </DialogHeader>
           <DialogFooter>
             <Button className="w-full" onClick={() => {
-              window.open('https://smartshift.energy/backup-form', '_blank');
-              setShowErrorModal(false);
-            }}>
+            window.open('https://smartshift.energy/backup-form', '_blank');
+            setShowErrorModal(false);
+          }}>
               👉 Click below to continue:
             </Button>
           </DialogFooter>
