@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -11,11 +10,9 @@ import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover
 import { ChevronDown } from "lucide-react";
 import { AlertTriangle } from "lucide-react";
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
-
 interface AddressFormProps {
   onValidityChange?: (isValid: boolean) => void;
 }
-
 export const AddressForm = ({
   onValidityChange
 }: AddressFormProps) => {
@@ -53,12 +50,10 @@ export const AddressForm = ({
     street: '123 Main Street',
     unit: 'Apartment 6A'
   }];
-
   const isValidPostcode = (postcode: string) => {
     const postcodeRegex = /^[A-Z]{1,2}[0-9][A-Z0-9]? ?[0-9][A-Z]{2}$/i;
     return postcodeRegex.test(postcode.trim());
   };
-
   const handleFindAddress = () => {
     if (!postcode.trim()) {
       toast({
@@ -82,7 +77,6 @@ export const AddressForm = ({
     }
     setShowAddresses(true);
   };
-
   const handleAddressSelect = (address: {
     street: string;
     unit: string;
@@ -90,12 +84,10 @@ export const AddressForm = ({
     setSelectedAddress(address);
     setPopoverOpen(false);
   };
-
   useEffect(() => {
     const isValid = postcode !== '' && showAddresses && selectedAddress !== null;
     onValidityChange?.(isValid);
   }, [postcode, showAddresses, selectedAddress, onValidityChange]);
-
   return <div className="space-y-6">
       <div>
         <Label htmlFor="postcode" className="text-base font-medium">Postcode</Label>
@@ -139,7 +131,8 @@ export const AddressForm = ({
           <DialogHeader>
             <DialogTitle className="flex items-center gap-2 text-destructive leading-tight sm:leading-normal">
               <AlertTriangle className="h-5 w-5" />
-              <span>Uh-oh! Our address finder isn't working right now</span>
+              <span>Uh-oh!
+Our address finder isn't working right now</span>
             </DialogTitle>
             <DialogDescription className="space-y-4 pt-2">
               <p>It looks like our address lookup tool is taking a quick break — sorry about that! But no worries, you can still carry on with your application using our backup form. It only takes a moment!</p>
@@ -147,13 +140,10 @@ export const AddressForm = ({
             </DialogDescription>
           </DialogHeader>
           <DialogFooter>
-            <Button 
-              className="w-full" 
-              onClick={() => {
-                window.open('https://smartshift.energy/backup-form', '_blank');
-                setShowErrorModal(false);
-              }}
-            >
+            <Button className="w-full" onClick={() => {
+            window.open('https://smartshift.energy/backup-form', '_blank');
+            setShowErrorModal(false);
+          }}>
               Take me there
             </Button>
           </DialogFooter>
@@ -161,5 +151,4 @@ export const AddressForm = ({
       </Dialog>
     </div>;
 };
-
 export default AddressForm;
