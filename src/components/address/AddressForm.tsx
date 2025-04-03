@@ -140,7 +140,7 @@ export const AddressForm = ({
               Uh-oh! Our address finder isn't working right now
             </DialogTitle>
             <DialogDescription className="space-y-4">
-              <p>It looks like our address lookup tool is taking a quick break — sorry about that!</p>
+              <p>It looks like our address lookup tool is taking a quick break — sorry about that! But no worries, you can still carry on with your application using our backup form. It only takes a moment!</p>
               <p className="font-medium">Click below to continue:</p>
             </DialogDescription>
           </DialogHeader>
