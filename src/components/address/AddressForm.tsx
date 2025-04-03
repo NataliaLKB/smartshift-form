@@ -31,7 +31,6 @@ export const AddressForm = ({
     toast
   } = useToast();
 
-  // For demo purposes, we have a few sample addresses
   const addresses = [{
     street: '123 Main Street',
     unit: 'Apartment 4B'
@@ -55,7 +54,6 @@ export const AddressForm = ({
     unit: 'Apartment 6A'
   }];
   const isValidPostcode = (postcode: string) => {
-    // Basic UK postcode validation
     const postcodeRegex = /^[A-Z]{1,2}[0-9][A-Z0-9]? ?[0-9][A-Z]{2}$/i;
     return postcodeRegex.test(postcode.trim());
   };
@@ -69,7 +67,6 @@ export const AddressForm = ({
       return;
     }
 
-    // Show error modal for "ERROR" postcode (case insensitive)
     if (postcode.trim().toUpperCase() === "ERROR") {
       setShowErrorModal(true);
       return;
@@ -133,18 +130,17 @@ export const AddressForm = ({
           </div>}
       </div>
 
-      {/* Error Modal */}
       <Dialog open={showErrorModal} onOpenChange={setShowErrorModal}>
         <DialogContent className="sm:max-w-md">
           <DialogHeader>
             <DialogTitle className="flex items-center gap-2 text-destructive">
               <AlertTriangle className="h-5 w-5" />
-              Address Lookup Failed
+              Address Lookup Service Unavailable
             </DialogTitle>
-            <DialogDescription>We're unable to find addresses for the postcode you entered.</DialogDescription>
+            <DialogDescription>We're currently experiencing issues with our address lookup service. This could be due to temporary technical difficulties or system maintenance.</DialogDescription>
           </DialogHeader>
           <div className="py-4">
-            <p className="mb-4">Please use our backup form to continue with your application:</p>
+            <p className="mb-4">To proceed with your application, please use our backup form:</p>
             <p className="font-medium text-primary">smartshift.energy/backup-form</p>
           </div>
           <DialogFooter>
