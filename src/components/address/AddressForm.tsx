@@ -135,7 +135,7 @@ export const AddressForm = ({
           <DialogHeader>
             <DialogTitle className="flex items-center gap-2 text-destructive">
               <AlertTriangle className="h-5 w-5" />
-              🔍 Whoops - Our address finder isn't working right now
+              Uh-oh! Our address finder isn't working right now
             </DialogTitle>
             <DialogDescription>
               It looks like our address lookup tool is taking a quick break — sorry about that!
