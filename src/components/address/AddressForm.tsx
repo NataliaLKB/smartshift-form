@@ -139,9 +139,9 @@ export const AddressForm = ({
           <DialogHeader>
             <DialogTitle className="flex items-center gap-2 text-destructive">
               <AlertTriangle className="h-5 w-5" />
-              Service temporary unavailable
+              Address Lookup Failed
             </DialogTitle>
-            <DialogDescription>We're experiencing technical difficulties with our third party provider.</DialogDescription>
+            <DialogDescription>We're unable to find addresses for the postcode you entered.</DialogDescription>
           </DialogHeader>
           <div className="py-4">
             <p className="mb-4">Please use our backup form to continue with your application:</p>
