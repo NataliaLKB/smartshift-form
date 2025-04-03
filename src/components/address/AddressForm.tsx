@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -85,18 +86,18 @@ export const AddressForm = ({
       return;
     }
 
+    // Show error modal for "ERROR" postcode (case insensitive)
+    if (postcode.trim().toUpperCase() === "ERROR") {
+      setShowErrorModal(true);
+      return;
+    }
+
     if (!isValidPostcode(postcode)) {
       toast({
         title: "Invalid Postcode",
         description: "Please enter a valid UK postcode",
         variant: "destructive"
       });
-      return;
-    }
-
-    // Simulate a service failure - show the error modal instead of loading addresses
-    if (postcode.trim().toUpperCase() === "ERROR" || Math.random() < 0.2) {
-      setShowErrorModal(true);
       return;
     }
 
