@@ -10,9 +10,11 @@ import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover
 import { ChevronDown } from "lucide-react";
 import { AlertTriangle } from "lucide-react";
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+
 interface AddressFormProps {
   onValidityChange?: (isValid: boolean) => void;
 }
+
 export const AddressForm = ({
   onValidityChange
 }: AddressFormProps) => {
@@ -137,7 +139,7 @@ export const AddressForm = ({
           <DialogHeader>
             <DialogTitle className="flex items-center gap-2 text-destructive">
               <AlertTriangle className="h-5 w-5" />
-              Service Temporarily Unavailable
+              Service temporary unavailable
             </DialogTitle>
             <DialogDescription>We're experiencing technical difficulties with our third party provider.</DialogDescription>
           </DialogHeader>
