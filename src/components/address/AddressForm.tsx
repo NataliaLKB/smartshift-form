@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -136,10 +137,11 @@ export const AddressForm = ({
       <Dialog open={showErrorModal} onOpenChange={setShowErrorModal}>
         <DialogContent className="sm:max-w-md">
           <DialogHeader>
-            <DialogTitle className="flex items-center gap-2 text-destructive">
-              Uh-oh! Our address finder isn't working right now
+            <DialogTitle className="flex items-center gap-2 text-destructive leading-tight sm:leading-normal">
+              <AlertTriangle className="h-5 w-5" />
+              <span>Uh-oh! Our address finder isn't working right now</span>
             </DialogTitle>
-            <DialogDescription className="space-y-4">
+            <DialogDescription className="space-y-4 pt-2">
               <p>It looks like our address lookup tool is taking a quick break — sorry about that! But no worries, you can still carry on with your application using our backup form. It only takes a moment!</p>
               <p className="font-medium">Click below to continue:</p>
             </DialogDescription>
