@@ -135,20 +135,21 @@ export const AddressForm = ({
           <DialogHeader>
             <DialogTitle className="flex items-center gap-2 text-destructive">
               <AlertTriangle className="h-5 w-5" />
-              Uh oh! Address lookup service unavailable
+              🔍 Whoops - Our address finder isn't working right now
             </DialogTitle>
-            <DialogDescription>We're currently experiencing issues with our address lookup service. This could be due to temporary technical difficulties or system maintenance.</DialogDescription>
+            <DialogDescription>
+              It looks like our address lookup tool is taking a quick break — sorry about that!
+              But no worries, you can still carry on with your application using our backup form.
+              
+              It only takes a moment!
+            </DialogDescription>
           </DialogHeader>
-          <div className="py-4">
-            <p className="mb-4">To proceed with your application, please use our backup form:</p>
-            <p className="font-medium text-primary">smartshift.energy/backup-form</p>
-          </div>
           <DialogFooter>
             <Button className="w-full" onClick={() => {
-            window.open('https://smartshift.energy/backup-form', '_blank');
-            setShowErrorModal(false);
-          }}>
-              Take me there
+              window.open('https://smartshift.energy/backup-form', '_blank');
+              setShowErrorModal(false);
+            }}>
+              👉 Click below to continue:
             </Button>
           </DialogFooter>
         </DialogContent>
