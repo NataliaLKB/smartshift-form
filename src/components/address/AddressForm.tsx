@@ -10,9 +10,11 @@ import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover
 import { ChevronDown } from "lucide-react";
 import { AlertTriangle } from "lucide-react";
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+
 interface AddressFormProps {
   onValidityChange?: (isValid: boolean) => void;
 }
+
 export const AddressForm = ({
   onValidityChange
 }: AddressFormProps) => {
@@ -28,6 +30,7 @@ export const AddressForm = ({
   const {
     toast
   } = useToast();
+
   const addresses = [{
     street: '123 Main Street',
     unit: 'Apartment 4B'
@@ -50,10 +53,12 @@ export const AddressForm = ({
     street: '123 Main Street',
     unit: 'Apartment 6A'
   }];
+
   const isValidPostcode = (postcode: string) => {
     const postcodeRegex = /^[A-Z]{1,2}[0-9][A-Z0-9]? ?[0-9][A-Z]{2}$/i;
     return postcodeRegex.test(postcode.trim());
   };
+
   const handleFindAddress = () => {
     if (!postcode.trim()) {
       toast({
@@ -77,6 +82,7 @@ export const AddressForm = ({
     }
     setShowAddresses(true);
   };
+
   const handleAddressSelect = (address: {
     street: string;
     unit: string;
@@ -84,10 +90,12 @@ export const AddressForm = ({
     setSelectedAddress(address);
     setPopoverOpen(false);
   };
+
   useEffect(() => {
     const isValid = postcode !== '' && showAddresses && selectedAddress !== null;
     onValidityChange?.(isValid);
   }, [postcode, showAddresses, selectedAddress, onValidityChange]);
+
   return <div className="space-y-6">
       <div>
         <Label htmlFor="postcode" className="text-base font-medium">Postcode</Label>
@@ -130,7 +138,6 @@ export const AddressForm = ({
         <DialogContent className="sm:max-w-md">
           <DialogHeader>
             <DialogTitle className="flex items-center gap-2 text-destructive">
-              
               Uh-oh! Our address finder isn't working right now
             </DialogTitle>
             <DialogDescription>
@@ -142,10 +149,10 @@ export const AddressForm = ({
           </DialogHeader>
           <DialogFooter>
             <Button className="w-full" onClick={() => {
-            window.open('https://smartshift.energy/backup-form', '_blank');
-            setShowErrorModal(false);
-          }}>
-              👉 Click below to continue:
+              window.open('https://smartshift.energy/backup-form', '_blank');
+              setShowErrorModal(false);
+            }}>
+              👉 Take me there
             </Button>
           </DialogFooter>
         </DialogContent>
