@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -152,10 +153,12 @@ export const AddressForm = ({
               window.open('https://smartshift.energy/backup-form', '_blank');
               setShowErrorModal(false);
             }}>
-              👉 Take me there
+              Take me there
             </Button>
           </DialogFooter>
         </DialogContent>
       </Dialog>
     </div>;
 };
+
+export default AddressForm;
