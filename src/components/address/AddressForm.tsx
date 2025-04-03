@@ -130,7 +130,7 @@ export const AddressForm = ({
         <DialogContent className="sm:max-w-md">
           <DialogHeader>
             <DialogTitle className="flex items-center gap-2 text-destructive leading-tight sm:leading-normal">
-              <AlertTriangle className="h-5 w-5" />
+              
               <span>Uh-oh!
 Our address finder isn't working right now</span>
             </DialogTitle>
