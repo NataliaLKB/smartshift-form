@@ -6,6 +6,8 @@ import { Progress } from '@/components/ui/progress';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
+import { Pencil } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 interface LocationState {
   assessmentType: 'import-only' | 'import-export';
@@ -18,10 +20,12 @@ const Tariff = () => {
   
   const [importTariff, setImportTariff] = useState("");
   const [exportTariff, setExportTariff] = useState("");
+  const [supplier, setSupplier] = useState("Octopus Energy");
+  const [isEditingSupplier, setIsEditingSupplier] = useState(false);
 
   const isValid = assessmentType === 'import-only' 
-    ? importTariff.trim().length > 0
-    : importTariff.trim().length > 0;  // For import-export, we only require import tariff as export might be optional
+    ? importTariff.trim().length > 0 && supplier.trim().length > 0
+    : importTariff.trim().length > 0 && supplier.trim().length > 0;  // For import-export, we only require import tariff as export might be optional
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -42,8 +46,56 @@ const Tariff = () => {
 
             <div className="space-y-6">
               <div className="bg-white p-6 rounded-lg border border-gray-200">
-                <h2 className="text-lg font-semibold text-gray-900">Your current supplier is:</h2>
-                <p className="text-xl font-bold text-[#038B8D] mt-2">Octopus Energy</p>
+                {supplier.trim() ? (
+                  <>
+                    <h2 className="text-lg font-semibold text-gray-900">Your current supplier is:</h2>
+                    {isEditingSupplier ? (
+                      <div className="flex items-center gap-3 mt-2">
+                        <Input
+                          type="text"
+                          value={supplier}
+                          onChange={(e) => setSupplier(e.target.value)}
+                          placeholder="Enter your energy supplier"
+                          className="max-w-xs"
+                          autoFocus
+                        />
+                        <Button 
+                          onClick={() => setIsEditingSupplier(false)}
+                          variant="outline"
+                          size="sm"
+                        >
+                          Save
+                        </Button>
+                      </div>
+                    ) : (
+                      <div className="flex items-center mt-2">
+                        <p className="text-xl font-bold text-[#038B8D] mr-3">{supplier}</p>
+                        <Button 
+                          onClick={() => setIsEditingSupplier(true)}
+                          variant="ghost"
+                          size="sm"
+                          className="h-8 px-2 text-gray-500"
+                        >
+                          <Pencil className="h-4 w-4 mr-1" />
+                          Edit
+                        </Button>
+                      </div>
+                    )}
+                  </>
+                ) : (
+                  <>
+                    <h2 className="text-lg font-semibold text-gray-900">Who is your current supplier?</h2>
+                    <div className="flex items-center gap-3 mt-2">
+                      <Input
+                        type="text"
+                        value={supplier}
+                        onChange={(e) => setSupplier(e.target.value)}
+                        placeholder="Enter your energy supplier"
+                        className="max-w-xs"
+                      />
+                    </div>
+                  </>
+                )}
               </div>
 
               <div className="space-y-4">
