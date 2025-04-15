@@ -52,10 +52,8 @@ const Tariff = () => {
                         <Button onClick={() => setIsEditingSupplier(false)} className="bg-primary hover:bg-primary/90 text-white sm:self-stretch" size="sm">
                           Save
                         </Button>
-                      </div> : <div className="flex items-center">
-                        <div className="flex-1">
-                          <span className="text-lg font-semibold text-[#028a7e]">{supplier}</span>
-                        </div>
+                      </div> : <div className="flex items-center space-x-2">
+                        <span className="text-lg font-semibold text-[#028a7e]">{supplier}</span>
                         <Button 
                           onClick={() => setIsEditingSupplier(true)} 
                           variant="ghost" 
