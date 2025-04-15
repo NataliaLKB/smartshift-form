@@ -48,51 +48,64 @@ const Tariff = () => {
               <div className="bg-white p-6 rounded-lg border border-gray-200">
                 {supplier.trim() ? (
                   <>
-                    <h2 className="text-lg font-semibold text-gray-900">Your current supplier is:</h2>
+                    <h2 className="text-lg font-semibold text-gray-900 mb-3">Your current supplier is:</h2>
                     {isEditingSupplier ? (
-                      <div className="flex items-center gap-3 mt-2">
+                      <div className="flex flex-col sm:flex-row sm:items-center gap-3">
                         <Input
                           type="text"
                           value={supplier}
                           onChange={(e) => setSupplier(e.target.value)}
                           placeholder="Enter your energy supplier"
-                          className="max-w-xs"
+                          className="max-w-xs bg-[#F8FFFE] border-[#038B8D]/30 focus-visible:ring-[#038B8D]/50"
                           autoFocus
                         />
                         <Button 
                           onClick={() => setIsEditingSupplier(false)}
-                          variant="outline"
+                          className="bg-[#038B8D] hover:bg-[#038B8D]/90 text-white sm:self-stretch"
                           size="sm"
                         >
-                          Save
+                          Save Changes
                         </Button>
                       </div>
                     ) : (
-                      <div className="flex items-center mt-2">
-                        <p className="text-xl font-bold text-[#038B8D] mr-3">{supplier}</p>
+                      <div className="flex items-center">
+                        <div className="flex-1">
+                          <div className="inline-flex items-center px-4 py-2 rounded-md bg-[#F8FFFE] border border-[#038B8D]/20">
+                            <span className="text-lg font-semibold text-[#038B8D] mr-2">{supplier}</span>
+                          </div>
+                        </div>
                         <Button 
                           onClick={() => setIsEditingSupplier(true)}
                           variant="ghost"
                           size="sm"
-                          className="h-8 px-2 text-gray-500"
+                          className="text-[#038B8D] hover:bg-[#F8FFFE] hover:text-[#038B8D] focus-visible:ring-[#038B8D]/50"
                         >
-                          <Pencil className="h-4 w-4 mr-1" />
-                          Edit
+                          <Pencil className="h-4 w-4 mr-2" />
+                          Edit Supplier
                         </Button>
                       </div>
                     )}
                   </>
                 ) : (
                   <>
-                    <h2 className="text-lg font-semibold text-gray-900">Who is your current supplier?</h2>
-                    <div className="flex items-center gap-3 mt-2">
+                    <h2 className="text-lg font-semibold text-gray-900 mb-3">Who is your current supplier?</h2>
+                    <div className="flex flex-col sm:flex-row sm:items-center gap-3">
                       <Input
                         type="text"
                         value={supplier}
                         onChange={(e) => setSupplier(e.target.value)}
                         placeholder="Enter your energy supplier"
-                        className="max-w-xs"
+                        className="max-w-xs bg-[#F8FFFE] border-[#038B8D]/30 focus-visible:ring-[#038B8D]/50"
                       />
+                      {supplier.trim() && (
+                        <Button 
+                          onClick={() => setIsEditingSupplier(false)}
+                          className="bg-[#038B8D] hover:bg-[#038B8D]/90 text-white sm:self-stretch"
+                          size="sm"
+                        >
+                          Save
+                        </Button>
+                      )}
                     </div>
                   </>
                 )}
@@ -114,6 +127,7 @@ const Tariff = () => {
                       ? "Enter your electricity import tariff name"
                       : "Enter your electricity tariff name"
                     }
+                    className="bg-[#F8FFFE] border-gray-300 focus-visible:ring-[#038B8D]/50"
                   />
                   <p className="text-sm text-gray-500">You can find this information on your bill</p>
                 </div>
@@ -126,6 +140,7 @@ const Tariff = () => {
                       value={exportTariff}
                       onChange={(e) => setExportTariff(e.target.value)}
                       placeholder="Enter your electricity export tariff name"
+                      className="bg-[#F8FFFE] border-gray-300 focus-visible:ring-[#038B8D]/50"
                     />
                     <p className="text-sm text-gray-500">This might be on a separate export bill if you have one</p>
                   </div>
