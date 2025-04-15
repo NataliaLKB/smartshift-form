@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Edit } from 'lucide-react';
 import { AddressHeader } from '@/components/address/AddressHeader';
 import { AddressFooter } from '@/components/address/AddressFooter';
 import { Progress } from '@/components/ui/progress';
@@ -6,9 +7,11 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+
 interface LocationState {
   assessmentType: 'import-only' | 'import-export';
 }
+
 const Tariff = () => {
   const navigate = useNavigate();
   const location = useLocation();
@@ -21,6 +24,7 @@ const Tariff = () => {
   const [exportTariff, setExportTariff] = useState("");
   const [supplier, setSupplier] = useState("Octopus Energy");
   const [isEditingSupplier, setIsEditingSupplier] = useState(false);
+
   const isValid = assessmentType === 'import-only' ? importTariff.trim().length > 0 && supplier.trim().length > 0 : importTariff.trim().length > 0 && supplier.trim().length > 0; // For import-export, we only require import tariff as export might be optional
 
   return <div className="min-h-screen flex flex-col">
@@ -50,12 +54,15 @@ const Tariff = () => {
                         </Button>
                       </div> : <div className="flex items-center">
                         <div className="flex-1">
-                          <div className="inline-flex items-center px-4 py-2 rounded-md border border-gray-200">
-                            <span className="text-lg font-semibold text-[#028a7e]">{supplier}</span>
-                          </div>
+                          <span className="text-lg font-semibold text-[#028a7e]">{supplier}</span>
                         </div>
-                        <Button onClick={() => setIsEditingSupplier(true)} variant="ghost" size="sm" className="text-primary hover:text-primary/80 hover:underline focus-visible:ring-primary/50">
-                          Not your supplier?
+                        <Button 
+                          onClick={() => setIsEditingSupplier(true)} 
+                          variant="ghost" 
+                          size="sm" 
+                          className="flex items-center gap-1 text-[#6E59A5] hover:text-[#6E59A5]/80 hover:underline focus-visible:ring-primary/50"
+                        >
+                          <Edit className="h-4 w-4" /> Change
                         </Button>
                       </div>}
                   </> : <>
@@ -96,4 +103,5 @@ const Tariff = () => {
     })} onContinue={() => navigate('/feedback')} isEnabled={isValid} />
     </div>;
 };
+
 export default Tariff;
