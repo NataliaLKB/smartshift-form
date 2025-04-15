@@ -6,7 +6,6 @@ import { Progress } from '@/components/ui/progress';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
-import { Pencil } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 interface LocationState {
@@ -45,7 +44,7 @@ const Tariff = () => {
             </div>
 
             <div className="space-y-6">
-              <div className="bg-white p-6 rounded-lg border border-gray-200">
+              <div className="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
                 {supplier.trim() ? (
                   <>
                     <h2 className="text-lg font-semibold text-gray-900 mb-3">Your current supplier is:</h2>
@@ -56,32 +55,31 @@ const Tariff = () => {
                           value={supplier}
                           onChange={(e) => setSupplier(e.target.value)}
                           placeholder="Enter your energy supplier"
-                          className="max-w-xs bg-[#F8FFFE] border-[#038B8D]/30 focus-visible:ring-[#038B8D]/50"
+                          className="max-w-xs border-gray-300 focus-visible:ring-primary/50"
                           autoFocus
                         />
                         <Button 
                           onClick={() => setIsEditingSupplier(false)}
-                          className="bg-[#038B8D] hover:bg-[#038B8D]/90 text-white sm:self-stretch"
+                          className="bg-primary hover:bg-primary/90 text-white sm:self-stretch"
                           size="sm"
                         >
-                          Save Changes
+                          Save
                         </Button>
                       </div>
                     ) : (
                       <div className="flex items-center">
                         <div className="flex-1">
-                          <div className="inline-flex items-center px-4 py-2 rounded-md bg-[#F8FFFE] border border-[#038B8D]/20">
-                            <span className="text-lg font-semibold text-[#038B8D] mr-2">{supplier}</span>
+                          <div className="inline-flex items-center px-4 py-2 rounded-md border border-gray-200">
+                            <span className="text-lg font-semibold text-gray-800">{supplier}</span>
                           </div>
                         </div>
                         <Button 
                           onClick={() => setIsEditingSupplier(true)}
                           variant="ghost"
                           size="sm"
-                          className="text-[#038B8D] hover:bg-[#F8FFFE] hover:text-[#038B8D] focus-visible:ring-[#038B8D]/50"
+                          className="text-primary hover:text-primary/80 hover:underline focus-visible:ring-primary/50"
                         >
-                          <Pencil className="h-4 w-4 mr-2" />
-                          Edit Supplier
+                          Not your supplier?
                         </Button>
                       </div>
                     )}
@@ -95,12 +93,12 @@ const Tariff = () => {
                         value={supplier}
                         onChange={(e) => setSupplier(e.target.value)}
                         placeholder="Enter your energy supplier"
-                        className="max-w-xs bg-[#F8FFFE] border-[#038B8D]/30 focus-visible:ring-[#038B8D]/50"
+                        className="max-w-xs border-gray-300 focus-visible:ring-primary/50"
                       />
                       {supplier.trim() && (
                         <Button 
                           onClick={() => setIsEditingSupplier(false)}
-                          className="bg-[#038B8D] hover:bg-[#038B8D]/90 text-white sm:self-stretch"
+                          className="bg-primary hover:bg-primary/90 text-white sm:self-stretch"
                           size="sm"
                         >
                           Save
@@ -127,7 +125,7 @@ const Tariff = () => {
                       ? "Enter your electricity import tariff name"
                       : "Enter your electricity tariff name"
                     }
-                    className="bg-[#F8FFFE] border-gray-300 focus-visible:ring-[#038B8D]/50"
+                    className="border-gray-300 focus-visible:ring-primary/50"
                   />
                   <p className="text-sm text-gray-500">You can find this information on your bill</p>
                 </div>
@@ -140,7 +138,7 @@ const Tariff = () => {
                       value={exportTariff}
                       onChange={(e) => setExportTariff(e.target.value)}
                       placeholder="Enter your electricity export tariff name"
-                      className="bg-[#F8FFFE] border-gray-300 focus-visible:ring-[#038B8D]/50"
+                      className="border-gray-300 focus-visible:ring-primary/50"
                     />
                     <p className="text-sm text-gray-500">This might be on a separate export bill if you have one</p>
                   </div>
