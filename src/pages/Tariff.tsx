@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Edit } from 'lucide-react';
 import { AddressHeader } from '@/components/address/AddressHeader';
@@ -52,13 +53,13 @@ const Tariff = () => {
                         <Button onClick={() => setIsEditingSupplier(false)} className="bg-primary hover:bg-primary/90 text-white sm:self-stretch" size="sm">
                           Save
                         </Button>
-                      </div> : <div className="flex items-center space-x-2">
+                      </div> : <div className="flex items-center gap-2">
                         <span className="text-lg font-semibold text-[#028a7e]">{supplier}</span>
                         <Button 
                           onClick={() => setIsEditingSupplier(true)} 
                           variant="ghost" 
                           size="sm" 
-                          className="flex items-center gap-1 text-[#6E59A5] hover:text-[#6E59A5]/80 hover:underline focus-visible:ring-primary/50"
+                          className="flex items-center gap-1 text-[#6E59A5] hover:text-[#6E59A5]/80 hover:underline focus-visible:ring-primary/50 px-2 py-1"
                         >
                           <Edit className="h-4 w-4" /> Change
                         </Button>
