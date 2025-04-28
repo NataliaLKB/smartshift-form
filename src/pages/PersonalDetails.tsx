@@ -4,11 +4,13 @@ import { AddressHeader } from '@/components/address/AddressHeader';
 import { AddressFooter } from '@/components/address/AddressFooter';
 import { Progress } from '@/components/ui/progress';
 import { PersonalDetailsForm } from '@/components/personal/PersonalDetailsForm';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { Card, CardContent } from '@/components/ui/card';
 
 const PersonalDetails = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+  const isCreatingAccount = location.state?.accountType === 'account';
   const [isFormValid, setIsFormValid] = useState(false);
 
   const handleFormValidityChange = (isValid: boolean) => {
@@ -40,7 +42,7 @@ const PersonalDetails = () => {
 
             <Card>
               <CardContent className="pt-6">
-                <PersonalDetailsForm onValidityChange={handleFormValidityChange} />
+                <PersonalDetailsForm onValidityChange={handleFormValidityChange} createAccount={isCreatingAccount} />
               </CardContent>
             </Card>
           </div>
@@ -51,7 +53,7 @@ const PersonalDetails = () => {
         hideBack={true}
         onContinue={handleContinue}
         isEnabled={isFormValid}
-        buttonText="Continue"
+        buttonText={isCreatingAccount ? "Create Account" : "Continue"}
       />
     </div>
   );
