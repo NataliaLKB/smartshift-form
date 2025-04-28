@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -65,11 +64,7 @@ export const AccountChoice = ({ onSelect }: AccountChoiceProps) => {
           <ul className="space-y-2">
             <li className="flex items-start gap-2 text-sm">
               <CheckCircle2 className="h-4 w-4 text-primary mt-1 flex-shrink-0" />
-              <span>Receive your tariff recommendation via email</span>
-            </li>
-            <li className="flex items-start gap-2 text-sm">
-              <CheckCircle2 className="h-4 w-4 text-primary mt-1 flex-shrink-0" />
-              <span>Get updates about the assessment process</span>
+              <span>Receive your tariff recommendation and updates about the process via email only</span>
             </li>
           </ul>
           <Button 
@@ -84,4 +79,3 @@ export const AccountChoice = ({ onSelect }: AccountChoiceProps) => {
     </div>
   );
 };
-
