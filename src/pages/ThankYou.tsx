@@ -1,4 +1,5 @@
-import React from 'react';
+
+import React, { useState } from 'react';
 import { AddressHeader } from '@/components/address/AddressHeader';
 import { AddressFooter } from '@/components/address/AddressFooter';
 import { useNavigate, useLocation } from 'react-router-dom';
@@ -10,7 +11,8 @@ import { Card } from '@/components/ui/card';
 const ThankYou = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const isGuest = location.state?.accountType === 'guest';
+  const [isTestingGuest, setIsTestingGuest] = useState(false);
+  const isGuest = isTestingGuest || location.state?.accountType === 'guest';
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -20,7 +22,17 @@ const ThankYou = () => {
         <div className="container max-w-4xl mx-auto px-4 py-12">
           <div className="text-center space-y-8">
             <div className="space-y-4">
-              <h1 className="text-4xl font-bold text-gray-900">Thank You!</h1>
+              <div className="flex items-center justify-center gap-2">
+                <h1 className="text-4xl font-bold text-gray-900">Thank You!</h1>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  className="text-xs"
+                  onClick={() => setIsTestingGuest(!isTestingGuest)}
+                >
+                  Test {isGuest ? 'Logged In' : 'Guest'} View
+                </Button>
+              </div>
               <p className="text-xl text-gray-600">We're starting your personalised electricity analysis</p>
             </div>
 
