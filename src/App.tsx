@@ -1,9 +1,8 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import PersonalDetails from "./pages/PersonalDetails";
 import Index from "./pages/Index";
 import Devices from "./pages/Devices";
@@ -24,6 +23,7 @@ import AccountDashboard from "./pages/account/AccountDashboard";
 import AccountProfile from "./pages/account/AccountProfile";
 import AccountLayout from "./pages/account/AccountLayout";
 import SmartTariffAnalysis from "./pages/account/SmartTariffAnalysis";
+import AccountChoice from "./pages/account/AccountChoice";
 
 const queryClient = new QueryClient();
 
@@ -36,6 +36,7 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Landing />} />
           <Route path="/about" element={<About />} />
+          <Route path="/start" element={<AccountChoice />} />
           <Route path="/personal-details" element={<PersonalDetails />} />
           <Route path="/address" element={<Index />} />
           <Route path="/import-export" element={<ImportExport />} />
