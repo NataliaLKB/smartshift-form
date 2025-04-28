@@ -1,3 +1,4 @@
+
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -23,7 +24,7 @@ import AccountDashboard from "./pages/account/AccountDashboard";
 import AccountProfile from "./pages/account/AccountProfile";
 import AccountLayout from "./pages/account/AccountLayout";
 import SmartTariffAnalysis from "./pages/account/SmartTariffAnalysis";
-import AccountChoice from "./pages/account/AccountChoice";
+import AccountChoicePage from "./pages/AccountChoicePage";
 
 const queryClient = new QueryClient();
 
@@ -36,7 +37,7 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Landing />} />
           <Route path="/about" element={<About />} />
-          <Route path="/start" element={<AccountChoice />} />
+          <Route path="/start" element={<AccountChoicePage />} />
           <Route path="/personal-details" element={<PersonalDetails />} />
           <Route path="/address" element={<Index />} />
           <Route path="/import-export" element={<ImportExport />} />

@@ -29,7 +29,11 @@ const AccountChoicePage = () => {
         </div>
       </main>
 
-      <AddressFooter hideBack={true} hideNext={true} />
+      <AddressFooter 
+        hideBack={true}
+        hideContinue={true}
+        onContinue={() => {}} 
+      />
     </div>
   );
 };
