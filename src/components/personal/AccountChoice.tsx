@@ -11,38 +11,6 @@ interface AccountChoiceProps {
 export const AccountChoice = ({ onSelect }: AccountChoiceProps) => {
   return (
     <div className="grid md:grid-cols-2 gap-6">
-      <Card className="relative border-2 hover:border-primary/50 transition-colors cursor-pointer"
-            onClick={() => onSelect('guest')}>
-        <CardHeader>
-          <CardTitle className="flex items-center gap-2">
-            <Mail className="h-5 w-5" />
-            Continue as Guest
-          </CardTitle>
-        </CardHeader>
-        <CardContent>
-          <p className="text-muted-foreground mb-4">
-            Get your tariff recommendation without creating an account
-          </p>
-          <ul className="space-y-2">
-            <li className="flex items-start gap-2 text-sm">
-              <CheckCircle2 className="h-4 w-4 text-primary mt-1 flex-shrink-0" />
-              <span>Receive your tariff recommendation via email</span>
-            </li>
-            <li className="flex items-start gap-2 text-sm">
-              <CheckCircle2 className="h-4 w-4 text-primary mt-1 flex-shrink-0" />
-              <span>Get updates about the assessment process</span>
-            </li>
-          </ul>
-          <Button 
-            variant="outline" 
-            className="w-full mt-6"
-            onClick={() => onSelect('guest')}
-          >
-            Continue as Guest
-          </Button>
-        </CardContent>
-      </Card>
-
       <Card className="relative border-2 border-primary hover:border-primary/50 transition-colors cursor-pointer bg-primary/5"
             onClick={() => onSelect('account')}>
         <CardHeader>
@@ -81,6 +49,39 @@ export const AccountChoice = ({ onSelect }: AccountChoiceProps) => {
           </Button>
         </CardContent>
       </Card>
+
+      <Card className="relative border-2 hover:border-primary/50 transition-colors cursor-pointer"
+            onClick={() => onSelect('guest')}>
+        <CardHeader>
+          <CardTitle className="flex items-center gap-2">
+            <Mail className="h-5 w-5" />
+            Continue as Guest
+          </CardTitle>
+        </CardHeader>
+        <CardContent>
+          <p className="text-muted-foreground mb-4">
+            Get your tariff recommendation without creating an account
+          </p>
+          <ul className="space-y-2">
+            <li className="flex items-start gap-2 text-sm">
+              <CheckCircle2 className="h-4 w-4 text-primary mt-1 flex-shrink-0" />
+              <span>Receive your tariff recommendation via email</span>
+            </li>
+            <li className="flex items-start gap-2 text-sm">
+              <CheckCircle2 className="h-4 w-4 text-primary mt-1 flex-shrink-0" />
+              <span>Get updates about the assessment process</span>
+            </li>
+          </ul>
+          <Button 
+            variant="outline" 
+            className="w-full mt-6"
+            onClick={() => onSelect('guest')}
+          >
+            Continue as Guest
+          </Button>
+        </CardContent>
+      </Card>
     </div>
   );
 };
+
