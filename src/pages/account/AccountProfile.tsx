@@ -283,7 +283,7 @@ const AccountProfile = () => {
                 <div className="pt-4 border-t">
                   <Collapsible open={showExportDetails} onOpenChange={setShowExportDetails} className="space-y-4">
                     <CollapsibleTrigger asChild>
-                      <Button variant="ghost" size="sm" className="flex items-center gap-1 text-primary-dark">
+                      <Button variant="ghost" size="sm" className="flex items-center gap-1 text-primary-darker">
                         {showExportDetails ? <>
                             Hide export tariff details
                             <ChevronUp className="h-4 w-4" />
