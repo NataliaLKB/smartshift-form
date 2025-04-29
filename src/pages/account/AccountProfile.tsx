@@ -8,7 +8,7 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/components/ui/use-toast';
-import { CheckIcon, Loader2, PencilIcon, ExternalLink } from 'lucide-react';
+import { CheckIcon, Loader2, PencilIcon, ExternalLink, AlertCircle } from 'lucide-react';
 import { AddressForm } from '@/components/address/AddressForm';
 import { Switch } from '@/components/ui/switch';
 import { Checkbox } from '@/components/ui/checkbox';
@@ -306,14 +306,30 @@ const AccountProfile = () => {
                   <h3 className="text-lg font-medium mb-4">Import Details</h3>
                   <div className="space-y-4">
                     <div className="space-y-2">
-                      <Label htmlFor="importMpan">MPAN number (Import)</Label>
-                      <Input
-                        id="importMpan"
-                        name="importMpan"
-                        value={profileData.importMpan}
-                        readOnly
-                        className="bg-gray-100"
-                      />
+                      <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2">
+                        <div>
+                          <Label htmlFor="importMpan">MPAN number (Import)</Label>
+                          <div className="bg-gray-100 border border-gray-300 px-4 py-2 rounded mt-1">
+                            <span className="text-sm font-medium">{profileData.importMpan}</span>
+                          </div>
+                        </div>
+                        <div className="bg-blue-50 rounded-md border border-blue-100 p-3 md:max-w-xs space-y-1">
+                          <div className="flex items-start gap-2">
+                            <AlertCircle className="h-4 w-4 text-blue-600 mt-0.5 shrink-0" />
+                            <p className="text-xs text-blue-800">
+                              <strong>Different MPAN on your bill?</strong> Please contact support to update it.
+                            </p>
+                          </div>
+                          <a 
+                            href="https://www.smartshift.energy/contact" 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            className="text-xs text-blue-600 hover:text-blue-800 flex items-center gap-1 pl-6"
+                          >
+                            Contact support <ExternalLink className="h-3 w-3" />
+                          </a>
+                        </div>
+                      </div>
                     </div>
                     
                     <div className="space-y-2">
@@ -342,14 +358,14 @@ const AccountProfile = () => {
                   <h3 className="text-lg font-medium mb-4">Export Details</h3>
                   <div className="space-y-4">
                     <div className="space-y-2">
-                      <Label htmlFor="exportMpan">MPAN number (Export)</Label>
-                      <Input
-                        id="exportMpan"
-                        name="exportMpan"
-                        value={profileData.exportMpan}
-                        readOnly
-                        className="bg-gray-100"
-                      />
+                      <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2">
+                        <div>
+                          <Label htmlFor="exportMpan">MPAN number (Export)</Label>
+                          <div className="bg-gray-100 border border-gray-300 px-4 py-2 rounded mt-1">
+                            <span className="text-sm font-medium">{profileData.exportMpan}</span>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                     
                     <div className="space-y-2">
@@ -372,20 +388,6 @@ const AccountProfile = () => {
                       />
                     </div>
                   </div>
-                </div>
-                
-                <div className="mt-4 p-4 bg-blue-50 rounded-md border border-blue-100 text-sm space-y-2">
-                  <p className="text-blue-800">
-                    <strong>Need to update your MPAN number?</strong> If you've noticed a different MPAN number on your energy bill, please contact our support team to update it for you.
-                  </p>
-                  <a 
-                    href="https://www.smartshift.energy/contact" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="text-blue-600 hover:text-blue-800 flex items-center gap-1"
-                  >
-                    Contact support <ExternalLink className="h-3 w-3" />
-                  </a>
                 </div>
               </CardContent>
               <CardFooter>
