@@ -12,7 +12,6 @@ import { AddressForm } from '@/components/address/AddressForm';
 import { Switch } from '@/components/ui/switch';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
-
 const AccountProfile = () => {
   const {
     toast
@@ -275,7 +274,7 @@ const AccountProfile = () => {
                     </div>
                     
                     <div className="space-y-2">
-                      <Label htmlFor="importTariff">Your Electricity tariff</Label>
+                      <Label htmlFor="importTariff">Your electricity tariff</Label>
                       <Input id="importTariff" name="importTariff" value={profileData.importTariff} onChange={handleInputChange} />
                     </div>
                   </div>
