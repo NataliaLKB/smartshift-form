@@ -244,7 +244,7 @@ const AccountProfile = () => {
                 </div>
                 
                 <div className="pt-4 border-t">
-                  <h3 className="text-lg font-medium mb-4">Import Details</h3>
+                  
                   <div className="space-y-4">
                     <div className="space-y-2">
                       <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2">
