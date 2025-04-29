@@ -248,7 +248,7 @@ const AccountProfile = () => {
                       <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2">
                         <div>
                           <Label htmlFor="importMpan">MPAN number (Import)</Label>
-                          <div className="bg-gray-100 border border-gray-300 px-4 py-2 rounded mt-1">
+                          <div className=" px-4 py-2  mt-1">
                             <span className="text-sm text-grey-700 font-light">{profileData.importMpan}</span>
                           </div>
                         </div>
