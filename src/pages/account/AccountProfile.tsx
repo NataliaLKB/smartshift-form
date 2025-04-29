@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -313,7 +312,7 @@ const AccountProfile = () => {
                             <span className="text-sm font-medium">{profileData.importMpan}</span>
                           </div>
                         </div>
-                        <div className="bg-blue-50 rounded-md border border-blue-100 p-3 md:max-w-xs space-y-1">
+                        <div className="bg-blue-50 rounded-md border border-blue-100 p-3 md:max-w-sm space-y-1">
                           <div className="flex items-start gap-2">
                             <AlertCircle className="h-4 w-4 text-blue-600 mt-0.5 shrink-0" />
                             <p className="text-xs text-blue-800">
