@@ -12,7 +12,6 @@ import { AddressForm } from '@/components/address/AddressForm';
 import { Switch } from '@/components/ui/switch';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
-
 const AccountProfile = () => {
   const {
     toast
@@ -21,7 +20,6 @@ const AccountProfile = () => {
   const [isAddressValid, setIsAddressValid] = useState(true);
   const [isEditingAddress, setIsEditingAddress] = useState(false);
   const [showExportDetails, setShowExportDetails] = useState(false);
-  
   const [profileData, setProfileData] = useState({
     firstName: "John",
     lastName: "Smith",
@@ -42,11 +40,9 @@ const AccountProfile = () => {
     newPassword: "",
     confirmPassword: ""
   });
-  
   const handleAddressValidityChange = (isValid: boolean) => {
     setIsAddressValid(isValid);
   };
-  
   const handleProfileUpdate = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
@@ -69,7 +65,6 @@ const AccountProfile = () => {
       setIsLoading(false);
     }
   };
-  
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const {
       name,
@@ -80,14 +75,12 @@ const AccountProfile = () => {
       [name]: value
     }));
   };
-  
   const handleRadioChange = (value: string, field: string) => {
     setProfileData(prev => ({
       ...prev,
       [field]: value
     }));
   };
-  
   const handlePasswordInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const {
       name,
@@ -98,7 +91,6 @@ const AccountProfile = () => {
       [name]: value
     }));
   };
-  
   const handlePasswordChange = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
@@ -132,7 +124,6 @@ const AccountProfile = () => {
       setIsLoading(false);
     }
   };
-  
   return <div className="space-y-6">
       <div>
         <h1 className="text-2xl font-bold tracking-tight">Profile</h1>
@@ -258,7 +249,7 @@ const AccountProfile = () => {
                     <div className="space-y-2">
                       <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2">
                         <div>
-                          <Label htmlFor="importMpan">MPAN number (Import)</Label>
+                          <Label htmlFor="importMpan">MPAN number</Label>
                           <div className=" px-4 py-2  mt-1">
                             <span className="text-sm text-grey-700 font-light">{profileData.importMpan}</span>
                           </div>
@@ -278,36 +269,28 @@ const AccountProfile = () => {
                     </div>
                     
                     <div className="space-y-2">
-                      <Label htmlFor="importSupplier">Import supplier</Label>
+                      <Label htmlFor="importSupplier">Your electricity supplier</Label>
                       <Input id="importSupplier" name="importSupplier" value={profileData.importSupplier} onChange={handleInputChange} />
                     </div>
                     
                     <div className="space-y-2">
-                      <Label htmlFor="importTariff">Import tariff</Label>
+                      <Label htmlFor="importTariff">Your Electricity tariff</Label>
                       <Input id="importTariff" name="importTariff" value={profileData.importTariff} onChange={handleInputChange} />
                     </div>
                   </div>
                 </div>
                 
                 <div className="pt-4 border-t">
-                  <Collapsible
-                    open={showExportDetails}
-                    onOpenChange={setShowExportDetails}
-                    className="space-y-4"
-                  >
+                  <Collapsible open={showExportDetails} onOpenChange={setShowExportDetails} className="space-y-4">
                     <CollapsibleTrigger asChild>
-                      <Button variant="ghost" size="sm" className="flex items-center gap-1 text-primary">
-                        {showExportDetails ? (
-                          <>
+                      <Button variant="ghost" size="sm" className="flex items-center gap-1 text-primary-dark">
+                        {showExportDetails ? <>
                             Hide export tariff details
                             <ChevronUp className="h-4 w-4" />
-                          </>
-                        ) : (
-                          <>
+                          </> : <>
                             Do you have solar panels or battery storage? Add your export tariff details
                             <ChevronDown className="h-4 w-4" />
-                          </>
-                        )}
+                          </>}
                       </Button>
                     </CollapsibleTrigger>
                     
@@ -416,5 +399,4 @@ const AccountProfile = () => {
       </Tabs>
     </div>;
 };
-
 export default AccountProfile;
