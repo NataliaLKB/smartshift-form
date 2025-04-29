@@ -312,10 +312,10 @@ const AccountProfile = () => {
                             <span className="text-sm font-medium">{profileData.importMpan}</span>
                           </div>
                         </div>
-                        <div className="bg-blue-50 rounded-md border border-blue-100 p-3 md:max-w-md space-y-1">
+                        <div className="bg-primary/10 rounded-md border border-primary/20 p-3 md:max-w-md space-y-1">
                           <div className="flex items-start gap-2">
-                            <AlertCircle className="h-4 w-4 text-blue-600 mt-0.5 shrink-0" />
-                            <p className="text-xs text-blue-800">
+                            <AlertCircle className="h-4 w-4 text-primary mt-0.5 shrink-0" />
+                            <p className="text-xs text-primary/90">
                               <strong>Different MPAN on your bill?</strong> Please contact support to update it.
                             </p>
                           </div>
@@ -323,7 +323,7 @@ const AccountProfile = () => {
                             href="https://www.smartshift.energy/contact" 
                             target="_blank" 
                             rel="noopener noreferrer"
-                            className="text-xs text-blue-600 hover:text-blue-800 flex items-center gap-1 pl-6"
+                            className="text-xs text-primary hover:text-primary/80 flex items-center gap-1 pl-6"
                           >
                             Contact support <ExternalLink className="h-3 w-3" />
                           </a>
@@ -364,10 +364,10 @@ const AccountProfile = () => {
                             <span className="text-sm font-medium">{profileData.exportMpan}</span>
                           </div>
                         </div>
-                        <div className="bg-blue-50 rounded-md border border-blue-100 p-3 md:max-w-md space-y-1">
+                        <div className="bg-primary/10 rounded-md border border-primary/20 p-3 md:max-w-md space-y-1">
                           <div className="flex items-start gap-2">
-                            <AlertCircle className="h-4 w-4 text-blue-600 mt-0.5 shrink-0" />
-                            <p className="text-xs text-blue-800">
+                            <AlertCircle className="h-4 w-4 text-primary mt-0.5 shrink-0" />
+                            <p className="text-xs text-primary/90">
                               <strong>Different MPAN on your bill?</strong> Please contact support to update it.
                             </p>
                           </div>
@@ -375,7 +375,7 @@ const AccountProfile = () => {
                             href="https://www.smartshift.energy/contact" 
                             target="_blank" 
                             rel="noopener noreferrer"
-                            className="text-xs text-blue-600 hover:text-blue-800 flex items-center gap-1 pl-6"
+                            className="text-xs text-primary hover:text-primary/80 flex items-center gap-1 pl-6"
                           >
                             Contact support <ExternalLink className="h-3 w-3" />
                           </a>
