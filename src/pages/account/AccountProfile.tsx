@@ -318,12 +318,12 @@ const AccountProfile = () => {
                       </div>
                       
                       <div className="space-y-2">
-                        <Label htmlFor="exportSupplier">Export supplier</Label>
+                        <Label htmlFor="exportSupplier">Your export electricity supplier</Label>
                         <Input id="exportSupplier" name="exportSupplier" value={profileData.exportSupplier} onChange={handleInputChange} />
                       </div>
                       
                       <div className="space-y-2">
-                        <Label htmlFor="exportTariff">Export tariff</Label>
+                        <Label htmlFor="exportTariff">Your export electricity tariff</Label>
                         <Input id="exportTariff" name="exportTariff" value={profileData.exportTariff} onChange={handleInputChange} />
                       </div>
                     </CollapsibleContent>
