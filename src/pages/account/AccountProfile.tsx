@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -7,7 +8,7 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/components/ui/use-toast';
-import { CheckIcon, Loader2, PencilIcon } from 'lucide-react';
+import { CheckIcon, Loader2, PencilIcon, ExternalLink } from 'lucide-react';
 import { AddressForm } from '@/components/address/AddressForm';
 import { Switch } from '@/components/ui/switch';
 import { Checkbox } from '@/components/ui/checkbox';
@@ -310,7 +311,8 @@ const AccountProfile = () => {
                         id="importMpan"
                         name="importMpan"
                         value={profileData.importMpan}
-                        onChange={handleInputChange}
+                        readOnly
+                        className="bg-gray-100"
                       />
                     </div>
                     
@@ -345,7 +347,8 @@ const AccountProfile = () => {
                         id="exportMpan"
                         name="exportMpan"
                         value={profileData.exportMpan}
-                        onChange={handleInputChange}
+                        readOnly
+                        className="bg-gray-100"
                       />
                     </div>
                     
@@ -369,6 +372,20 @@ const AccountProfile = () => {
                       />
                     </div>
                   </div>
+                </div>
+                
+                <div className="mt-4 p-4 bg-blue-50 rounded-md border border-blue-100 text-sm space-y-2">
+                  <p className="text-blue-800">
+                    <strong>Need to update your MPAN number?</strong> If you've noticed a different MPAN number on your energy bill, please contact our support team to update it for you.
+                  </p>
+                  <a 
+                    href="https://www.smartshift.energy/contact" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-blue-600 hover:text-blue-800 flex items-center gap-1"
+                  >
+                    Contact support <ExternalLink className="h-3 w-3" />
+                  </a>
                 </div>
               </CardContent>
               <CardFooter>
