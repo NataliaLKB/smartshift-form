@@ -258,7 +258,7 @@ const AccountProfile = () => {
                           <div className="flex items-start gap-2">
                             <AlertCircle className="h-4 w-4 text-primary mt-0.5 shrink-0" />
                             <p className="text-xs text-primary-700 font-medium">
-                              <strong>Different MPAN on your bill?</strong> Please contact us to update it.
+                              <strong>Different MPAN on your electricity bill?</strong> Please contact us to update it.
                             </p>
                           </div>
                           <a href="https://www.smartshift.energy/contact" target="_blank" rel="noopener noreferrer" className="text-xs text-primary-700 hover:text-primary/80 flex items-center gap-1 pl-6">
