@@ -11,7 +11,6 @@ import { CheckIcon, Loader2, PencilIcon, ExternalLink, AlertCircle } from 'lucid
 import { AddressForm } from '@/components/address/AddressForm';
 import { Switch } from '@/components/ui/switch';
 import { Checkbox } from '@/components/ui/checkbox';
-
 const AccountProfile = () => {
   const {
     toast
@@ -39,7 +38,6 @@ const AccountProfile = () => {
     newPassword: "",
     confirmPassword: ""
   });
-  
   const handleAddressValidityChange = (isValid: boolean) => {
     setIsAddressValid(isValid);
   };
@@ -124,7 +122,6 @@ const AccountProfile = () => {
       setIsLoading(false);
     }
   };
-  
   return <div className="space-y-6">
       <div>
         <h1 className="text-2xl font-bold tracking-tight">Profile</h1>
@@ -252,7 +249,7 @@ const AccountProfile = () => {
                         <div>
                           <Label htmlFor="importMpan">MPAN number (Import)</Label>
                           <div className="bg-gray-100 border border-gray-300 px-4 py-2 rounded mt-1">
-                            <span className="text-sm font-medium">{profileData.importMpan}</span>
+                            <span className="text-sm text-grey-700 font-light">{profileData.importMpan}</span>
                           </div>
                         </div>
                         <div className="bg-primary/10 rounded-md border border-primary/20 p-3 md:max-w-md space-y-1">
