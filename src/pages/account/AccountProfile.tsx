@@ -286,7 +286,7 @@ const AccountProfile = () => {
                         <div>
                           <Label htmlFor="exportMpan">MPAN number (Export)</Label>
                           <div className="px-4 py-2 mt-1">
-                            <span className="text-sm font-medium">{profileData.exportMpan}</span>
+                            <span className="text-sm font-light text-gray">{profileData.exportMpan}</span>
                           </div>
                         </div>
                         <div className="bg-primary/10 rounded-md border border-primary/20 p-3 md:max-w-md space-y-1">
