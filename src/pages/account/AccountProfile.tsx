@@ -12,6 +12,7 @@ import { AddressForm } from '@/components/address/AddressForm';
 import { Switch } from '@/components/ui/switch';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
+
 const AccountProfile = () => {
   const {
     toast
@@ -254,7 +255,7 @@ const AccountProfile = () => {
                             <span className="text-sm text-grey-700 font-light">{profileData.importMpan}</span>
                           </div>
                         </div>
-                        <div className="bg-primary/10 rounded-md border border-primary/20 p-3 md:max-w-md space-y-1">
+                        <div className="bg-primary/10 rounded-md border border-primary/20 p-3 md:max-w-xl space-y-1">
                           <div className="flex items-start gap-2">
                             <AlertCircle className="h-4 w-4 text-primary mt-0.5 shrink-0" />
                             <p className="text-xs text-primary-700 font-medium">
@@ -303,7 +304,7 @@ const AccountProfile = () => {
                               <span className="text-sm font-light text-gray">{profileData.exportMpan}</span>
                             </div>
                           </div>
-                          <div className="bg-primary/10 rounded-md border border-primary/20 p-3 md:max-w-md space-y-1">
+                          <div className="bg-primary/10 rounded-md border border-primary/20 p-3 md:max-w-xl space-y-1">
                             <div className="flex items-start gap-2">
                               <AlertCircle className="h-4 w-4 text-primary mt-0.5 shrink-0" />
                               <p className="text-xs text-primary-700 font-medium">
