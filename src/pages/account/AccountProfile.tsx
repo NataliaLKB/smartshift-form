@@ -11,6 +11,7 @@ import { CheckIcon, Loader2, PencilIcon, ExternalLink, AlertCircle } from 'lucid
 import { AddressForm } from '@/components/address/AddressForm';
 import { Switch } from '@/components/ui/switch';
 import { Checkbox } from '@/components/ui/checkbox';
+
 const AccountProfile = () => {
   const {
     toast
@@ -38,6 +39,7 @@ const AccountProfile = () => {
     newPassword: "",
     confirmPassword: ""
   });
+  
   const handleAddressValidityChange = (isValid: boolean) => {
     setIsAddressValid(isValid);
   };
@@ -122,6 +124,7 @@ const AccountProfile = () => {
       setIsLoading(false);
     }
   };
+  
   return <div className="space-y-6">
       <div>
         <h1 className="text-2xl font-bold tracking-tight">Profile</h1>
@@ -255,11 +258,11 @@ const AccountProfile = () => {
                         <div className="bg-primary/10 rounded-md border border-primary/20 p-3 md:max-w-md space-y-1">
                           <div className="flex items-start gap-2">
                             <AlertCircle className="h-4 w-4 text-primary mt-0.5 shrink-0" />
-                            <p className="text-xs text-primary/90">
+                            <p className="text-xs text-gray-800 font-medium">
                               <strong>Different MPAN on your bill?</strong> Please contact support to update it.
                             </p>
                           </div>
-                          <a href="https://www.smartshift.energy/contact" target="_blank" rel="noopener noreferrer" className="text-xs text-primary-dark hover:text-primary/80 flex items-center gap-1 pl-6">
+                          <a href="https://www.smartshift.energy/contact" target="_blank" rel="noopener noreferrer" className="text-xs text-primary hover:text-primary/80 flex items-center gap-1 pl-6">
                             Contact support <ExternalLink className="h-3 w-3" />
                           </a>
                         </div>
@@ -292,7 +295,7 @@ const AccountProfile = () => {
                         <div className="bg-primary/10 rounded-md border border-primary/20 p-3 md:max-w-md space-y-1">
                           <div className="flex items-start gap-2">
                             <AlertCircle className="h-4 w-4 text-primary mt-0.5 shrink-0" />
-                            <p className="text-xs text-primary/90">
+                            <p className="text-xs text-gray-800 font-medium">
                               <strong>Different MPAN on your bill?</strong> Please contact support to update it.
                             </p>
                           </div>
