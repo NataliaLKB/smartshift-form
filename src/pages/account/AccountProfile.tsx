@@ -7,10 +7,12 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/components/ui/use-toast';
-import { CheckIcon, Loader2, PencilIcon, ExternalLink, AlertCircle } from 'lucide-react';
+import { CheckIcon, Loader2, PencilIcon, ExternalLink, AlertCircle, ChevronDown, ChevronUp } from 'lucide-react';
 import { AddressForm } from '@/components/address/AddressForm';
 import { Switch } from '@/components/ui/switch';
 import { Checkbox } from '@/components/ui/checkbox';
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
+
 const AccountProfile = () => {
   const {
     toast
@@ -18,6 +20,8 @@ const AccountProfile = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [isAddressValid, setIsAddressValid] = useState(true);
   const [isEditingAddress, setIsEditingAddress] = useState(false);
+  const [showExportDetails, setShowExportDetails] = useState(false);
+  
   const [profileData, setProfileData] = useState({
     firstName: "John",
     lastName: "Smith",
@@ -38,9 +42,11 @@ const AccountProfile = () => {
     newPassword: "",
     confirmPassword: ""
   });
+  
   const handleAddressValidityChange = (isValid: boolean) => {
     setIsAddressValid(isValid);
   };
+  
   const handleProfileUpdate = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
@@ -63,6 +69,7 @@ const AccountProfile = () => {
       setIsLoading(false);
     }
   };
+  
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const {
       name,
@@ -73,12 +80,14 @@ const AccountProfile = () => {
       [name]: value
     }));
   };
+  
   const handleRadioChange = (value: string, field: string) => {
     setProfileData(prev => ({
       ...prev,
       [field]: value
     }));
   };
+  
   const handlePasswordInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const {
       name,
@@ -89,6 +98,7 @@ const AccountProfile = () => {
       [name]: value
     }));
   };
+  
   const handlePasswordChange = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
@@ -122,6 +132,7 @@ const AccountProfile = () => {
       setIsLoading(false);
     }
   };
+  
   return <div className="space-y-6">
       <div>
         <h1 className="text-2xl font-bold tracking-tight">Profile</h1>
@@ -279,40 +290,64 @@ const AccountProfile = () => {
                 </div>
                 
                 <div className="pt-4 border-t">
-                  <h3 className="text-lg font-medium mb-4">Export Details</h3>
-                  <div className="space-y-4">
-                    <div className="space-y-2">
-                      <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2">
-                        <div>
-                          <Label htmlFor="exportMpan">MPAN number (Export)</Label>
-                          <div className="px-4 py-2 mt-1">
-                            <span className="text-sm font-light text-gray">{profileData.exportMpan}</span>
+                  <Collapsible
+                    open={showExportDetails}
+                    onOpenChange={setShowExportDetails}
+                    className="space-y-4"
+                  >
+                    <div className="flex items-center justify-between">
+                      <h3 className="text-lg font-medium">Export Details</h3>
+                      <CollapsibleTrigger asChild>
+                        <Button variant="ghost" size="sm" className="flex items-center gap-1 text-primary">
+                          {showExportDetails ? (
+                            <>
+                              Hide export details
+                              <ChevronUp className="h-4 w-4" />
+                            </>
+                          ) : (
+                            <>
+                              Do you have an export tariff? Show details
+                              <ChevronDown className="h-4 w-4" />
+                            </>
+                          )}
+                        </Button>
+                      </CollapsibleTrigger>
+                    </div>
+                    
+                    <CollapsibleContent className="space-y-4 pt-2">
+                      <div className="space-y-2">
+                        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2">
+                          <div>
+                            <Label htmlFor="exportMpan">MPAN number (Export)</Label>
+                            <div className="px-4 py-2 mt-1">
+                              <span className="text-sm font-light text-gray">{profileData.exportMpan}</span>
+                            </div>
                           </div>
-                        </div>
-                        <div className="bg-primary/10 rounded-md border border-primary/20 p-3 md:max-w-md space-y-1">
-                          <div className="flex items-start gap-2">
-                            <AlertCircle className="h-4 w-4 text-primary mt-0.5 shrink-0" />
-                            <p className="text-xs text-primary-700 font-medium">
-                              <strong>Different MPAN on your bill?</strong> Please contact us to update it.
-                            </p>
+                          <div className="bg-primary/10 rounded-md border border-primary/20 p-3 md:max-w-md space-y-1">
+                            <div className="flex items-start gap-2">
+                              <AlertCircle className="h-4 w-4 text-primary mt-0.5 shrink-0" />
+                              <p className="text-xs text-primary-700 font-medium">
+                                <strong>Different MPAN on your bill?</strong> Please contact us to update it.
+                              </p>
+                            </div>
+                            <a href="https://www.smartshift.energy/contact" target="_blank" rel="noopener noreferrer" className="text-xs text-primary-700 hover:text-primary/80 flex items-center gap-1 pl-6">
+                              Contact us <ExternalLink className="h-3 w-3" />
+                            </a>
                           </div>
-                          <a href="https://www.smartshift.energy/contact" target="_blank" rel="noopener noreferrer" className="text-xs text-primary-700 hover:text-primary/80 flex items-center gap-1 pl-6">
-                            Contact us <ExternalLink className="h-3 w-3" />
-                          </a>
                         </div>
                       </div>
-                    </div>
-                    
-                    <div className="space-y-2">
-                      <Label htmlFor="exportSupplier">Export supplier</Label>
-                      <Input id="exportSupplier" name="exportSupplier" value={profileData.exportSupplier} onChange={handleInputChange} />
-                    </div>
-                    
-                    <div className="space-y-2">
-                      <Label htmlFor="exportTariff">Export tariff</Label>
-                      <Input id="exportTariff" name="exportTariff" value={profileData.exportTariff} onChange={handleInputChange} />
-                    </div>
-                  </div>
+                      
+                      <div className="space-y-2">
+                        <Label htmlFor="exportSupplier">Export supplier</Label>
+                        <Input id="exportSupplier" name="exportSupplier" value={profileData.exportSupplier} onChange={handleInputChange} />
+                      </div>
+                      
+                      <div className="space-y-2">
+                        <Label htmlFor="exportTariff">Export tariff</Label>
+                        <Input id="exportTariff" name="exportTariff" value={profileData.exportTariff} onChange={handleInputChange} />
+                      </div>
+                    </CollapsibleContent>
+                  </Collapsible>
                 </div>
               </CardContent>
               <CardFooter>
@@ -384,4 +419,5 @@ const AccountProfile = () => {
       </Tabs>
     </div>;
 };
+
 export default AccountProfile;

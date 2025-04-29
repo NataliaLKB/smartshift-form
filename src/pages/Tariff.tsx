@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { Edit } from 'lucide-react';
+import { Edit, ChevronDown, ChevronUp } from 'lucide-react';
 import { AddressHeader } from '@/components/address/AddressHeader';
 import { AddressFooter } from '@/components/address/AddressFooter';
 import { Progress } from '@/components/ui/progress';
@@ -8,6 +8,7 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 
 interface LocationState {
   assessmentType: 'import-only' | 'import-export';
@@ -25,8 +26,9 @@ const Tariff = () => {
   const [exportTariff, setExportTariff] = useState("");
   const [supplier, setSupplier] = useState("Octopus Energy");
   const [isEditingSupplier, setIsEditingSupplier] = useState(false);
+  const [showExportDetails, setShowExportDetails] = useState(assessmentType === 'import-export');
 
-  const isValid = assessmentType === 'import-only' ? importTariff.trim().length > 0 && supplier.trim().length > 0 : importTariff.trim().length > 0 && supplier.trim().length > 0; // For import-export, we only require import tariff as export might be optional
+  const isValid = importTariff.trim().length > 0 && supplier.trim().length > 0; // We only require import tariff as export might be optional
 
   return <div className="min-h-screen flex flex-col">
       <AddressHeader />
@@ -78,17 +80,41 @@ const Tariff = () => {
               <div className="space-y-4">
                 <div className="space-y-2">
                   <Label>
-                    {assessmentType === 'import-export' ? "What is your import tariff?" : "What is your tariff?"}
+                    What is your import tariff?
                   </Label>
-                  <Input type="text" value={importTariff} onChange={e => setImportTariff(e.target.value)} placeholder={assessmentType === 'import-export' ? "Enter your electricity import tariff name" : "Enter your electricity tariff name"} className="border-gray-300 focus-visible:ring-primary/50" />
+                  <Input type="text" value={importTariff} onChange={e => setImportTariff(e.target.value)} placeholder="Enter your electricity import tariff name" className="border-gray-300 focus-visible:ring-primary/50" />
                   <p className="text-sm text-gray-500">You can find this information on your bill</p>
                 </div>
 
-                {assessmentType === 'import-export' && <div className="space-y-2">
-                    <Label>What is your export tariff? (optional)</Label>
-                    <Input type="text" value={exportTariff} onChange={e => setExportTariff(e.target.value)} placeholder="Enter your electricity export tariff name" className="border-gray-300 focus-visible:ring-primary/50" />
-                    <p className="text-sm text-gray-500">This might be on a separate export bill if you have one</p>
-                  </div>}
+                <Collapsible
+                  open={showExportDetails}
+                  onOpenChange={setShowExportDetails}
+                  className="pt-2"
+                >
+                  <CollapsibleTrigger asChild>
+                    <Button variant="ghost" size="sm" className="flex items-center gap-1 text-primary mb-2 p-0 h-auto">
+                      {showExportDetails ? (
+                        <>
+                          Hide export tariff details
+                          <ChevronUp className="h-4 w-4" />
+                        </>
+                      ) : (
+                        <>
+                          Do you have an export tariff? Show details
+                          <ChevronDown className="h-4 w-4" />
+                        </>
+                      )}
+                    </Button>
+                  </CollapsibleTrigger>
+                  
+                  <CollapsibleContent className="pt-2">
+                    <div className="space-y-2">
+                      <Label>Export tariff (optional)</Label>
+                      <Input type="text" value={exportTariff} onChange={e => setExportTariff(e.target.value)} placeholder="Enter your electricity export tariff name" className="border-gray-300 focus-visible:ring-primary/50" />
+                      <p className="text-sm text-gray-500">This might be on a separate export bill if you have one</p>
+                    </div>
+                  </CollapsibleContent>
+                </Collapsible>
               </div>
             </div>
           </div>
