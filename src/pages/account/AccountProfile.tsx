@@ -258,7 +258,7 @@ const AccountProfile = () => {
                         <div className="bg-primary/10 rounded-md border border-primary/20 p-3 md:max-w-md space-y-1">
                           <div className="flex items-start gap-2">
                             <AlertCircle className="h-4 w-4 text-primary mt-0.5 shrink-0" />
-                            <p className="text-xs text-gray-800 font-medium">
+                            <p className="text-xs text-primary-700 font-medium">
                               <strong>Different MPAN on your bill?</strong> Please contact support to update it.
                             </p>
                           </div>
@@ -295,7 +295,7 @@ const AccountProfile = () => {
                         <div className="bg-primary/10 rounded-md border border-primary/20 p-3 md:max-w-md space-y-1">
                           <div className="flex items-start gap-2">
                             <AlertCircle className="h-4 w-4 text-primary mt-0.5 shrink-0" />
-                            <p className="text-xs text-gray-800 font-medium">
+                            <p className="text-xs text-primary-700 font-medium">
                               <strong>Different MPAN on your bill?</strong> Please contact support to update it.
                             </p>
                           </div>
