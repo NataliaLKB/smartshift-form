@@ -312,7 +312,7 @@ const AccountProfile = () => {
                             <span className="text-sm font-medium">{profileData.importMpan}</span>
                           </div>
                         </div>
-                        <div className="bg-blue-50 rounded-md border border-blue-100 p-3 md:max-w-sm space-y-1">
+                        <div className="bg-blue-50 rounded-md border border-blue-100 p-3 md:max-w-md space-y-1">
                           <div className="flex items-start gap-2">
                             <AlertCircle className="h-4 w-4 text-blue-600 mt-0.5 shrink-0" />
                             <p className="text-xs text-blue-800">
@@ -363,6 +363,22 @@ const AccountProfile = () => {
                           <div className="bg-gray-100 border border-gray-300 px-4 py-2 rounded mt-1">
                             <span className="text-sm font-medium">{profileData.exportMpan}</span>
                           </div>
+                        </div>
+                        <div className="bg-blue-50 rounded-md border border-blue-100 p-3 md:max-w-md space-y-1">
+                          <div className="flex items-start gap-2">
+                            <AlertCircle className="h-4 w-4 text-blue-600 mt-0.5 shrink-0" />
+                            <p className="text-xs text-blue-800">
+                              <strong>Different MPAN on your bill?</strong> Please contact support to update it.
+                            </p>
+                          </div>
+                          <a 
+                            href="https://www.smartshift.energy/contact" 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            className="text-xs text-blue-600 hover:text-blue-800 flex items-center gap-1 pl-6"
+                          >
+                            Contact support <ExternalLink className="h-3 w-3" />
+                          </a>
                         </div>
                       </div>
                     </div>
