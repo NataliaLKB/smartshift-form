@@ -295,24 +295,21 @@ const AccountProfile = () => {
                     onOpenChange={setShowExportDetails}
                     className="space-y-4"
                   >
-                    <div className="flex items-center justify-between">
-                      <h3 className="text-lg font-medium">Export Details</h3>
-                      <CollapsibleTrigger asChild>
-                        <Button variant="ghost" size="sm" className="flex items-center gap-1 text-primary">
-                          {showExportDetails ? (
-                            <>
-                              Hide export details
-                              <ChevronUp className="h-4 w-4" />
-                            </>
-                          ) : (
-                            <>
-                              Do you have an export tariff? Show details
-                              <ChevronDown className="h-4 w-4" />
-                            </>
-                          )}
-                        </Button>
-                      </CollapsibleTrigger>
-                    </div>
+                    <CollapsibleTrigger asChild>
+                      <Button variant="ghost" size="sm" className="flex items-center gap-1 text-primary">
+                        {showExportDetails ? (
+                          <>
+                            Hide export tariff details
+                            <ChevronUp className="h-4 w-4" />
+                          </>
+                        ) : (
+                          <>
+                            Do you have solar panels or battery storage? Add your export tariff details
+                            <ChevronDown className="h-4 w-4" />
+                          </>
+                        )}
+                      </Button>
+                    </CollapsibleTrigger>
                     
                     <CollapsibleContent className="space-y-4 pt-2">
                       <div className="space-y-2">

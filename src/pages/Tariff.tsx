@@ -100,7 +100,7 @@ const Tariff = () => {
                         </>
                       ) : (
                         <>
-                          Do you have an export tariff? Show details
+                          Do you have solar panels or battery storage? Add your export tariff details
                           <ChevronDown className="h-4 w-4" />
                         </>
                       )}
