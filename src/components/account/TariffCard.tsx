@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -40,7 +41,8 @@ export const TariffCard = ({
   // Assuming an average annual bill of £1800 under the price cap
   const priceCap = 1800;
   const percentageSaving = Math.round(savingsPerYear / priceCap * 100);
-  return <Card className={cn("overflow-hidden transition-all hover:shadow-md", isTopMatch ? "border-primary border-2" : "border")}>
+  return <Card className={cn("overflow-hidden transition-all hover:shadow-md", 
+    isTopMatch ? "border-primary border-2" : "border mt-6")}> {/* Add top margin to non-top match cards */}
       {isTopMatch && <div className="bg-primary text-primary-foreground py-1 px-4 text-sm font-medium text-center">
           Cheapest Option
         </div>}
