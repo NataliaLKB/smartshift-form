@@ -49,16 +49,18 @@ export const TariffCard = ({
         </div>
       )}
       
-      <CardHeader className={cn("pb-4", isTopMatch ? "bg-primary/5" : "bg-gray-50")}>
+      <CardHeader className={cn("pb-3", isTopMatch ? "bg-primary/5" : "bg-gray-50")}>
         <div className="flex justify-between items-start">
           <div>
             <CardTitle className="text-xl flex items-center gap-2">
               {isTopMatch && <Sparkles className="h-5 w-5 text-primary" />}
               {name}
             </CardTitle>
-            <div className="flex items-center gap-3 mt-2">
+            
+            {/* Logo and supplier name section with increased logo size */}
+            <div className="flex items-center gap-3 mt-3">
               {logoUrl && (
-                <div className="h-8 w-auto flex-shrink-0 overflow-hidden">
+                <div className="h-16 w-auto flex-shrink-0">
                   <img 
                     src={logoUrl} 
                     alt={`${supplier} logo`} 
