@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { StatusTracker } from '@/components/account/StatusTracker';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
@@ -55,7 +56,7 @@ const SmartTariffAnalysis = () => {
   }, {
     id: 3,
     name: "Economy 24/7",
-    supplier: "Value Energy", // Maps to OVO logo
+    supplier: "Value Energy", // Maps to OVO logo, will display as "OVO Energy"
     savingsPerYear: 178,
     highlights: "Consistent rates with no surprises"
   }];
