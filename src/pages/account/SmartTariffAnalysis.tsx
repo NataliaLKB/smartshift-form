@@ -43,19 +43,19 @@ const SmartTariffAnalysis = () => {
   const recommendedTariffs = [{
     id: 1,
     name: "EcoSmart Time of Use",
-    supplier: "Green Energy Co",
+    supplier: "Green Energy Co", // Maps to Octopus Energy logo
     savingsPerYear: 247,
     highlights: "Perfect for your evening usage pattern"
   }, {
     id: 2,
     name: "FlexiPower Plus",
-    supplier: "PowerSwitch Ltd",
+    supplier: "PowerSwitch Ltd", // Maps to E.ON logo
     savingsPerYear: 203,
     highlights: "Great off-peak rates on weekends"
   }, {
     id: 3,
     name: "Economy 24/7",
-    supplier: "Value Energy",
+    supplier: "Value Energy", // Maps to OVO logo
     savingsPerYear: 178,
     highlights: "Consistent rates with no surprises"
   }];

@@ -15,6 +15,17 @@ export interface TariffCardProps {
   isTopMatch?: boolean;
 }
 
+// Function to map supplier names to their logo images
+const getSupplierLogo = (supplier: string): string => {
+  const supplierMap: Record<string, string> = {
+    "Green Energy Co": "/lovable-uploads/a906b0c0-634a-4732-914b-24e6c3658a34.png", // Octopus Energy
+    "PowerSwitch Ltd": "/lovable-uploads/decdb710-85c5-48fd-af68-a4f84eced2fd.png", // E.ON
+    "Value Energy": "/lovable-uploads/d3ab1789-e63b-444b-a0aa-c1f1d90e263e.png",    // OVO
+  };
+  
+  return supplierMap[supplier] || "";
+};
+
 export const TariffCard = ({
   id,
   name,
@@ -23,6 +34,8 @@ export const TariffCard = ({
   highlights,
   isTopMatch = false,
 }: TariffCardProps) => {
+  const logoUrl = getSupplierLogo(supplier);
+  
   return (
     <Card 
       className={cn(
@@ -43,7 +56,18 @@ export const TariffCard = ({
               {isTopMatch && <Sparkles className="h-5 w-5 text-primary" />}
               {name}
             </CardTitle>
-            <CardDescription className="text-sm">{supplier}</CardDescription>
+            <div className="flex items-center gap-2 mt-1">
+              {logoUrl && (
+                <div className="h-6 w-auto flex-shrink-0 overflow-hidden">
+                  <img 
+                    src={logoUrl} 
+                    alt={`${supplier} logo`} 
+                    className="h-full w-auto object-contain"
+                  />
+                </div>
+              )}
+              <CardDescription className="text-sm">{supplier}</CardDescription>
+            </div>
           </div>
           <div className="rounded-full bg-green-50 border border-green-100 px-3 py-2 text-right">
             <div className="text-lg font-bold text-green-600">£{savingsPerYear}</div>
