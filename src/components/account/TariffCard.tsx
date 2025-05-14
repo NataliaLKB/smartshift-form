@@ -18,7 +18,7 @@ export interface TariffCardProps {
 // Function to map supplier names to their logo images
 const getSupplierLogo = (supplier: string): string => {
   const supplierMap: Record<string, string> = {
-    "Green Energy Co": "/lovable-uploads/a906b0c0-634a-4732-914b-24e6c3658a34.png", // Octopus Energy
+    "Green Energy Co": "/lovable-uploads/58aedc68-0e5b-4bb8-b0fa-789a551767b5.png", // Octopus Energy
     "PowerSwitch Ltd": "/lovable-uploads/decdb710-85c5-48fd-af68-a4f84eced2fd.png", // E.ON
     "Value Energy": "/lovable-uploads/d3ab1789-e63b-444b-a0aa-c1f1d90e263e.png",    // OVO
   };
