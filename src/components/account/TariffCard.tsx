@@ -49,23 +49,26 @@ export const TariffCard = ({
       
       <CardHeader className={cn("pb-4", isTopMatch ? "bg-primary/5" : "bg-gray-50")}>
         {/* Logo and supplier name section in a horizontal layout */}
-        <div className="flex items-center gap-3 mb-2">
-          {logoUrl && <div className="h-10 w-auto flex-shrink-0">
-              <img src={logoUrl} alt={`${displaySupplierName} logo`} className="h-full w-auto object-contain" />
-            </div>}
-          <CardDescription className="text-sm font-medium">{displaySupplierName}</CardDescription>
-        </div>
-        
-        <div className="flex justify-between items-start mt-2">
-          <CardTitle className="text-xl flex items-center gap-2">
-            {isTopMatch}
-            {name}
-          </CardTitle>
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            {logoUrl && <div className="h-10 w-auto flex-shrink-0">
+                <img src={logoUrl} alt={`${displaySupplierName} logo`} className="h-full w-auto object-contain" />
+              </div>}
+            <CardDescription className="text-sm font-medium">{displaySupplierName}</CardDescription>
+          </div>
           
+          {/* Moved savings display to top right */}
           <div className="rounded-full bg-green-50 border border-green-100 px-3 py-2 text-right">
             <div className="text-lg font-bold text-green-600">£{savingsPerYear}</div>
             <div className="text-xs text-green-700">annual savings</div>
           </div>
+        </div>
+        
+        <div className="mt-2">
+          <CardTitle className="text-xl flex items-center gap-2">
+            {isTopMatch}
+            {name}
+          </CardTitle>
         </div>
       </CardHeader>
       
