@@ -2,7 +2,7 @@
 import React from 'react';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Sparkles, Zap, ChevronRight } from 'lucide-react';
+import { Sparkles, Zap, ChevronRight, Percent } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
 
@@ -43,6 +43,11 @@ export const TariffCard = ({
       : supplier === "Green Energy Co"
         ? "Octopus Energy"
         : supplier;
+  
+  // Calculate percentage savings compared to price cap
+  // Assuming an average annual bill of £1800 under the price cap
+  const priceCap = 1800;
+  const percentageSaving = Math.round((savingsPerYear / priceCap) * 100);
   
   return (
     <Card 
@@ -91,6 +96,16 @@ export const TariffCard = ({
             <Zap className="h-4 w-4 text-primary" />
           </div>
           <span className="text-sm">{highlights}</span>
+        </div>
+        
+        {/* New section for percentage saving compared to price cap */}
+        <div className="flex items-center gap-2 pt-2 border-t border-gray-100">
+          <div className="bg-green-50 rounded-full p-1.5 flex-shrink-0">
+            <Percent className="h-4 w-4 text-green-600" />
+          </div>
+          <span className="text-sm">
+            <span className="font-medium text-green-600">{percentageSaving}%</span> cheaper than the energy price cap
+          </span>
         </div>
       </CardContent>
       
