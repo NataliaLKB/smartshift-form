@@ -19,7 +19,7 @@ export interface TariffCardProps {
 const getSupplierLogo = (supplier: string): string => {
   const supplierMap: Record<string, string> = {
     "Green Energy Co": "/lovable-uploads/58aedc68-0e5b-4bb8-b0fa-789a551767b5.png", // Octopus Energy
-    "PowerSwitch Ltd": "/lovable-uploads/decdb710-85c5-48fd-af68-a4f84eced2fd.png", // E.ON
+    "PowerSwitch Ltd": "/lovable-uploads/cc92ed68-f250-4f0d-82ac-a041486c0b59.png", // E.ON
     "Value Energy": "/lovable-uploads/d3ab1789-e63b-444b-a0aa-c1f1d90e263e.png",    // OVO
   };
   
