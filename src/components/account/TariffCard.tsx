@@ -40,7 +40,9 @@ export const TariffCard = ({
     ? "OVO Energy" 
     : supplier === "PowerSwitch Ltd" 
       ? "E.ON Next" 
-      : supplier;
+      : supplier === "Green Energy Co"
+        ? "Octopus Energy"
+        : supplier;
   
   return (
     <Card 

@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { StatusTracker } from '@/components/account/StatusTracker';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
@@ -43,7 +44,7 @@ const SmartTariffAnalysis = () => {
   const recommendedTariffs = [{
     id: 1,
     name: "EcoSmart Time of Use",
-    supplier: "Green Energy Co", // Maps to Octopus Energy logo
+    supplier: "Green Energy Co", // Maps to Octopus Energy logo, will display as "Octopus Energy"
     savingsPerYear: 247,
     highlights: "Perfect for your evening usage pattern"
   }, {
