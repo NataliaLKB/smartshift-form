@@ -7,9 +7,11 @@ import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from '@
 import { Button } from '@/components/ui/button';
 import { toast } from '@/hooks/use-toast';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
+import { TariffCard } from '@/components/account/TariffCard';
+
 const SmartTariffAnalysis = () => {
   const [showResults, setShowResults] = useState(false);
-  const [isStatusOpen, setIsStatusOpen] = useState(false); // Changed to false as default
+  const [isStatusOpen, setIsStatusOpen] = useState(false); // Collapsed by default
 
   // Mock data for status tracker
   const analysisSteps = [{
@@ -60,6 +62,7 @@ const SmartTariffAnalysis = () => {
     matchScore: 82,
     highlights: "Consistent rates with no surprises"
   }];
+  
   const handleToggleChange = () => {
     setShowResults(!showResults);
     if (!showResults) {
@@ -69,7 +72,9 @@ const SmartTariffAnalysis = () => {
       });
     }
   };
-  return <div className="space-y-6">
+  
+  return (
+    <div className="space-y-6">
       <div className="flex justify-between items-center">
         <div>
           <h1 className="text-2xl font-bold tracking-tight">Smart tariff analysis</h1>
@@ -83,47 +88,33 @@ const SmartTariffAnalysis = () => {
         </div>
       </div>
       
-      {showResults && <Card className="border border-green-200">
-          <CardHeader className="bg-green-50">
-            <CardDescription>
-              Based on your smart meter data, these tariffs could save you money
-            </CardDescription>
-          </CardHeader>
-          <CardContent className="pt-6">
-            <div className="space-y-6">
-              {recommendedTariffs.map((tariff, index) => <Card key={tariff.id} className={index === 0 ? "border-primary" : ""}>
-                  <CardHeader className={index === 0 ? "bg-primary/5 pb-2" : "pb-2"}>
-                    <div className="flex justify-between items-start">
-                      <div>
-                        <CardTitle className="text-lg flex items-center gap-2">
-                          {index === 0 && <Sparkles className="h-5 w-5 text-primary" />}
-                          {tariff.name}
-                        </CardTitle>
-                        <CardDescription>{tariff.supplier}</CardDescription>
-                      </div>
-                      <div className="text-right">
-                        <div className="text-lg font-bold text-green-600">£{tariff.savingsPerYear}/year</div>
-                        <div className="text-sm text-muted-foreground">potential savings</div>
-                      </div>
-                    </div>
-                  </CardHeader>
-                  <CardContent className="pt-4 pb-2">
-                    <div className="flex items-center gap-2">
-                      <div className="bg-primary/10 rounded-full p-1">
-                        <Zap className="h-4 w-4 text-primary" />
-                      </div>
-                      <span className="text-sm">{tariff.highlights}</span>
-                    </div>
-                  </CardContent>
-                  <CardFooter className="pt-2">
-                    <Button variant="outline" size="sm" className="w-full">View Details</Button>
-                  </CardFooter>
-                </Card>)}
+      {showResults && (
+        <div className="space-y-4">
+          <div className="bg-green-50 border border-green-200 rounded-lg p-4 text-green-800">
+            <div className="flex items-center gap-2 mb-1">
+              <Sparkles className="h-5 w-5 text-green-600" />
+              <h3 className="text-lg font-semibold text-green-800">Analysis Complete!</h3>
             </div>
-          </CardContent>
-        </Card>}
+            <p className="text-sm">
+              Based on your smart meter data, we've found these tariffs that could save you money.
+              The recommendations are personalized to your actual usage patterns.
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {recommendedTariffs.map((tariff, index) => (
+              <TariffCard 
+                key={tariff.id}
+                {...tariff}
+                isTopMatch={index === 0}
+              />
+            ))}
+          </div>
+        </div>
+      )}
       
-      {showResults ? <Collapsible open={isStatusOpen} onOpenChange={setIsStatusOpen} className="border rounded-lg bg-white shadow-sm">
+      {showResults ? (
+        <Collapsible open={isStatusOpen} onOpenChange={setIsStatusOpen} className="border rounded-lg bg-white shadow-sm">
           <div className="p-4 flex items-center justify-between">
             <h3 className="text-lg font-semibold">Analysis Status: 100% Complete</h3>
             <CollapsibleTrigger asChild>
@@ -156,7 +147,10 @@ const SmartTariffAnalysis = () => {
               </div>
             </div>
           </CollapsibleContent>
-        </Collapsible> : <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        </Collapsible>
+      ) : (
+        // ... keep existing code (progress view when showResults is false)
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="md:col-span-2">
             <StatusTracker steps={analysisSteps} currentStep={showResults ? 4 : 2} />
           </div>
@@ -180,7 +174,8 @@ const SmartTariffAnalysis = () => {
               </CardContent>
             </Card>
           </div>
-        </div>}
+        </div>
+      )}
       
       <Card>
         <CardHeader>
@@ -197,6 +192,8 @@ const SmartTariffAnalysis = () => {
           <p>Once complete, you'll receive personalised recommendations that could save you up to 50% on your electricity costs by matching your usage patterns with the most cost-effective tariffs.</p>
         </CardContent>
       </Card>
-    </div>;
+    </div>
+  );
 };
+
 export default SmartTariffAnalysis;
