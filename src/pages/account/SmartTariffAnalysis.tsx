@@ -96,45 +96,6 @@ const SmartTariffAnalysis = () => {
         </div>
       </div>
       
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div className="md:col-span-2">
-          <StatusTracker 
-            steps={analysisSteps} 
-            currentStep={showResults ? 4 : 2} 
-          />
-        </div>
-        
-        <div className="space-y-6">
-          <Card className={`${showResults ? "bg-primary/10" : "bg-primary/5"} border-primary/10`}>
-            <CardHeader className="pb-2">
-              <div className="flex items-center">
-                <Info className="w-4 h-4 mr-2 text-primary" />
-                <CardTitle className="text-base">
-                  {showResults ? "Analysis Complete!" : "What's Next?"}
-                </CardTitle>
-              </div>
-            </CardHeader>
-            <CardContent>
-              {showResults ? (
-                <p className="text-sm">
-                  Your tariff analysis is complete! We've found three tariffs that could save you money based on your usage patterns.
-                </p>
-              ) : (
-                <>
-                  <p className="text-sm">
-                    We're currently accessing your smart meter data. This process usually takes 24-48 hours. 
-                    Once complete, we'll move to the next step of verifying your data quality.
-                  </p>
-                  <p className="text-sm mt-2">
-                    You'll receive an email update when we move to the next stage.
-                  </p>
-                </>
-              )}
-            </CardContent>
-          </Card>
-        </div>
-      </div>
-      
       {showResults && (
         <Card className="border border-green-200">
           <CardHeader className="bg-green-50">
@@ -185,6 +146,45 @@ const SmartTariffAnalysis = () => {
           </CardContent>
         </Card>
       )}
+      
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="md:col-span-2">
+          <StatusTracker 
+            steps={analysisSteps} 
+            currentStep={showResults ? 4 : 2} 
+          />
+        </div>
+        
+        <div className="space-y-6">
+          <Card className={`${showResults ? "bg-primary/10" : "bg-primary/5"} border-primary/10`}>
+            <CardHeader className="pb-2">
+              <div className="flex items-center">
+                <Info className="w-4 h-4 mr-2 text-primary" />
+                <CardTitle className="text-base">
+                  {showResults ? "Analysis Complete!" : "What's Next?"}
+                </CardTitle>
+              </div>
+            </CardHeader>
+            <CardContent>
+              {showResults ? (
+                <p className="text-sm">
+                  Your tariff analysis is complete! We've found three tariffs that could save you money based on your usage patterns.
+                </p>
+              ) : (
+                <>
+                  <p className="text-sm">
+                    We're currently accessing your smart meter data. This process usually takes 24-48 hours. 
+                    Once complete, we'll move to the next step of verifying your data quality.
+                  </p>
+                  <p className="text-sm mt-2">
+                    You'll receive an email update when we move to the next stage.
+                  </p>
+                </>
+              )}
+            </CardContent>
+          </Card>
+        </div>
+      </div>
       
       <Card>
         <CardHeader>
