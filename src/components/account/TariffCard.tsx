@@ -57,28 +57,27 @@ export const TariffCard = ({
         </div>
       )}
       
-      <CardHeader className={cn("pb-3", isTopMatch ? "bg-primary/5" : "bg-gray-50")}>
-        <div className="flex justify-between items-start">
-          <div>
-            <CardTitle className="text-xl flex items-center gap-2">
-              {isTopMatch && <Sparkles className="h-5 w-5 text-primary" />}
-              {name}
-            </CardTitle>
-            
-            {/* Logo and supplier name section with increased logo size */}
-            <div className="flex items-center gap-3 mt-3">
-              {logoUrl && (
-                <div className="h-16 w-auto flex-shrink-0">
-                  <img 
-                    src={logoUrl} 
-                    alt={`${displaySupplierName} logo`} 
-                    className="h-full w-auto object-contain"
-                  />
-                </div>
-              )}
-              <CardDescription className="text-sm font-medium">{displaySupplierName}</CardDescription>
+      <CardHeader className={cn("pb-4", isTopMatch ? "bg-primary/5" : "bg-gray-50")}>
+        {/* Logo and supplier name section in a horizontal layout */}
+        <div className="flex items-center gap-3 mb-2">
+          {logoUrl && (
+            <div className="h-10 w-auto flex-shrink-0">
+              <img 
+                src={logoUrl} 
+                alt={`${displaySupplierName} logo`} 
+                className="h-full w-auto object-contain"
+              />
             </div>
-          </div>
+          )}
+          <CardDescription className="text-sm font-medium">{displaySupplierName}</CardDescription>
+        </div>
+        
+        <div className="flex justify-between items-start mt-2">
+          <CardTitle className="text-xl flex items-center gap-2">
+            {isTopMatch && <Sparkles className="h-5 w-5 text-primary" />}
+            {name}
+          </CardTitle>
+          
           <div className="rounded-full bg-green-50 border border-green-100 px-3 py-2 text-right">
             <div className="text-lg font-bold text-green-600">£{savingsPerYear}</div>
             <div className="text-xs text-green-700">annual savings</div>
@@ -87,13 +86,11 @@ export const TariffCard = ({
       </CardHeader>
       
       <CardContent className="pt-4 space-y-4">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <div className="bg-primary/10 rounded-full p-1.5">
-              <Zap className="h-4 w-4 text-primary" />
-            </div>
-            <span className="text-sm font-medium">{highlights}</span>
+        <div className="flex items-center gap-2">
+          <div className="bg-primary/10 rounded-full p-1.5 flex-shrink-0">
+            <Zap className="h-4 w-4 text-primary" />
           </div>
+          <span className="text-sm">{highlights}</span>
         </div>
       </CardContent>
       
