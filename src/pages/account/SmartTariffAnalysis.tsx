@@ -45,21 +45,18 @@ const SmartTariffAnalysis = () => {
     name: "EcoSmart Time of Use",
     supplier: "Green Energy Co",
     savingsPerYear: 247,
-    matchScore: 95,
     highlights: "Perfect for your evening usage pattern"
   }, {
     id: 2,
     name: "FlexiPower Plus",
     supplier: "PowerSwitch Ltd",
     savingsPerYear: 203,
-    matchScore: 88,
     highlights: "Great off-peak rates on weekends"
   }, {
     id: 3,
     name: "Economy 24/7",
     supplier: "Value Energy",
     savingsPerYear: 178,
-    matchScore: 82,
     highlights: "Consistent rates with no surprises"
   }];
   
@@ -149,7 +146,6 @@ const SmartTariffAnalysis = () => {
           </CollapsibleContent>
         </Collapsible>
       ) : (
-        // ... keep existing code (progress view when showResults is false)
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="md:col-span-2">
             <StatusTracker steps={analysisSteps} currentStep={showResults ? 4 : 2} />

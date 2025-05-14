@@ -2,8 +2,7 @@
 import React from 'react';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Sparkles, Zap, ChevronRight, Info } from 'lucide-react';
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
+import { Sparkles, Zap, ChevronRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
 
@@ -12,7 +11,6 @@ export interface TariffCardProps {
   name: string;
   supplier: string;
   savingsPerYear: number;
-  matchScore: number;
   highlights: string;
   isTopMatch?: boolean;
 }
@@ -22,7 +20,6 @@ export const TariffCard = ({
   name,
   supplier,
   savingsPerYear,
-  matchScore,
   highlights,
   isTopMatch = false,
 }: TariffCardProps) => {
@@ -35,7 +32,7 @@ export const TariffCard = ({
     >
       {isTopMatch && (
         <div className="bg-primary text-primary-foreground py-1 px-4 text-sm font-medium text-center">
-          Best Match
+          Cheapest Option
         </div>
       )}
       
@@ -62,35 +59,6 @@ export const TariffCard = ({
               <Zap className="h-4 w-4 text-primary" />
             </div>
             <span className="text-sm font-medium">{highlights}</span>
-          </div>
-        </div>
-        
-        <div className="bg-gray-50 rounded-lg p-3">
-          <div className="flex justify-between items-center mb-1">
-            <div className="flex items-center">
-              <span className="text-sm font-medium mr-2">Match Score</span>
-              <TooltipProvider>
-                <Tooltip>
-                  <TooltipTrigger asChild>
-                    <Info className="h-3.5 w-3.5 text-gray-400" />
-                  </TooltipTrigger>
-                  <TooltipContent side="top">
-                    <p className="text-xs">How well this tariff matches your usage pattern</p>
-                  </TooltipContent>
-                </Tooltip>
-              </TooltipProvider>
-            </div>
-            <span className="text-sm font-semibold">{matchScore}%</span>
-          </div>
-          <div className="w-full bg-gray-200 rounded-full h-2">
-            <div 
-              className={cn(
-                "h-2 rounded-full",
-                matchScore >= 90 ? "bg-green-500" : 
-                matchScore >= 80 ? "bg-yellow-500" : "bg-orange-500"
-              )}
-              style={{ width: `${matchScore}%` }}
-            ></div>
           </div>
         </div>
       </CardContent>
