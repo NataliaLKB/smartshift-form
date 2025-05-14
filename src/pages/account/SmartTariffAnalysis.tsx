@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { StatusTracker } from '@/components/account/StatusTracker';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
@@ -102,7 +101,6 @@ const SmartTariffAnalysis = () => {
       {showResults && (
         <Card className="border border-green-200">
           <CardHeader className="bg-green-50">
-            <CardTitle>Your Recommended Tariffs</CardTitle>
             <CardDescription>
               Based on your smart meter data, these tariffs could save you money
             </CardDescription>
@@ -127,17 +125,11 @@ const SmartTariffAnalysis = () => {
                     </div>
                   </CardHeader>
                   <CardContent className="pt-4 pb-2">
-                    <div className="flex justify-between items-center">
-                      <div className="flex items-center gap-2">
-                        <div className="bg-primary/10 rounded-full p-1">
-                          <Zap className="h-4 w-4 text-primary" />
-                        </div>
-                        <span className="text-sm">{tariff.highlights}</span>
+                    <div className="flex items-center gap-2">
+                      <div className="bg-primary/10 rounded-full p-1">
+                        <Zap className="h-4 w-4 text-primary" />
                       </div>
-                      <div className="flex items-center gap-1">
-                        <div className="text-sm font-medium">Match score:</div>
-                        <div className="font-bold text-primary">{tariff.matchScore}%</div>
-                      </div>
+                      <span className="text-sm">{tariff.highlights}</span>
                     </div>
                   </CardContent>
                   <CardFooter className="pt-2">
