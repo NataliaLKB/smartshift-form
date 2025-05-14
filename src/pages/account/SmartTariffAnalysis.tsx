@@ -1,14 +1,17 @@
+
 import React, { useState } from 'react';
 import { StatusTracker } from '@/components/account/StatusTracker';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
-import { Info, Zap, Clock, Sparkles } from 'lucide-react';
+import { Info, Zap, Clock, Sparkles, ChevronDown, ChevronUp } from 'lucide-react';
 import { Switch } from '@/components/ui/switch';
 import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from '@/components/ui/table';
 import { Button } from '@/components/ui/button';
 import { toast } from '@/hooks/use-toast';
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
 
 const SmartTariffAnalysis = () => {
   const [showResults, setShowResults] = useState(false);
+  const [isStatusOpen, setIsStatusOpen] = useState(true);
   
   // Mock data for status tracker
   const analysisSteps = [
@@ -142,44 +145,78 @@ const SmartTariffAnalysis = () => {
         </Card>
       )}
       
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div className="md:col-span-2">
-          <StatusTracker 
-            steps={analysisSteps} 
-            currentStep={showResults ? 4 : 2} 
-          />
-        </div>
-        
-        <div className="space-y-6">
-          <Card className={`${showResults ? "bg-primary/10" : "bg-primary/5"} border-primary/10`}>
-            <CardHeader className="pb-2">
-              <div className="flex items-center">
-                <Info className="w-4 h-4 mr-2 text-primary" />
-                <CardTitle className="text-base">
-                  {showResults ? "Analysis Complete!" : "What's Next?"}
-                </CardTitle>
+      {showResults ? (
+        <Collapsible 
+          open={isStatusOpen} 
+          onOpenChange={setIsStatusOpen} 
+          className="border rounded-lg bg-white shadow-sm"
+        >
+          <div className="p-4 flex items-center justify-between">
+            <h3 className="text-lg font-semibold">Analysis Status</h3>
+            <CollapsibleTrigger asChild>
+              <Button variant="ghost" size="sm" className="w-9 p-0">
+                {isStatusOpen ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
+              </Button>
+            </CollapsibleTrigger>
+          </div>
+          
+          <CollapsibleContent>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 p-4 pt-0">
+              <div className="md:col-span-2">
+                <StatusTracker 
+                  steps={analysisSteps} 
+                  currentStep={showResults ? 4 : 2} 
+                />
               </div>
-            </CardHeader>
-            <CardContent>
-              {showResults ? (
+              
+              <div className="space-y-6">
+                <Card className="bg-primary/10 border-primary/10">
+                  <CardHeader className="pb-2">
+                    <div className="flex items-center">
+                      <Info className="w-4 h-4 mr-2 text-primary" />
+                      <CardTitle className="text-base">Analysis Complete!</CardTitle>
+                    </div>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-sm">
+                      Your tariff analysis is complete! We've found three tariffs that could save you money based on your usage patterns.
+                    </p>
+                  </CardContent>
+                </Card>
+              </div>
+            </div>
+          </CollapsibleContent>
+        </Collapsible>
+      ) : (
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="md:col-span-2">
+            <StatusTracker 
+              steps={analysisSteps} 
+              currentStep={showResults ? 4 : 2} 
+            />
+          </div>
+          
+          <div className="space-y-6">
+            <Card className="bg-primary/5 border-primary/10">
+              <CardHeader className="pb-2">
+                <div className="flex items-center">
+                  <Info className="w-4 h-4 mr-2 text-primary" />
+                  <CardTitle className="text-base">What's Next?</CardTitle>
+                </div>
+              </CardHeader>
+              <CardContent>
                 <p className="text-sm">
-                  Your tariff analysis is complete! We've found three tariffs that could save you money based on your usage patterns.
+                  We're currently accessing your smart meter data. This process usually takes 24-48 hours. 
+                  Once complete, we'll move to the next step of verifying your data quality.
                 </p>
-              ) : (
-                <>
-                  <p className="text-sm">
-                    We're currently accessing your smart meter data. This process usually takes 24-48 hours. 
-                    Once complete, we'll move to the next step of verifying your data quality.
-                  </p>
-                  <p className="text-sm mt-2">
-                    You'll receive an email update when we move to the next stage.
-                  </p>
-                </>
-              )}
-            </CardContent>
-          </Card>
+                <p className="text-sm mt-2">
+                  You'll receive an email update when we move to the next stage.
+                </p>
+              </CardContent>
+            </Card>
+          </div>
         </div>
-      </div>
+      )}
       
       <Card>
         <CardHeader>
