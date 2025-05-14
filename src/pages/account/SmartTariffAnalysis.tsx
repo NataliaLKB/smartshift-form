@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { StatusTracker } from '@/components/account/StatusTracker';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
@@ -11,7 +10,7 @@ import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/component
 
 const SmartTariffAnalysis = () => {
   const [showResults, setShowResults] = useState(false);
-  const [isStatusOpen, setIsStatusOpen] = useState(true);
+  const [isStatusOpen, setIsStatusOpen] = useState(false); // Changed to false as default
   
   // Mock data for status tracker
   const analysisSteps = [
@@ -152,7 +151,7 @@ const SmartTariffAnalysis = () => {
           className="border rounded-lg bg-white shadow-sm"
         >
           <div className="p-4 flex items-center justify-between">
-            <h3 className="text-lg font-semibold">Analysis Status</h3>
+            <h3 className="text-lg font-semibold">Analysis Status: 100% Complete</h3>
             <CollapsibleTrigger asChild>
               <Button variant="ghost" size="sm" className="w-9 p-0">
                 {isStatusOpen ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
