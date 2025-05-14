@@ -166,7 +166,7 @@ const SmartTariffAnalysis = () => {
               <CardHeader className="pb-2">
                 <div className="flex items-center">
                   <Info className="w-4 h-4 mr-2 text-primary" />
-                  <CardTitle className="text-base">What's Next?</CardTitle>
+                  <CardTitle className="text-base">What's next?</CardTitle>
                 </div>
               </CardHeader>
               <CardContent>
