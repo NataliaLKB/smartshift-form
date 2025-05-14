@@ -87,7 +87,10 @@ const SmartTariffAnalysis = () => {
         <div>
           <h1 className="text-2xl font-bold tracking-tight">Smart Tariff Analysis</h1>
           <p className="text-muted-foreground">
-            Track the progress of your personalized tariff analysis
+            {showResults 
+              ? "See the best smart tariffs for your home based on your actual electricity usage patterns and home profile" 
+              : "Track the progress of your personalized tariff analysis"
+            }
           </p>
         </div>
         <div className="flex items-center gap-2">
