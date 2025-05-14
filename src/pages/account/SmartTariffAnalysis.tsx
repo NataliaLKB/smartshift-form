@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { StatusTracker } from '@/components/account/StatusTracker';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
@@ -50,7 +49,7 @@ const SmartTariffAnalysis = () => {
   }, {
     id: 2,
     name: "FlexiPower Plus",
-    supplier: "PowerSwitch Ltd", // Maps to E.ON logo
+    supplier: "PowerSwitch Ltd", // Maps to E.ON logo, will display as "E.ON Next"
     savingsPerYear: 203,
     highlights: "Great off-peak rates on weekends"
   }, {

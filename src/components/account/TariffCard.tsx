@@ -35,8 +35,12 @@ export const TariffCard = ({
   isTopMatch = false,
 }: TariffCardProps) => {
   const logoUrl = getSupplierLogo(supplier);
-  // Display "OVO Energy" for the supplier name if the actual supplier is "Value Energy"
-  const displaySupplierName = supplier === "Value Energy" ? "OVO Energy" : supplier;
+  // Display appropriate names for suppliers
+  const displaySupplierName = supplier === "Value Energy" 
+    ? "OVO Energy" 
+    : supplier === "PowerSwitch Ltd" 
+      ? "E.ON Next" 
+      : supplier;
   
   return (
     <Card 
