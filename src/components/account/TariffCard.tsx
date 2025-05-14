@@ -56,9 +56,9 @@ export const TariffCard = ({
               {isTopMatch && <Sparkles className="h-5 w-5 text-primary" />}
               {name}
             </CardTitle>
-            <div className="flex items-center gap-2 mt-1">
+            <div className="flex items-center gap-3 mt-2">
               {logoUrl && (
-                <div className="h-6 w-auto flex-shrink-0 overflow-hidden">
+                <div className="h-8 w-auto flex-shrink-0 overflow-hidden">
                   <img 
                     src={logoUrl} 
                     alt={`${supplier} logo`} 
@@ -66,7 +66,7 @@ export const TariffCard = ({
                   />
                 </div>
               )}
-              <CardDescription className="text-sm">{supplier}</CardDescription>
+              <CardDescription className="text-sm font-medium">{supplier}</CardDescription>
             </div>
           </div>
           <div className="rounded-full bg-green-50 border border-green-100 px-3 py-2 text-right">
