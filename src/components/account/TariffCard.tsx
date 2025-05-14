@@ -1,11 +1,9 @@
-
 import React from 'react';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Sparkles, Zap, ChevronRight, Percent } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
-
 export interface TariffCardProps {
   id: number;
   name: string;
@@ -18,68 +16,47 @@ export interface TariffCardProps {
 // Function to map supplier names to their logo images
 const getSupplierLogo = (supplier: string): string => {
   const supplierMap: Record<string, string> = {
-    "Green Energy Co": "/lovable-uploads/58aedc68-0e5b-4bb8-b0fa-789a551767b5.png", // Octopus Energy
-    "PowerSwitch Ltd": "/lovable-uploads/cc92ed68-f250-4f0d-82ac-a041486c0b59.png", // E.ON
-    "Value Energy": "/lovable-uploads/d3ab1789-e63b-444b-a0aa-c1f1d90e263e.png",    // OVO
+    "Green Energy Co": "/lovable-uploads/58aedc68-0e5b-4bb8-b0fa-789a551767b5.png",
+    // Octopus Energy
+    "PowerSwitch Ltd": "/lovable-uploads/cc92ed68-f250-4f0d-82ac-a041486c0b59.png",
+    // E.ON
+    "Value Energy": "/lovable-uploads/d3ab1789-e63b-444b-a0aa-c1f1d90e263e.png" // OVO
   };
-  
   return supplierMap[supplier] || "";
 };
-
 export const TariffCard = ({
   id,
   name,
   supplier,
   savingsPerYear,
   highlights,
-  isTopMatch = false,
+  isTopMatch = false
 }: TariffCardProps) => {
   const logoUrl = getSupplierLogo(supplier);
   // Display appropriate names for suppliers
-  const displaySupplierName = supplier === "Value Energy" 
-    ? "OVO Energy" 
-    : supplier === "PowerSwitch Ltd" 
-      ? "E.ON Next" 
-      : supplier === "Green Energy Co"
-        ? "Octopus Energy"
-        : supplier;
-  
+  const displaySupplierName = supplier === "Value Energy" ? "OVO Energy" : supplier === "PowerSwitch Ltd" ? "E.ON Next" : supplier === "Green Energy Co" ? "Octopus Energy" : supplier;
+
   // Calculate percentage savings compared to price cap
   // Assuming an average annual bill of £1800 under the price cap
   const priceCap = 1800;
-  const percentageSaving = Math.round((savingsPerYear / priceCap) * 100);
-  
-  return (
-    <Card 
-      className={cn(
-        "overflow-hidden transition-all hover:shadow-md",
-        isTopMatch ? "border-primary border-2" : "border"
-      )}
-    >
-      {isTopMatch && (
-        <div className="bg-primary text-primary-foreground py-1 px-4 text-sm font-medium text-center">
+  const percentageSaving = Math.round(savingsPerYear / priceCap * 100);
+  return <Card className={cn("overflow-hidden transition-all hover:shadow-md", isTopMatch ? "border-primary border-2" : "border")}>
+      {isTopMatch && <div className="bg-primary text-primary-foreground py-1 px-4 text-sm font-medium text-center">
           Cheapest Option
-        </div>
-      )}
+        </div>}
       
       <CardHeader className={cn("pb-4", isTopMatch ? "bg-primary/5" : "bg-gray-50")}>
         {/* Logo and supplier name section in a horizontal layout */}
         <div className="flex items-center gap-3 mb-2">
-          {logoUrl && (
-            <div className="h-10 w-auto flex-shrink-0">
-              <img 
-                src={logoUrl} 
-                alt={`${displaySupplierName} logo`} 
-                className="h-full w-auto object-contain"
-              />
-            </div>
-          )}
+          {logoUrl && <div className="h-10 w-auto flex-shrink-0">
+              <img src={logoUrl} alt={`${displaySupplierName} logo`} className="h-full w-auto object-contain" />
+            </div>}
           <CardDescription className="text-sm font-medium">{displaySupplierName}</CardDescription>
         </div>
         
         <div className="flex justify-between items-start mt-2">
           <CardTitle className="text-xl flex items-center gap-2">
-            {isTopMatch && <Sparkles className="h-5 w-5 text-primary" />}
+            {isTopMatch}
             {name}
           </CardTitle>
           
@@ -115,6 +92,5 @@ export const TariffCard = ({
           <ChevronRight className="h-4 w-4 ml-2 transition-transform group-hover:translate-x-0.5" />
         </Button>
       </CardFooter>
-    </Card>
-  );
+    </Card>;
 };
