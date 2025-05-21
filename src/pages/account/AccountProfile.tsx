@@ -155,7 +155,7 @@ const AccountProfile = () => {
       </div>
       
       <Tabs defaultValue="personal">
-        <TabsList className={`grid w-full ${isMobile ? 'grid-cols-2 gap-2' : 'md:w-auto grid-cols-4 md:inline-flex'}`}>
+        <TabsList className="grid w-full grid-cols-2 gap-2 md:grid-cols-4">
           <TabsTrigger value="personal">Personal Info</TabsTrigger>
           <TabsTrigger value="property">Property</TabsTrigger>
           <TabsTrigger value="devices">Devices</TabsTrigger>
