@@ -12,6 +12,8 @@ import { AddressForm } from '@/components/address/AddressForm';
 import { Switch } from '@/components/ui/switch';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
+import DevicesList from '@/components/devices/DevicesList';
+
 const AccountProfile = () => {
   const {
     toast
@@ -20,6 +22,7 @@ const AccountProfile = () => {
   const [isAddressValid, setIsAddressValid] = useState(true);
   const [isEditingAddress, setIsEditingAddress] = useState(false);
   const [showExportDetails, setShowExportDetails] = useState(false);
+  
   const [profileData, setProfileData] = useState({
     firstName: "John",
     lastName: "Smith",
@@ -33,16 +36,20 @@ const AccountProfile = () => {
     exportSupplier: "Octopus Energy",
     exportTariff: "Smart Export Guarantee",
     newsletter: "monthly",
-    whatsappAlerts: true
+    whatsappAlerts: true,
+    devices: ['solar-panels', 'ev-charger'] // Initialize with some sample devices
   });
+  
   const [passwordData, setPasswordData] = useState({
     currentPassword: "",
     newPassword: "",
     confirmPassword: ""
   });
+  
   const handleAddressValidityChange = (isValid: boolean) => {
     setIsAddressValid(isValid);
   };
+  
   const handleProfileUpdate = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
@@ -65,6 +72,14 @@ const AccountProfile = () => {
       setIsLoading(false);
     }
   };
+  
+  const handleDevicesChange = (devices: string[]) => {
+    setProfileData(prev => ({
+      ...prev,
+      devices
+    }));
+  };
+  
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const {
       name,
@@ -75,12 +90,14 @@ const AccountProfile = () => {
       [name]: value
     }));
   };
+  
   const handleRadioChange = (value: string, field: string) => {
     setProfileData(prev => ({
       ...prev,
       [field]: value
     }));
   };
+  
   const handlePasswordInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const {
       name,
@@ -91,6 +108,7 @@ const AccountProfile = () => {
       [name]: value
     }));
   };
+  
   const handlePasswordChange = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
@@ -124,6 +142,7 @@ const AccountProfile = () => {
       setIsLoading(false);
     }
   };
+  
   return <div className="space-y-6">
       <div>
         <h1 className="text-2xl font-bold tracking-tight">Profile</h1>
@@ -133,9 +152,10 @@ const AccountProfile = () => {
       </div>
       
       <Tabs defaultValue="personal">
-        <TabsList className="grid w-full md:w-auto grid-cols-3 md:inline-flex">
+        <TabsList className="grid w-full md:w-auto grid-cols-4 md:inline-flex">
           <TabsTrigger value="personal">Personal Info</TabsTrigger>
           <TabsTrigger value="property">Property Details</TabsTrigger>
+          <TabsTrigger value="devices">Devices</TabsTrigger>
           <TabsTrigger value="communication">Communication</TabsTrigger>
         </TabsList>
         
@@ -345,6 +365,35 @@ const AccountProfile = () => {
           </Card>
         </TabsContent>
         
+        <TabsContent value="devices" className="space-y-6">
+          <Card>
+            <form onSubmit={handleProfileUpdate}>
+              <CardHeader>
+                <CardTitle>Your Energy Devices</CardTitle>
+                <CardDescription>
+                  Update the energy generating and consuming devices in your home
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <DevicesList 
+                  initialDevices={profileData.devices} 
+                  onDevicesChange={handleDevicesChange}
+                />
+              </CardContent>
+              <CardFooter>
+                <Button type="submit" disabled={isLoading}>
+                  {isLoading ? (
+                    <>
+                      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                      Saving...
+                    </>
+                  ) : "Save changes"}
+                </Button>
+              </CardFooter>
+            </form>
+          </Card>
+        </TabsContent>
+        
         <TabsContent value="communication" className="space-y-6">
           <Card>
             <form onSubmit={handleProfileUpdate}>
@@ -399,4 +448,5 @@ const AccountProfile = () => {
       </Tabs>
     </div>;
 };
+
 export default AccountProfile;
