@@ -59,21 +59,21 @@ export const DevicesList: React.FC<DevicesListProps> = ({
           <p className="text-sm text-muted-foreground">Select the energy devices you have installed</p>
         </div>
       )}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 gap-3">
         {availableDevices.map((device) => (
           <Button
             key={device.id}
             variant="outline"
             className={cn(
-              "w-full justify-start py-3 px-4 bg-white text-center",
+              "w-full justify-start py-3 px-4 bg-white text-wrap",
               selectedDevices.includes(device.id) && "border-primary bg-primary/5"
             )}
             onClick={() => toggleDevice(device.id)}
           >
             <div className="flex items-center justify-between w-full">
-              <span className="text-sm mx-auto">{device.label}</span>
+              <span className="text-sm text-left mr-2">{device.label}</span>
               {selectedDevices.includes(device.id) && (
-                <div className="w-6 h-6 rounded-full bg-primary flex items-center justify-center flex-shrink-0 ml-2">
+                <div className="w-6 h-6 rounded-full bg-primary flex items-center justify-center flex-shrink-0 ml-auto">
                   <svg
                     width="15"
                     height="15"

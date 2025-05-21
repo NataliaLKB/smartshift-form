@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -13,11 +14,13 @@ import { Switch } from '@/components/ui/switch';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import DevicesList from '@/components/devices/DevicesList';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 const AccountProfile = () => {
   const {
     toast
   } = useToast();
+  const isMobile = useIsMobile();
   const [isLoading, setIsLoading] = useState(false);
   const [isAddressValid, setIsAddressValid] = useState(true);
   const [isEditingAddress, setIsEditingAddress] = useState(false);
@@ -152,9 +155,9 @@ const AccountProfile = () => {
       </div>
       
       <Tabs defaultValue="personal">
-        <TabsList className="grid w-full md:w-auto grid-cols-4 md:inline-flex">
+        <TabsList className={`grid w-full ${isMobile ? 'grid-cols-2 gap-2' : 'md:w-auto grid-cols-4 md:inline-flex'}`}>
           <TabsTrigger value="personal">Personal Info</TabsTrigger>
-          <TabsTrigger value="property">Property Details</TabsTrigger>
+          <TabsTrigger value="property">Property</TabsTrigger>
           <TabsTrigger value="devices">Devices</TabsTrigger>
           <TabsTrigger value="communication">Communication</TabsTrigger>
         </TabsList>
@@ -267,14 +270,14 @@ const AccountProfile = () => {
                   
                   <div className="space-y-4">
                     <div className="space-y-2">
-                      <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2">
+                      <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-2">
                         <div>
                           <Label htmlFor="importMpan">MPAN number</Label>
-                          <div className=" px-4 py-2  mt-1">
+                          <div className="px-4 py-2 mt-1">
                             <span className="text-sm text-grey-700 font-light">{profileData.importMpan}</span>
                           </div>
                         </div>
-                        <div className="bg-primary/10 rounded-md border border-primary/20 p-3 md:max-w-xl space-y-1">
+                        <div className="bg-primary/10 rounded-md border border-primary/20 p-3 w-full lg:max-w-xl space-y-1">
                           <div className="flex items-start gap-2">
                             <AlertCircle className="h-4 w-4 text-primary mt-0.5 shrink-0" />
                             <p className="text-xs text-primary-700 font-medium">
@@ -303,27 +306,27 @@ const AccountProfile = () => {
                 <div className="pt-4 border-t">
                   <Collapsible open={showExportDetails} onOpenChange={setShowExportDetails} className="space-y-4">
                     <CollapsibleTrigger asChild>
-                      <Button variant="ghost" size="sm" className="flex items-center gap-1 text-primary-700">
+                      <Button variant="ghost" size="sm" className="flex items-center gap-1 text-primary-700 text-wrap text-left justify-start w-full md:w-auto">
                         {showExportDetails ? <>
                             Hide export tariff details
-                            <ChevronUp className="h-4 w-4" />
+                            <ChevronUp className="h-4 w-4 ml-1 flex-shrink-0" />
                           </> : <>
                             Do you have solar panels or battery storage? Add your export tariff details
-                            <ChevronDown className="h-4 w-4" />
+                            <ChevronDown className="h-4 w-4 ml-1 flex-shrink-0" />
                           </>}
                       </Button>
                     </CollapsibleTrigger>
                     
                     <CollapsibleContent className="space-y-4 pt-2">
                       <div className="space-y-2">
-                        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2">
+                        <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-2">
                           <div>
                             <Label htmlFor="exportMpan">MPAN number (Export)</Label>
                             <div className="px-4 py-2 mt-1">
                               <span className="text-sm font-light text-gray">{profileData.exportMpan}</span>
                             </div>
                           </div>
-                          <div className="bg-primary/10 rounded-md border border-primary/20 p-3 md:max-w-xl space-y-1">
+                          <div className="bg-primary/10 rounded-md border border-primary/20 p-3 w-full lg:max-w-xl space-y-1">
                             <div className="flex items-start gap-2">
                               <AlertCircle className="h-4 w-4 text-primary mt-0.5 shrink-0" />
                               <p className="text-xs text-primary-700 font-medium">
