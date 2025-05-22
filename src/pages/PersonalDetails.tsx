@@ -39,42 +39,36 @@ const PersonalDetails = () => {
               <p className="text-gray-500 mt-2">We'll analyze your energy usage to find the best tariff for your household</p>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-              <div className="lg:col-span-2 order-2 lg:order-1">
-                <Card>
-                  <CardContent className="pt-6">
-                    <PersonalDetailsForm 
-                      onValidityChange={handleFormValidityChange} 
-                      createAccount={true} 
-                    />
-                  </CardContent>
-                </Card>
-              </div>
-              
-              <div className="order-1 lg:order-2">
-                <Card className="bg-primary/5 border-primary/20">
-                  <CardHeader>
-                    <h3 className="font-medium">Why create an account?</h3>
-                  </CardHeader>
-                  <CardContent className="pt-0">
-                    <ul className="space-y-3">
-                      <li className="flex items-start gap-2 text-sm">
-                        <CheckCircle2 className="h-4 w-4 text-primary mt-1 flex-shrink-0" />
-                        <span>Access your electricity consumption data</span>
-                      </li>
-                      <li className="flex items-start gap-2 text-sm">
-                        <CheckCircle2 className="h-4 w-4 text-primary mt-1 flex-shrink-0" />
-                        <span>See how recommendations change over time</span>
-                      </li>
-                      <li className="flex items-start gap-2 text-sm">
-                        <CheckCircle2 className="h-4 w-4 text-primary mt-1 flex-shrink-0" />
-                        <span>Stay updated with new product features</span>
-                      </li>
-                    </ul>
-                  </CardContent>
-                </Card>
-              </div>
-            </div>
+            <Card className="bg-primary/5 border-primary/20">
+              <CardHeader>
+                <h3 className="font-medium">Why create an account?</h3>
+              </CardHeader>
+              <CardContent className="pt-0">
+                <ul className="space-y-3">
+                  <li className="flex items-start gap-2 text-sm">
+                    <CheckCircle2 className="h-4 w-4 text-primary mt-1 flex-shrink-0" />
+                    <span>Access your electricity consumption data</span>
+                  </li>
+                  <li className="flex items-start gap-2 text-sm">
+                    <CheckCircle2 className="h-4 w-4 text-primary mt-1 flex-shrink-0" />
+                    <span>See how recommendations change over time</span>
+                  </li>
+                  <li className="flex items-start gap-2 text-sm">
+                    <CheckCircle2 className="h-4 w-4 text-primary mt-1 flex-shrink-0" />
+                    <span>Stay updated with new product features</span>
+                  </li>
+                </ul>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardContent className="pt-6">
+                <PersonalDetailsForm 
+                  onValidityChange={handleFormValidityChange} 
+                  createAccount={true} 
+                />
+              </CardContent>
+            </Card>
           </div>
         </div>
       </main>
