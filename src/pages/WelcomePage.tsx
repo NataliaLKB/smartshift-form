@@ -29,61 +29,38 @@ const WelcomePage = () => {
               <CardContent className="p-6">
                 <h3 className="text-lg font-medium mb-4 flex items-center gap-2">
                   <ShieldCheck className="h-5 w-5 text-primary" />
-                  Your 6-step journey to energy savings
+                  Quick and easy process
                 </h3>
                 
-                <div className="grid md:grid-cols-2 gap-4">
-                  <div className="space-y-4">
-                    <div className="flex gap-3 items-start">
-                      <div className="flex-shrink-0 h-6 w-6 rounded-full bg-primary text-white flex items-center justify-center font-medium mt-0.5">1</div>
-                      <div>
-                        <p className="font-medium text-gray-800">Create your account</p>
-                        <p className="text-sm text-gray-500">Provide your basic details</p>
-                      </div>
+                <div className="flex flex-col md:flex-row gap-6 mb-5">
+                  <div className="flex-1 bg-primary/5 p-5 rounded-lg">
+                    <div className="flex items-center gap-3 mb-3">
+                      <div className="flex-shrink-0 h-8 w-8 rounded-full bg-primary text-white flex items-center justify-center font-medium">1</div>
+                      <p className="font-medium text-gray-800">Create your profile</p>
                     </div>
-                    <div className="flex gap-3 items-start">
-                      <div className="flex-shrink-0 h-6 w-6 rounded-full bg-primary text-white flex items-center justify-center font-medium mt-0.5">2</div>
-                      <div>
-                        <p className="font-medium text-gray-800">Tell us about your property</p>
-                        <p className="text-sm text-gray-500">Enter your address details</p>
-                      </div>
-                    </div>
-                    <div className="flex gap-3 items-start">
-                      <div className="flex-shrink-0 h-6 w-6 rounded-full bg-primary text-white flex items-center justify-center font-medium mt-0.5">3</div>
-                      <div>
-                        <p className="font-medium text-gray-800">Share energy usage</p>
-                        <p className="text-sm text-gray-500">Tell us about your devices and consumption</p>
-                      </div>
-                    </div>
+                    <p className="text-sm text-gray-600 ml-11">Quick account setup with your basic details</p>
                   </div>
-                  <div className="space-y-4">
-                    <div className="flex gap-3 items-start">
-                      <div className="flex-shrink-0 h-6 w-6 rounded-full bg-primary text-white flex items-center justify-center font-medium mt-0.5">4</div>
-                      <div>
-                        <p className="font-medium text-gray-800">Upload your electricity bill</p>
-                        <p className="text-sm text-gray-500">We need this to access your smart meter data</p>
-                      </div>
+                  
+                  <div className="flex-1 bg-primary/5 p-5 rounded-lg">
+                    <div className="flex items-center gap-3 mb-3">
+                      <div className="flex-shrink-0 h-8 w-8 rounded-full bg-primary text-white flex items-center justify-center font-medium">2</div>
+                      <p className="font-medium text-gray-800">Share your usage</p>
                     </div>
-                    <div className="flex gap-3 items-start">
-                      <div className="flex-shrink-0 h-6 w-6 rounded-full bg-primary text-white flex items-center justify-center font-medium mt-0.5">5</div>
-                      <div>
-                        <p className="font-medium text-gray-800">Review your current tariff</p>
-                        <p className="text-sm text-gray-500">Confirm your existing rate details</p>
-                      </div>
+                    <p className="text-sm text-gray-600 ml-11">Tell us about your home and energy habits</p>
+                  </div>
+                  
+                  <div className="flex-1 bg-primary/5 p-5 rounded-lg">
+                    <div className="flex items-center gap-3 mb-3">
+                      <div className="flex-shrink-0 h-8 w-8 rounded-full bg-primary text-white flex items-center justify-center font-medium">3</div>
+                      <p className="font-medium text-gray-800">Get recommendations</p>
                     </div>
-                    <div className="flex gap-3 items-start">
-                      <div className="flex-shrink-0 h-6 w-6 rounded-full bg-primary text-white flex items-center justify-center font-medium mt-0.5">6</div>
-                      <div>
-                        <p className="font-medium text-gray-800">Get your recommendation</p>
-                        <p className="text-sm text-gray-500">See your personalized smart tariff analysis</p>
-                      </div>
-                    </div>
+                    <p className="text-sm text-gray-600 ml-11">Receive your personalized tariff analysis</p>
                   </div>
                 </div>
                 
-                <div className="bg-primary/10 border border-primary/20 rounded-md p-4 mt-5">
+                <div className="bg-[#00CED1]/10 border border-[#00CED1]/20 rounded-md p-4">
                   <div className="flex gap-3">
-                    <InfoIcon className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                    <InfoIcon className="h-5 w-5 text-[#00CED1] flex-shrink-0 mt-0.5" />
                     <p className="text-sm text-primary-700">
                       You must be the electricity bill payer for your home to use our service. We'll need access to your smart meter data.
                     </p>
