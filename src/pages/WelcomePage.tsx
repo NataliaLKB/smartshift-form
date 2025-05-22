@@ -31,25 +31,22 @@ const WelcomePage = () => {
               <p className="text-gray-600 mt-2 max-w-3xl">Our smart tariff analysis will help you save money on your energy bills.</p>
             </div>
 
-            <div className="bg-gradient-to-r from-blue-50 to-primary/5 rounded-lg border border-blue-100 p-5 shadow-sm">
-              <div className="flex gap-4">
-                <InfoIcon className="h-6 w-6 text-primary flex-shrink-0 mt-0.5" />
-                <div>
-                  <h3 className="font-medium text-primary-700 mb-1.5">Important Information</h3>
-                  <p className="text-blue-800">
-                    To use our smart tariff comparison service, you need to be the electricity bill payer for your home. 
-                    We'll ask you to upload your bill to validate your identity and grant us access to your smart meter data.
-                  </p>
-                </div>
-              </div>
-            </div>
-
             <Card className="border-primary/10 overflow-hidden">
               <CardContent className="p-6">
                 <h3 className="text-lg font-medium mb-4 flex items-center gap-2">
                   <ShieldCheck className="h-5 w-5 text-primary" />
                   Your 6-step journey to energy savings
                 </h3>
+                
+                <div className="bg-blue-50 border border-blue-100 rounded-md p-4 mb-5">
+                  <div className="flex gap-3">
+                    <InfoIcon className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                    <p className="text-sm text-blue-800">
+                      You must be the electricity bill payer for your home to use our service. We'll need access to your smart meter data.
+                    </p>
+                  </div>
+                </div>
+                
                 <div className="grid md:grid-cols-2 gap-4">
                   <div className="space-y-4">
                     <div className="flex gap-3 items-start">
