@@ -6,7 +6,7 @@ import { Progress } from '@/components/ui/progress';
 import { PersonalDetailsForm } from '@/components/personal/PersonalDetailsForm';
 import { useNavigate } from 'react-router-dom';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
-import { CheckCircle2 } from "lucide-react";
+import { CheckCircle2, InfoIcon, ShieldCheck, Clock, Zap } from "lucide-react";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 
 const PersonalDetails = () => {
@@ -28,7 +28,7 @@ const PersonalDetails = () => {
       
       <main className="flex-1 bg-[#FAF9FA]">
         <div className="container max-w-4xl mx-auto px-4 py-8">
-          <div className="space-y-6">
+          <div className="space-y-8">
             <div>
               <div className="flex justify-between items-center mb-1">
                 <p className="text-sm text-gray-700">Step 1 of 6</p>
@@ -39,34 +39,55 @@ const PersonalDetails = () => {
               <p className="text-gray-500 mt-2">We'll analyse your energy usage to find the best tariff for your household</p>
             </div>
 
-            <Alert className="bg-blue-50 border-blue-200">
-              <AlertDescription>
-                <p className="text-sm text-blue-800">
-                  <strong>Note:</strong> To use our smart tariff comparison service, you need to be the electricity bill payer for your home. 
-                  We'll ask you to upload your bill to validate your identity and grant us access to your smart meter data, 
-                  which powers our personalised analysis. If you're not the bill payer, you might want to ask them to complete this process instead. 
-                  Ready to save on your energy costs?
-                </p>
-              </AlertDescription>
-            </Alert>
+            <div className="bg-gradient-to-r from-blue-50 to-primary/5 rounded-lg border border-blue-100 p-4 shadow-sm">
+              <div className="flex gap-3">
+                <InfoIcon className="h-5 w-5 text-primary flex-shrink-0 mt-1" />
+                <div>
+                  <h3 className="font-medium text-primary-700 mb-1">Important Note</h3>
+                  <p className="text-sm text-blue-800">
+                    To use our smart tariff comparison service, you need to be the electricity bill payer for your home. 
+                    We'll ask you to upload your bill to validate your identity and grant us access to your smart meter data, 
+                    which powers our personalised analysis. If you're not the bill payer, you might want to ask them to complete this process instead.
+                  </p>
+                </div>
+              </div>
+            </div>
 
-            <Card className="bg-primary/5 border-primary/20">
-              <CardHeader>
-                <h3 className="font-medium">Why create an account?</h3>
+            <Card className="border-primary/10 shadow-sm overflow-hidden">
+              <CardHeader className="bg-primary/5 border-b border-primary/10">
+                <h3 className="font-medium flex items-center gap-2">
+                  <ShieldCheck className="h-5 w-5 text-primary" />
+                  Why create an account?
+                </h3>
               </CardHeader>
-              <CardContent className="pt-0">
-                <ul className="space-y-3">
-                  <li className="flex items-start gap-2 text-sm">
-                    <CheckCircle2 className="h-4 w-4 text-primary mt-1 flex-shrink-0" />
-                    <span>Access your electricity consumption data</span>
+              <CardContent className="pt-5">
+                <ul className="space-y-4">
+                  <li className="flex items-start gap-3">
+                    <div className="rounded-full bg-primary/10 p-1.5">
+                      <Zap className="h-4 w-4 text-primary" />
+                    </div>
+                    <div>
+                      <p className="font-medium text-gray-800">Access your electricity consumption data</p>
+                      <p className="text-sm text-gray-500">We'll analyze your usage patterns to find the best tariffs</p>
+                    </div>
                   </li>
-                  <li className="flex items-start gap-2 text-sm">
-                    <CheckCircle2 className="h-4 w-4 text-primary mt-1 flex-shrink-0" />
-                    <span>Option to see how recommendations change over time</span>
+                  <li className="flex items-start gap-3">
+                    <div className="rounded-full bg-primary/10 p-1.5">
+                      <Clock className="h-4 w-4 text-primary" />
+                    </div>
+                    <div>
+                      <p className="font-medium text-gray-800">See how recommendations change over time</p>
+                      <p className="text-sm text-gray-500">Track your energy savings and get updated suggestions</p>
+                    </div>
                   </li>
-                  <li className="flex items-start gap-2 text-sm">
-                    <CheckCircle2 className="h-4 w-4 text-primary mt-1 flex-shrink-0" />
-                    <span>Stay updated with new product features</span>
+                  <li className="flex items-start gap-3">
+                    <div className="rounded-full bg-primary/10 p-1.5">
+                      <CheckCircle2 className="h-4 w-4 text-primary" />
+                    </div>
+                    <div>
+                      <p className="font-medium text-gray-800">Stay updated with new product features</p>
+                      <p className="text-sm text-gray-500">Get alerts about new ways to save on your energy bills</p>
+                    </div>
                   </li>
                 </ul>
               </CardContent>
