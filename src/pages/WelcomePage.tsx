@@ -38,15 +38,6 @@ const WelcomePage = () => {
                   Your 6-step journey to energy savings
                 </h3>
                 
-                <div className="bg-blue-50 border border-blue-100 rounded-md p-4 mb-5">
-                  <div className="flex gap-3">
-                    <InfoIcon className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                    <p className="text-sm text-blue-800">
-                      You must be the electricity bill payer for your home to use our service. We'll need access to your smart meter data.
-                    </p>
-                  </div>
-                </div>
-                
                 <div className="grid md:grid-cols-2 gap-4">
                   <div className="space-y-4">
                     <div className="flex gap-3 items-start">
@@ -93,6 +84,15 @@ const WelcomePage = () => {
                         <p className="text-sm text-gray-500">See your personalized smart tariff analysis</p>
                       </div>
                     </div>
+                  </div>
+                </div>
+                
+                <div className="bg-primary/10 border border-primary/20 rounded-md p-4 mt-5">
+                  <div className="flex gap-3">
+                    <InfoIcon className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                    <p className="text-sm text-primary-700">
+                      You must be the electricity bill payer for your home to use our service. We'll need access to your smart meter data.
+                    </p>
                   </div>
                 </div>
               </CardContent>
