@@ -6,7 +6,7 @@ export const CallToAction = () => {
   const navigate = useNavigate();
 
   return (
-    <Button size="lg" onClick={() => navigate('/personal-details')}>
+    <Button size="lg" onClick={() => navigate('/welcome')}>
       Get Tariff Recommendation
     </Button>
   );
