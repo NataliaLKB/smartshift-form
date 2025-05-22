@@ -1,11 +1,10 @@
 
 import React from 'react';
 import { AddressHeader } from '@/components/address/AddressHeader';
-import { AddressFooter } from '@/components/address/AddressFooter';
-import { Progress } from '@/components/ui/progress';
-import { useNavigate } from 'react-router-dom';
 import { Card, CardContent } from '@/components/ui/card';
 import { CheckCircle2, InfoIcon, ShieldCheck, Clock, Zap } from "lucide-react";
+import { Button } from '@/components/ui/button';
+import { useNavigate } from 'react-router-dom';
 
 const WelcomePage = () => {
   const navigate = useNavigate();
@@ -22,11 +21,6 @@ const WelcomePage = () => {
         <div className="container max-w-4xl mx-auto px-4 py-8">
           <div className="space-y-6">
             <div>
-              <div className="flex justify-between items-center mb-1">
-                <p className="text-sm text-gray-700">Getting Started</p>
-                <p className="text-xs text-gray-500">Welcome</p>
-              </div>
-              <Progress value={10} className="h-1 mb-6" />
               <h1 className="text-2xl md:text-3xl font-bold text-gray-900">Find the best energy tariff for your home</h1>
               <p className="text-gray-600 mt-2 max-w-3xl">Our smart tariff analysis will help you save money on your energy bills.</p>
             </div>
@@ -102,7 +96,7 @@ const WelcomePage = () => {
               <CardContent className="p-6">
                 <h3 className="text-lg font-medium mb-4 flex items-center gap-2">
                   <ShieldCheck className="h-5 w-5 text-primary" />
-                  Why create an account?
+                  Benefits of an account
                 </h3>
                 <ul className="space-y-4">
                   <li className="flex items-start gap-3">
@@ -135,11 +129,19 @@ const WelcomePage = () => {
                 </ul>
               </CardContent>
             </Card>
+            
+            <div className="flex justify-center">
+              <Button 
+                onClick={handleContinue}
+                size="lg"
+                className="bg-[#00CED1] hover:bg-[#00CED1]/90 text-black font-medium text-base px-8"
+              >
+                Let's Get Started
+              </Button>
+            </div>
           </div>
         </div>
       </main>
-
-      <AddressFooter hideBack={true} onContinue={handleContinue} isEnabled={true} buttonText="Let's Get Started" />
     </div>
   );
 };
