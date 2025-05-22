@@ -42,11 +42,10 @@ export const Steps = () => {
           ))}
         </div>
         
-        {/* Updated to point directly to personal-details page */}
         <div className="mt-12 text-center">
           <Button size="lg" className="px-8" asChild>
             <Link to="/personal-details">
-              Get Started <ArrowRight className="ml-2" />
+              Get Your Recommendation <ArrowRight className="ml-2" />
             </Link>
           </Button>
         </div>
