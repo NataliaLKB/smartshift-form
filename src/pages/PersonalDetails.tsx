@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { AddressHeader } from '@/components/address/AddressHeader';
 import { AddressFooter } from '@/components/address/AddressFooter';
@@ -6,17 +7,22 @@ import { PersonalDetailsForm } from '@/components/personal/PersonalDetailsForm';
 import { useNavigate } from 'react-router-dom';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import { CheckCircle2 } from "lucide-react";
+import { Alert, AlertDescription } from "@/components/ui/alert";
+
 const PersonalDetails = () => {
   const navigate = useNavigate();
   const [isFormValid, setIsFormValid] = useState(false);
+  
   const handleFormValidityChange = (isValid: boolean) => {
     setIsFormValid(isValid);
   };
+  
   const handleContinue = () => {
     if (isFormValid) {
       navigate('/address');
     }
   };
+  
   return <div className="min-h-screen flex flex-col">
       <AddressHeader />
       
@@ -32,6 +38,17 @@ const PersonalDetails = () => {
               <h1 className="text-2xl font-bold">Create your account to receive your smart tariff recommendation</h1>
               <p className="text-gray-500 mt-2">We'll analyse your energy usage to find the best tariff for your household</p>
             </div>
+
+            <Alert className="bg-blue-50 border-blue-200">
+              <AlertDescription>
+                <p className="text-sm text-blue-800">
+                  <strong>Note:</strong> To use our smart tariff comparison service, you need to be the electricity bill payer for your home. 
+                  We'll ask you to upload your bill to validate your identity and grant us access to your smart meter data, 
+                  which powers our personalised analysis. If you're not the bill payer, you might want to ask them to complete this process instead. 
+                  Ready to save on your energy costs?
+                </p>
+              </AlertDescription>
+            </Alert>
 
             <Card className="bg-primary/5 border-primary/20">
               <CardHeader>
