@@ -151,7 +151,7 @@ const Feedback = () => {
             source: source === 'other' ? otherSource : source,
             newsletter
           });
-          navigate('/thank-you');
+          navigate('/account/analysis');
         }}
         isEnabled={source !== '' && (source !== 'other' || otherSource.trim() !== '')}
         buttonText="Finish"

@@ -10,7 +10,6 @@ import Devices from "./pages/Devices";
 import BillUpload from "./pages/BillUpload";
 import Tariff from "./pages/Tariff";
 import Feedback from "./pages/Feedback";
-import ThankYou from "./pages/ThankYou";
 import NotFound from "./pages/NotFound";
 import SmartMeterRequired from "./pages/SmartMeterRequired";
 import ImportExport from "./pages/ImportExport";
@@ -45,7 +44,7 @@ const App = () => (
           <Route path="/bill-upload" element={<BillUpload />} />
           <Route path="/tariff" element={<Tariff />} />
           <Route path="/feedback" element={<Feedback />} />
-          <Route path="/thank-you" element={<ThankYou />} />
+          <Route path="/thank-you" element={<Navigate to="/account/analysis" />} />
           <Route path="/smart-meter-required" element={<SmartMeterRequired />} />
           <Route path="/smart-tariff-details" element={<SmartTariffDetails />} />
           

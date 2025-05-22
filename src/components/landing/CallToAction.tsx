@@ -7,7 +7,7 @@ export const CallToAction = () => {
 
   return (
     <Button size="lg" onClick={() => navigate('/start')}>
-      Get Started
+      Create Account
     </Button>
   );
 };
