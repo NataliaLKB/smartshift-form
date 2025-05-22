@@ -1,3 +1,3 @@
 
 // This component is no longer used in the application
-// It's being replaced with a direct account creation flow
+// It has been merged with the PersonalDetails page for a streamlined user flow

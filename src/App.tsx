@@ -23,7 +23,6 @@ import AccountDashboard from "./pages/account/AccountDashboard";
 import AccountProfile from "./pages/account/AccountProfile";
 import AccountLayout from "./pages/account/AccountLayout";
 import SmartTariffAnalysis from "./pages/account/SmartTariffAnalysis";
-import AccountChoicePage from "./pages/AccountChoicePage";
 
 const queryClient = new QueryClient();
 
@@ -36,7 +35,7 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Landing />} />
           <Route path="/about" element={<About />} />
-          <Route path="/start" element={<AccountChoicePage />} />
+          <Route path="/start" element={<Navigate to="/personal-details" />} />
           <Route path="/personal-details" element={<PersonalDetails />} />
           <Route path="/address" element={<Index />} />
           <Route path="/import-export" element={<ImportExport />} />
