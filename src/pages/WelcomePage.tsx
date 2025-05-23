@@ -100,7 +100,7 @@ const WelcomePage = () => {
             </Card>
             
             <div className="flex justify-center mt-8">
-              <Button onClick={handleContinue} size="lg" className="bg-[#00CED1] hover:bg-[#00CED1]/90 text-white font-medium text-base px-8 gap-2">
+              <Button onClick={handleContinue} size="lg" className="bg-[#00CED1] hover:bg-[#00CED1]/90 font-medium text-base px-8 gap-2 text-slate-950">
                 Let's Get Started <ArrowRight className="h-4 w-4" />
               </Button>
             </div>
