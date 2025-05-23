@@ -1,20 +1,15 @@
-
 import React from 'react';
 import { AddressHeader } from '@/components/address/AddressHeader';
 import { Card, CardContent } from '@/components/ui/card';
 import { CheckCircle2, ShieldCheck, ArrowRight, Info } from "lucide-react";
 import { Button } from '@/components/ui/button';
 import { useNavigate } from 'react-router-dom';
-
 const WelcomePage = () => {
   const navigate = useNavigate();
-  
   const handleContinue = () => {
     navigate('/personal-details');
   };
-  
-  return (
-    <div className="min-h-screen flex flex-col">
+  return <div className="min-h-screen flex flex-col">
       <AddressHeader />
       
       <main className="flex-1 bg-[#FAF9FA]">
@@ -22,7 +17,7 @@ const WelcomePage = () => {
           <div className="space-y-6">
             <div>
               <h1 className="text-2xl md:text-3xl font-bold text-gray-900">Smart Tariff Analysis</h1>
-              <p className="text-gray-600 mt-2 max-w-3xl">Save up to 60% on your electricity bills with our personalised tariff recommendations based on your actual usage patterns.</p>
+              <p className="text-gray-600 mt-2 max-w-3xl">Save up to 50% on your electricity bills with our personalised tariff recommendations based on your actual usage patterns.</p>
             </div>
 
             <Card className="border-primary/10 overflow-hidden">
@@ -105,19 +100,13 @@ const WelcomePage = () => {
             </Card>
             
             <div className="flex justify-center mt-8">
-              <Button 
-                onClick={handleContinue}
-                size="lg"
-                className="bg-[#00CED1] hover:bg-[#00CED1]/90 text-white font-medium text-base px-8 gap-2"
-              >
+              <Button onClick={handleContinue} size="lg" className="bg-[#00CED1] hover:bg-[#00CED1]/90 text-white font-medium text-base px-8 gap-2">
                 Let's Get Started <ArrowRight className="h-4 w-4" />
               </Button>
             </div>
           </div>
         </div>
       </main>
-    </div>
-  );
+    </div>;
 };
-
 export default WelcomePage;
