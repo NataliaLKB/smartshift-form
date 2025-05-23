@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { AddressHeader } from '@/components/address/AddressHeader';
 import { Card, CardContent } from '@/components/ui/card';
@@ -91,8 +92,8 @@ const WelcomePage = () => {
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="h-5 w-5 text-[#00CED1] mt-0.5" />
                     <div>
-                      <p className="font-medium">Ongoing insights and updates</p>
-                      <p className="text-sm text-gray-600">Access your results anytime in your account and get updated when better tariffs become available</p>
+                      <p className="font-medium">Ongoing insights and updates <span className="text-xs bg-amber-100 text-amber-800 px-2 py-0.5 rounded-full ml-1">Beta • Extra Cost</span></p>
+                      <p className="text-sm text-gray-600">Get premium access to continuous monitoring and alerts when better tariffs become available (additional subscription required)</p>
                     </div>
                   </li>
                 </ul>
