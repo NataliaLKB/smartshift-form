@@ -29,7 +29,7 @@ const WelcomePage = () => {
               <CardContent className="p-6">
                 <h3 className="text-lg font-medium mb-4 flex items-center gap-2">
                   <ShieldCheck className="h-5 w-5 text-[#00CED1]" />
-                  Quick and easy process
+                  What happens when I ask for a tariff recommendation?
                 </h3>
                 
                 <div className="flex flex-col md:flex-row gap-6 mb-5">
@@ -40,7 +40,7 @@ const WelcomePage = () => {
                       </div>
                       <p className="font-medium text-gray-800">Basic Information</p>
                     </div>
-                    <p className="text-sm text-gray-600 ml-11">Share your address, current supplier details, and upload a recent bill to verify your identity</p>
+                    <p className="text-sm text-gray-600 ml-11">We collect your address, current supplier details, and smart home device information. You'll upload a recent bill to verify your identity.</p>
                   </div>
                   
                   <div className="flex-1 bg-[#00CED1]/5 p-5 rounded-lg">
@@ -50,7 +50,7 @@ const WelcomePage = () => {
                       </div>
                       <p className="font-medium text-gray-800">Smart Meter Data Access</p>
                     </div>
-                    <p className="text-sm text-gray-600 ml-11">After verification, we securely access your smart meter data through authorized channels</p>
+                    <p className="text-sm text-gray-600 ml-11">After verification, we securely access your smart meter data through authorized channels with your consent.</p>
                   </div>
                   
                   <div className="flex-1 bg-[#00CED1]/5 p-5 rounded-lg">
@@ -60,7 +60,7 @@ const WelcomePage = () => {
                       </div>
                       <p className="font-medium text-gray-800">Personalized Analysis</p>
                     </div>
-                    <p className="text-sm text-gray-600 ml-11">We analyze your usage patterns and recommend the best tariffs that could save you money</p>
+                    <p className="text-sm text-gray-600 ml-11">We analyze your usage patterns and recommend the best tariffs that could save you money based on how and when you use electricity.</p>
                   </div>
                 </div>
                 
@@ -106,7 +106,7 @@ const WelcomePage = () => {
                     </div>
                     <div>
                       <p className="font-medium text-gray-800">Personalized tariff recommendations</p>
-                      <p className="text-sm text-gray-500">Get tariffs that could save you up to 50% based on your actual smart meter data</p>
+                      <p className="text-sm text-gray-500">The average smart home saves 20-60% on their electricity bills by switching to the right smart tariff</p>
                     </div>
                   </li>
                 </ul>
