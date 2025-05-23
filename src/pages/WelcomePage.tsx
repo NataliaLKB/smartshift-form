@@ -82,10 +82,10 @@ const WelcomePage = () => {
                     </div>
                   </li>
                   <li className="flex items-start gap-3">
-                    <CheckCircle2 className="h-5 w-5 text-[#00CED1] mt-0.5" />
+                    
                     <div>
-                      <p className="font-medium">Personalised tariff recommendations</p>
-                      <p className="text-sm text-gray-600">The average smart home saves 20-60% on their electricity bills by switching to the right smart tariff</p>
+                      
+                      
                     </div>
                   </li>
                   <li className="flex items-start gap-3">
