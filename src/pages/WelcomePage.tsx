@@ -4,15 +4,12 @@ import { Card, CardContent } from '@/components/ui/card';
 import { CheckCircle2, ShieldCheck, ArrowRight, Info } from "lucide-react";
 import { Button } from '@/components/ui/button';
 import { useNavigate } from 'react-router-dom';
-
 const WelcomePage = () => {
   const navigate = useNavigate();
   const handleContinue = () => {
     navigate('/personal-details');
   };
-  
-  return (
-    <div className="min-h-screen flex flex-col">
+  return <div className="min-h-screen flex flex-col">
       <AddressHeader />
       
       <main className="flex-1 bg-[#FAF9FA]">
@@ -95,7 +92,7 @@ const WelcomePage = () => {
                     <CheckCircle2 className="h-5 w-5 text-[#00CED1] mt-0.5" />
                     <div>
                       <p className="font-medium">Ongoing insights and updates <span className="text-xs bg-amber-100 text-amber-800 px-2 py-0.5 rounded-full ml-1">Subscription Required</span></p>
-                      <p className="text-sm text-gray-600">Get premium access to continuous monitoring and alerts when better tariffs become available (additional subscription required)</p>
+                      <p className="text-sm text-gray-600">Get premium access to continuous monitoring and alerts when better tariffs become available</p>
                     </div>
                   </li>
                 </ul>
@@ -110,8 +107,6 @@ const WelcomePage = () => {
           </div>
         </div>
       </main>
-    </div>
-  );
+    </div>;
 };
-
 export default WelcomePage;
