@@ -22,7 +22,7 @@ const WelcomePage = () => {
           <div className="space-y-6">
             <div>
               <h1 className="text-2xl md:text-3xl font-bold text-gray-900">Smart Tariff Analysis</h1>
-              <p className="text-gray-600 mt-2 max-w-3xl">Save up to 60% on your electricity bills with our personalized tariff recommendations based on your actual usage patterns.</p>
+              <p className="text-gray-600 mt-2 max-w-3xl">Save up to 60% on your electricity bills with our personalised tariff recommendations based on your actual usage patterns.</p>
             </div>
 
             <Card className="border-primary/10 overflow-hidden">
@@ -60,7 +60,7 @@ const WelcomePage = () => {
                       </div>
                       <p className="font-medium text-gray-800">Get recommendations</p>
                     </div>
-                    <p className="text-sm text-gray-600 mt-1">We'll analyze your usage and show your personalized recommendations in your account</p>
+                    <p className="text-sm text-gray-600 mt-1">We'll analyse your usage and show your personalised recommendations in your account</p>
                   </div>
                 </div>
                 
@@ -89,7 +89,7 @@ const WelcomePage = () => {
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="h-5 w-5 text-[#00CED1] mt-0.5" />
                     <div>
-                      <p className="font-medium">Personalized tariff recommendations</p>
+                      <p className="font-medium">Personalised tariff recommendations</p>
                       <p className="text-sm text-gray-600">The average smart home saves 20-60% on their electricity bills by switching to the right smart tariff</p>
                     </div>
                   </li>
