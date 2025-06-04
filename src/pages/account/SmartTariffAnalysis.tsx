@@ -9,7 +9,6 @@ import { toast } from '@/hooks/use-toast';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
 import { TariffCard } from '@/components/account/TariffCard';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-
 const SmartTariffAnalysis = () => {
   const [showResults, setShowResults] = useState(false);
   const [isStatusOpen, setIsStatusOpen] = useState(false);
@@ -17,36 +16,30 @@ const SmartTariffAnalysis = () => {
 
   // Different stages of the analysis process
   const getAnalysisSteps = (stage: string) => {
-    const baseSteps = [
-      {
-        id: 1,
-        title: "Bill Processing",
-        description: "We're processing your uploaded bill to verify your identity.",
-        status: "upcoming" as const
-      },
-      {
-        id: 2,
-        title: "Data Access",
-        description: "We're securely accessing your smart meter data.",
-        status: "upcoming" as const,
-        estimatedTime: "24-48 hours"
-      },
-      {
-        id: 3,
-        title: "Data Quality Check",
-        description: "We'll verify your data is complete and suitable for analysis.",
-        status: "upcoming" as const,
-        estimatedTime: "12 hours"
-      },
-      {
-        id: 4,
-        title: "Analysis & Results",
-        description: "We'll analyze your usage patterns and send you detailed recommendations.",
-        status: "upcoming" as const,
-        estimatedTime: "24 hours"
-      }
-    ];
-
+    const baseSteps = [{
+      id: 1,
+      title: "Bill Processing",
+      description: "We're processing your uploaded bill to verify your identity.",
+      status: "upcoming" as const
+    }, {
+      id: 2,
+      title: "Data Access",
+      description: "We're securely accessing your smart meter data.",
+      status: "upcoming" as const,
+      estimatedTime: "24-48 hours"
+    }, {
+      id: 3,
+      title: "Data Quality Check",
+      description: "We'll verify your data is complete and suitable for analysis.",
+      status: "upcoming" as const,
+      estimatedTime: "12 hours"
+    }, {
+      id: 4,
+      title: "Analysis & Results",
+      description: "We'll analyze your usage patterns and send you detailed recommendations.",
+      status: "upcoming" as const,
+      estimatedTime: "24 hours"
+    }];
     switch (stage) {
       case 'stage0':
         return baseSteps;
@@ -58,49 +51,47 @@ const SmartTariffAnalysis = () => {
       case 'stage2':
         return baseSteps.map((step, index) => ({
           ...step,
-          status: index === 0 ? "completed" as const : 
-                 index === 1 ? "current" as const : "upcoming" as const
+          status: index === 0 ? "completed" as const : index === 1 ? "current" as const : "upcoming" as const
         }));
       case 'stage3':
         return baseSteps.map((step, index) => ({
           ...step,
-          status: index <= 1 ? "completed" as const : 
-                 index === 2 ? "current" as const : "upcoming" as const
+          status: index <= 1 ? "completed" as const : index === 2 ? "current" as const : "upcoming" as const
         }));
       case 'stage4':
         return baseSteps.map((step, index) => ({
           ...step,
-          status: index <= 2 ? "completed" as const : 
-                 index === 3 ? (showResults ? "completed" as const : "current" as const) : "upcoming" as const
+          status: index <= 2 ? "completed" as const : index === 3 ? showResults ? "completed" as const : "current" as const : "upcoming" as const
         }));
       default:
         return baseSteps;
     }
   };
-
   const analysisSteps = getAnalysisSteps(selectedStage);
 
   // Mock data for recommended tariffs
   const recommendedTariffs = [{
     id: 1,
     name: "EcoSmart Time of Use",
-    supplier: "Green Energy Co", // Maps to Octopus Energy logo, will display as "Octopus Energy"
+    supplier: "Green Energy Co",
+    // Maps to Octopus Energy logo, will display as "Octopus Energy"
     savingsPerYear: 247,
     highlights: "Perfect for your evening usage pattern"
   }, {
     id: 2,
     name: "FlexiPower Plus",
-    supplier: "PowerSwitch Ltd", // Maps to E.ON logo, will display as "E.ON Next"
+    supplier: "PowerSwitch Ltd",
+    // Maps to E.ON logo, will display as "E.ON Next"
     savingsPerYear: 203,
     highlights: "Great off-peak rates on weekends"
   }, {
     id: 3,
     name: "Economy 24/7",
-    supplier: "Value Energy", // Maps to OVO logo, will display as "OVO Energy"
+    supplier: "Value Energy",
+    // Maps to OVO logo, will display as "OVO Energy"
     savingsPerYear: 178,
     highlights: "Consistent rates with no surprises"
   }];
-
   const getStageInfo = (stage: string) => {
     switch (stage) {
       case 'stage0':
@@ -141,9 +132,7 @@ const SmartTariffAnalysis = () => {
         };
     }
   };
-
   const stageInfo = getStageInfo(selectedStage);
-  
   const handleToggleChange = () => {
     if (stageInfo.canShowResults) {
       setShowResults(!showResults);
@@ -155,7 +144,6 @@ const SmartTariffAnalysis = () => {
       }
     }
   };
-
   const getInfoCardContent = (stage: string) => {
     switch (stage) {
       case 'stage0':
@@ -190,11 +178,8 @@ const SmartTariffAnalysis = () => {
         };
     }
   };
-
   const infoCard = getInfoCardContent(selectedStage);
-  
-  return (
-    <div className="space-y-6">
+  return <div className="space-y-6">
       {/* Demo Stage Selector */}
       <Card className="bg-amber-50 border-amber-200">
         <CardHeader className="pb-3">
@@ -229,16 +214,13 @@ const SmartTariffAnalysis = () => {
             {showResults && stageInfo.canShowResults ? stageInfo.description : `Track the progress of your personalised tariff analysis`}
           </p>
         </div>
-        {stageInfo.canShowResults && (
-          <div className="flex items-center gap-2">
+        {stageInfo.canShowResults && <div className="flex items-center gap-2">
             <span className="text-sm text-muted-foreground">Show results</span>
             <Switch checked={showResults} onCheckedChange={handleToggleChange} />
-          </div>
-        )}
+          </div>}
       </div>
       
-      {showResults && stageInfo.canShowResults && (
-        <div className="space-y-4">
+      {showResults && stageInfo.canShowResults && <div className="space-y-4">
           <div className="bg-green-50 border border-green-200 rounded-lg p-4 text-green-800">
             <div className="flex items-center gap-2 mb-1">
               <Sparkles className="h-5 w-5 text-green-600" />
@@ -251,19 +233,11 @@ const SmartTariffAnalysis = () => {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            {recommendedTariffs.map((tariff, index) => (
-              <TariffCard 
-                key={tariff.id}
-                {...tariff}
-                isTopMatch={index === 0}
-              />
-            ))}
+            {recommendedTariffs.map((tariff, index) => <TariffCard key={tariff.id} {...tariff} isTopMatch={index === 0} />)}
           </div>
-        </div>
-      )}
+        </div>}
       
-      {showResults && stageInfo.canShowResults ? (
-        <Collapsible open={isStatusOpen} onOpenChange={setIsStatusOpen} className="border rounded-lg bg-white shadow-sm">
+      {showResults && stageInfo.canShowResults ? <Collapsible open={isStatusOpen} onOpenChange={setIsStatusOpen} className="border rounded-lg bg-white shadow-sm">
           <div className="p-4 flex items-center justify-between">
             <h3 className="text-lg font-semibold">Analysis Status: 100% Complete</h3>
             <CollapsibleTrigger asChild>
@@ -296,9 +270,7 @@ const SmartTariffAnalysis = () => {
               </div>
             </div>
           </CollapsibleContent>
-        </Collapsible>
-      ) : (
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        </Collapsible> : <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="md:col-span-2">
             <StatusTracker steps={analysisSteps} currentStep={selectedStage === 'stage0' ? 0 : parseInt(selectedStage.replace('stage', ''))} />
           </div>
@@ -315,28 +287,18 @@ const SmartTariffAnalysis = () => {
                 <p className="text-sm">
                   {infoCard.content}
                 </p>
-                {selectedStage === 'stage0' && (
-                  <div className="mt-3">
-                    <a 
-                      href="https://onboarding.smartshift.energy/start" 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="text-sm text-blue-600 hover:text-blue-800 underline"
-                    >
+                {selectedStage === 'stage0' && <div className="mt-3">
+                    <a href="https://onboarding.smartshift.energy/start" target="_blank" rel="noopener noreferrer" className="text-sm text-primary-600 hover:text-primary-800 underline">
                       Start onboarding process →
                     </a>
-                  </div>
-                )}
-                {selectedStage !== 'stage4' && selectedStage !== 'stage0' && (
-                  <p className="text-sm mt-2">
+                  </div>}
+                {selectedStage !== 'stage4' && selectedStage !== 'stage0' && <p className="text-sm mt-2">
                     You'll receive an email update when we move to the next stage.
-                  </p>
-                )}
+                  </p>}
               </CardContent>
             </Card>
           </div>
-        </div>
-      )}
+        </div>}
       
       <Card>
         <CardHeader>
@@ -353,8 +315,6 @@ const SmartTariffAnalysis = () => {
           <p>Once complete, you'll receive personalised recommendations that could save you up to 50% on your electricity costs by matching your usage patterns with the most cost-effective tariffs.</p>
         </CardContent>
       </Card>
-    </div>
-  );
+    </div>;
 };
-
 export default SmartTariffAnalysis;
