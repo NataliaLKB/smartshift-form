@@ -49,6 +49,8 @@ const SmartTariffAnalysis = () => {
     ];
 
     switch (stage) {
+      case 'stage0':
+        return baseSteps;
       case 'stage1':
         return baseSteps.map((step, index) => ({
           ...step,
@@ -102,6 +104,12 @@ const SmartTariffAnalysis = () => {
 
   const getStageInfo = (stage: string) => {
     switch (stage) {
+      case 'stage0':
+        return {
+          title: "Ready to Start Your Analysis",
+          description: "Upload your electricity bill to begin your personalized smart tariff analysis.",
+          canShowResults: false
+        };
       case 'stage1':
         return {
           title: "Processing Your Bill",
@@ -151,6 +159,11 @@ const SmartTariffAnalysis = () => {
 
   const getInfoCardContent = (stage: string) => {
     switch (stage) {
+      case 'stage0':
+        return {
+          title: "Get Started",
+          content: "To begin your personalized smart tariff analysis, please upload a recent electricity bill. This helps us verify your identity and understand your current tariff. The process is secure and takes just a few minutes."
+        };
       case 'stage1':
         return {
           title: "Bill Processing in Progress",
@@ -199,6 +212,7 @@ const SmartTariffAnalysis = () => {
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
+                <SelectItem value="stage0">Stage 0: Before Upload</SelectItem>
                 <SelectItem value="stage1">Stage 1: Bill Processing</SelectItem>
                 <SelectItem value="stage2">Stage 2: Data Access</SelectItem>
                 <SelectItem value="stage3">Stage 3: Data Quality Check</SelectItem>
@@ -223,6 +237,31 @@ const SmartTariffAnalysis = () => {
           </div>
         )}
       </div>
+
+      {/* Stage 0 specific content */}
+      {selectedStage === 'stage0' && (
+        <Card className="bg-blue-50 border-blue-200">
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2 text-blue-800">
+              <Upload className="h-5 w-5" />
+              Upload Your Electricity Bill
+            </CardTitle>
+            <CardDescription className="text-blue-700">
+              Start your personalized tariff analysis by uploading a recent electricity bill
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <p className="text-sm text-blue-800 mb-4">
+              We'll use your bill to verify your identity and understand your current tariff. 
+              This helps us provide more accurate recommendations tailored to your situation.
+            </p>
+            <Button className="bg-blue-600 hover:bg-blue-700">
+              <Upload className="h-4 w-4 mr-2" />
+              Upload Bill
+            </Button>
+          </CardContent>
+        </Card>
+      )}
       
       {showResults && stageInfo.canShowResults && (
         <div className="space-y-4">
@@ -287,7 +326,7 @@ const SmartTariffAnalysis = () => {
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="md:col-span-2">
-            <StatusTracker steps={analysisSteps} currentStep={parseInt(selectedStage.replace('stage', ''))} />
+            <StatusTracker steps={analysisSteps} currentStep={selectedStage === 'stage0' ? 0 : parseInt(selectedStage.replace('stage', ''))} />
           </div>
           
           <div className="space-y-6">
@@ -302,7 +341,7 @@ const SmartTariffAnalysis = () => {
                 <p className="text-sm">
                   {infoCard.content}
                 </p>
-                {selectedStage !== 'stage4' && (
+                {selectedStage !== 'stage4' && selectedStage !== 'stage0' && (
                   <p className="text-sm mt-2">
                     You'll receive an email update when we move to the next stage.
                   </p>
