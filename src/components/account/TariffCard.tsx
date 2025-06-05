@@ -4,7 +4,6 @@ import { Button } from '@/components/ui/button';
 import { Sparkles, Zap, ChevronRight, Percent } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
-import { useIsMobile } from '@/hooks/use-mobile';
 
 export interface TariffCardProps {
   id: number;
@@ -36,7 +35,6 @@ export const TariffCard = ({
   isTopMatch = false
 }: TariffCardProps) => {
   const logoUrl = getSupplierLogo(supplier);
-  const isMobile = useIsMobile();
   
   // Display appropriate names for suppliers
   const displaySupplierName = supplier === "Value Energy" ? "OVO Energy" : supplier === "PowerSwitch Ltd" ? "E.ON Next" : supplier === "Green Energy Co" ? "Octopus Energy" : supplier;
@@ -45,9 +43,6 @@ export const TariffCard = ({
   // Assuming an average annual bill of £1800 under the price cap
   const priceCap = 1800;
   const percentageSaving = Math.round(savingsPerYear / priceCap * 100);
-
-  // Check if we're on tablet (not mobile but smaller than desktop)
-  const isTablet = !isMobile && window.innerWidth < 1024;
 
   return (
     <Card className={cn("overflow-hidden transition-all hover:shadow-md", 
@@ -58,15 +53,13 @@ export const TariffCard = ({
         </div>
       )}
       
-      {/* Tablet-specific savings banner */}
-      {isTablet && (
-        <div className="bg-green-50 border-b border-green-100 px-4 py-3">
-          <div className="text-center">
-            <div className="text-lg font-bold text-green-600">£{savingsPerYear}</div>
-            <div className="text-xs text-green-700">annual savings</div>
-          </div>
+      {/* Tablet-specific savings banner - shown only on tablet sizes (md to lg) */}
+      <div className="hidden md:block lg:hidden bg-green-50 border-b border-green-100 px-4 py-3">
+        <div className="text-center">
+          <div className="text-lg font-bold text-green-600">£{savingsPerYear}</div>
+          <div className="text-xs text-green-700">annual savings</div>
         </div>
-      )}
+      </div>
       
       <CardHeader className={cn("pb-4", isTopMatch ? "bg-primary/5" : "bg-gray-50")}>
         {/* Logo and supplier name section in a horizontal layout */}
@@ -80,13 +73,11 @@ export const TariffCard = ({
             <CardDescription className="text-sm font-medium">{displaySupplierName}</CardDescription>
           </div>
           
-          {/* Moved savings display to top right - hidden on tablet */}
-          {!isTablet && (
-            <div className="rounded-full bg-green-50 border border-green-100 px-3 py-2 text-right">
-              <div className="text-lg font-bold text-green-600">£{savingsPerYear}</div>
-              <div className="text-xs text-green-700">annual savings</div>
-            </div>
-          )}
+          {/* Savings display to top right - hidden on tablet, shown on mobile and desktop */}
+          <div className="block md:hidden lg:block rounded-full bg-green-50 border border-green-100 px-3 py-2 text-right">
+            <div className="text-lg font-bold text-green-600">£{savingsPerYear}</div>
+            <div className="text-xs text-green-700">annual savings</div>
+          </div>
         </div>
         
         <div className="mt-2">
