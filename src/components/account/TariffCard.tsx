@@ -47,54 +47,54 @@ export const TariffCard = ({
           Cheapest Option
         </div>}
       
-      <CardHeader className={cn("pb-4", isTopMatch ? "bg-primary/5" : "bg-gray-50")}>
+      <CardHeader className={cn("pb-4 md:pb-6", isTopMatch ? "bg-primary/5" : "bg-gray-50")}>
         {/* Logo and supplier name section in a horizontal layout */}
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
-            {logoUrl && <div className="h-10 w-auto flex-shrink-0">
+            {logoUrl && <div className="h-8 w-auto md:h-10 flex-shrink-0">
                 <img src={logoUrl} alt={`${displaySupplierName} logo`} className="h-full w-auto object-contain" />
               </div>}
-            <CardDescription className="text-sm font-medium">{displaySupplierName}</CardDescription>
+            <CardDescription className="text-xs md:text-sm font-medium">{displaySupplierName}</CardDescription>
           </div>
           
           {/* Moved savings display to top right */}
-          <div className="rounded-full bg-green-50 border border-green-100 px-3 py-2 text-right">
-            <div className="text-lg font-bold text-green-600">£{savingsPerYear}</div>
+          <div className="rounded-full bg-green-50 border border-green-100 px-2 py-1 md:px-3 md:py-2 text-right">
+            <div className="text-base md:text-lg font-bold text-green-600">£{savingsPerYear}</div>
             <div className="text-xs text-green-700">annual savings</div>
           </div>
         </div>
         
         <div className="mt-2">
-          <CardTitle className="text-xl flex items-center gap-2">
+          <CardTitle className="text-lg md:text-xl flex items-center gap-2">
             {isTopMatch}
             {name}
           </CardTitle>
         </div>
       </CardHeader>
       
-      <CardContent className="pt-4 space-y-4">
+      <CardContent className="pt-3 md:pt-4 space-y-3 md:space-y-4">
         <div className="flex items-center gap-2">
           <div className="bg-primary/10 rounded-full p-1.5 flex-shrink-0">
-            <Zap className="h-4 w-4 text-primary" />
+            <Zap className="h-3 w-3 md:h-4 md:w-4 text-primary" />
           </div>
-          <span className="text-sm">{highlights}</span>
+          <span className="text-xs md:text-sm">{highlights}</span>
         </div>
         
         {/* New section for percentage saving compared to price cap */}
         <div className="flex items-center gap-2 pt-2 border-t border-gray-100">
           <div className="bg-green-50 rounded-full p-1.5 flex-shrink-0">
-            <Percent className="h-4 w-4 text-green-600" />
+            <Percent className="h-3 w-3 md:h-4 md:w-4 text-green-600" />
           </div>
-          <span className="text-sm">
+          <span className="text-xs md:text-sm">
             <span className="font-medium text-green-600">{percentageSaving}%</span> cheaper than the energy price cap
           </span>
         </div>
       </CardContent>
       
-      <CardFooter className="pt-0 pb-4">
-        <Button variant="outline" size="sm" className="w-full group hover:bg-primary hover:text-white">
+      <CardFooter className="pt-0 pb-3 md:pb-4">
+        <Button variant="outline" size="sm" className="w-full group hover:bg-primary hover:text-white text-xs md:text-sm">
           View Details
-          <ChevronRight className="h-4 w-4 ml-2 transition-transform group-hover:translate-x-0.5" />
+          <ChevronRight className="h-3 w-3 md:h-4 md:w-4 ml-2 transition-transform group-hover:translate-x-0.5" />
         </Button>
       </CardFooter>
     </Card>;
